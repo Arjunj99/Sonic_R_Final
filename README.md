@@ -6,13 +6,11 @@ For searchability follow this convention for all non scripts and non folders:
 - Materials - MAT_Example
 - Shader - SDR_Example
 - Prefab - PFB_Example
-- Stage - STG_Example
 - Sprite - SPR_Example
 - PNG - PNG_Example
 - WAV - WAV_Example
 
 If there are any filetypes not mentioned above, add them above to maintain consistency.
-
 
 File Locations:
 All prefabs should be within the prefab folder with a matching folder that contains all their dependencies (scripts, art, sound, etc.). Organization within the folder is up to you. 
@@ -33,7 +31,6 @@ Code should be legible and easy to follow. If any lines of code are difficult to
 
 Github:
 Make sure you commit often. Commit messages should be in the following form:
-<verb> <message>
-e.g.
-Created GameManger script
+- <verb> <message>
+- e.g. Created GameManger script
 
