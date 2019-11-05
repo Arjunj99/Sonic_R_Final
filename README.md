@@ -3,13 +3,13 @@ Naming Conventions:
 All assets should be named with a descriptive 3 letter tag at the front. Scripts and folders can be omitted from this naming convention and should be named something descriptive e.g. GameManager.
 
 For searchability follow this convention for all non scripts and non folders:
-Materials - MAT_Example
-Shader - SDR_Example
-Prefab - PFB_Example
-Stage - STG_Example
-Sprite - SPR_Example
-PNG - PNG_Example
-WAV - WAV_Example
+- Materials - MAT_Example
+- Shader - SDR_Example
+- Prefab - PFB_Example
+- Stage - STG_Example
+- Sprite - SPR_Example
+- PNG - PNG_Example
+- WAV - WAV_Example
 
 If there are any filetypes not mentioned above, add them above to maintain consistency.
 
