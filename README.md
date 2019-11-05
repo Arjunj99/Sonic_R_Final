@@ -31,6 +31,6 @@ Code should be legible and easy to follow. If any lines of code are difficult to
 
 Github:
 Make sure you commit often. Commit messages should be in the following form:
-- <verb> <message>
-- e.g. Created GameManger script
+- "<verb> <message>"
+- e.g. "Created GameManger script"
 
