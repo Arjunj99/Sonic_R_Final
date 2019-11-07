@@ -17,11 +17,11 @@ public class RoadCheck : MonoBehaviour {
         Debug.DrawRay(this.transform.position, Vector3.down, Color.cyan, 10f);
 
         if (Physics.Raycast(roadCheck, out hit, 3f) && hit.collider.tag.Equals("Road")) {
-            movement.onTrack = true;
+            // movement.onTrack = true;
             Debug.Log("On Road");
             // boat.SetCurrentSpeed(boat.GetCurrentSpeed() + 0.2f);
         } else {
-            movement.onTrack = false;
+            // movement.onTrack = false;
         }
     }
 }
