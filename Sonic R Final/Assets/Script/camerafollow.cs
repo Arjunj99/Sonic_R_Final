@@ -23,9 +23,12 @@ public class camerafollow : MonoBehaviour
 
     //public float turnSpeed = 4.0f;
 
-    Vector3 offsetVector = new Vector3(0,1,-4);
+    Vector3 offsetVector = new Vector3(0,5,0);
 
     Vector3 lerpDestination;
+
+
+    public GameObject center;
     // Start is called before the first frame update
     void Start()
     {
@@ -44,9 +47,9 @@ public class camerafollow : MonoBehaviour
         Debug.Log(offsetVector);
        
         // newPosition = player.transform.position;
-        transform.position = Vector3.Lerp(transform.position, lerpDestination, 0.5f);
+        center.transform.position = Vector3.Lerp(center.transform.position, lerpDestination, 0.5f);
          //transform.position = player.TransformPoint(offsetVector);
-        transform.LookAt(player.position + upVector);//if only look at player it will be at center of screen
+        center.transform.LookAt(player.position + upVector);//if only look at player it will be at center of screen
 /* 
         
 
