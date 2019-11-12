@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\Users\sfarn\.Rider2019.1\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\sfarn\.Rider2019.1\system\resharper-host\local\Transient\ReSharperHost\v191\SolutionCaches\_Sonic R Final.-1329013024.00" t="ExcludeRecursive" />
+    <e p="C:\Users\sfarn\Desktop\nyu game games\Inter game dev\Hmwk\Final\Sonic R Final" t="IncludeRecursive">
+      <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
+      <e p="Assets" t="Include">
+        <e p="Script" t="Include">
+          <e p="Freeze.cs" t="Include" />
+          <e p="Jump.cs" t="Include" />
+          <e p="Movement.cs" t="Include" />
+          <e p="PickUp.cs" t="Include" />
+          <e p="RoadCheck.cs" t="Include" />
+          <e p="Turning.cs" t="Include" />
+        </e>
+        <e p="Test2.0.cs" t="Include" />
+      </e>
+      <e p="obj" t="ExcludeRecursive" />
+      <e p="Packages" t="ExcludeRecursive" />
+      <e p="Sonic R Final.sln" t="IncludeFlat" />
+      <e p="Temp\bin" t="ExcludeRecursive" />
+    </e>
+  </component>
+</project>
