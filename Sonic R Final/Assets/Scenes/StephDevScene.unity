@@ -4385,7 +4385,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   turnIncrement: 0.15
-  turnMaxSpeed: 2
+  turnMaxSpeed: 2.5
   turnLerp: 4
   turnSpeed: 0
   leftKey: 97
