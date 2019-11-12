@@ -13,6 +13,9 @@ public class Turning : MonoBehaviour {
     [SerializeField] private KeyCode leftKey;
     [SerializeField] private KeyCode rightKey;
 
+
+
+
     // Update is called once per frame
     void Update() {
         if (Input.GetKey(leftKey) && turnSpeed > -turnMaxSpeed) { // Turning GameObject Left
@@ -30,5 +33,6 @@ public class Turning : MonoBehaviour {
         gameObject.transform.Rotate(new Vector3(0f, turnSpeed, 0f));
 
         turnSpeed = Mathf.Lerp(turnSpeed, 0f, turnLerp * Time.deltaTime); // Breaking force for Turn
+
     }
 }

@@ -51,7 +51,10 @@ public class Movement : MonoBehaviour {
         }
 
         currentVelocity = maxVelocity * velocityCurve.Evaluate(currentTime);
+     // Debug.Log("Current Velocity: " + currentVelocity);
+
         // Debug.Log("Current Velocity: " + currentVelocity);
+
 
         rb.velocity = Vector3.Lerp(rb.velocity, gameObject.transform.forward * currentVelocity, Time.deltaTime * velocitySmooth);
 
