@@ -11,8 +11,10 @@ public class CameraCollision : MonoBehaviour {
 	public Vector3 playerDirAdjusted;
 	public float distance;
 
-	// Use this for initialization
-	void Awake () {
+    public Transform player;
+
+    // Use this for initialization
+    void Awake () {
 		playerDir = transform.localPosition.normalized;
 		distance = transform.localPosition.magnitude;
 	}
@@ -20,10 +22,10 @@ public class CameraCollision : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		Vector3 desiredCameraPos = transform.parent.TransformPoint(playerDir * maxDistance);
+		Vector3 desiredCameraPos = player.transform.TransformPoint(playerDir * maxDistance);
 		RaycastHit hit;
 
-		if (Physics.Linecast (transform.parent.position, desiredCameraPos, out hit)) {
+		if (Physics.Linecast (player.transform.position, desiredCameraPos, out hit)) {
 			distance = Mathf.Clamp ((hit.distance * 0.87f), minDistance, maxDistance);
 				
 				} else {

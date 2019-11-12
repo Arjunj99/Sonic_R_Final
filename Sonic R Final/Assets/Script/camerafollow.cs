@@ -7,14 +7,14 @@ public class camerafollow : MonoBehaviour
 
     public Transform player;
     public Vector3 upVector;
-    public Vector3 leftVector;
-    public Vector3 rightVector;
+  //  public Vector3 leftVector;
+  //  public Vector3 rightVector;
 
   //  public Vector3 oldRotation;
    // public Vector3 newRotation;
 
-    public Vector3 oldPosition;
-    public Vector3 newPosition;
+   // public Vector3 oldPosition;
+   // public Vector3 newPosition;
 
     public bool left;
 
@@ -23,7 +23,9 @@ public class camerafollow : MonoBehaviour
 
     //public float turnSpeed = 4.0f;
 
-    Vector3 offsetVector;
+    Vector3 offsetVector = new Vector3(0,1,-4);
+
+    Vector3 lerpDestination;
     // Start is called before the first frame update
     void Start()
     {
@@ -38,10 +40,11 @@ public class camerafollow : MonoBehaviour
     void FixedUpdate()
     {
 
-        offsetVector = player.position- this.transform.position  ;
-
+        lerpDestination = player.position + offsetVector;
+        Debug.Log(offsetVector);
+       
         // newPosition = player.transform.position;
-        transform.position = Vector3.Lerp(  transform.position, offsetVector, 0.5f);
+        transform.position = Vector3.Lerp(transform.position, lerpDestination, 0.5f);
          //transform.position = player.TransformPoint(offsetVector);
         transform.LookAt(player.position + upVector);//if only look at player it will be at center of screen
 /* 
