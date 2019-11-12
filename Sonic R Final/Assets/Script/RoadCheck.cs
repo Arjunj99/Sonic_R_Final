@@ -17,11 +17,14 @@ public class RoadCheck : MonoBehaviour {
         Debug.DrawRay(this.transform.position, Vector3.down, Color.cyan, 10f);
 
         if (Physics.Raycast(roadCheck, out hit, 3f) && hit.collider.tag.Equals("Road")) {
-            // movement.onTrack = true;
-            Debug.Log("On Road");
+            movement.currentSurfaceType = Movement.trackType.track;
             // boat.SetCurrentSpeed(boat.GetCurrentSpeed() + 0.2f);
-        } else {
-            // movement.onTrack = false;
+        } else if (Physics.Raycast(roadCheck, out hit, 3f) && hit.collider.tag.Equals("Sand")) {
+            movement.currentSurfaceType = Movement.trackType.sand;
+        } else if (Physics.Raycast(roadCheck, out hit, 3f) && hit.collider.tag.Equals("Grass")) {
+            movement.currentSurfaceType = Movement.trackType.grass;
+        } else if (Physics.Raycast(roadCheck, out hit, 3f) && hit.collider.tag.Equals("Water")) {
+            movement.currentSurfaceType = Movement.trackType.water;
         }
     }
 }
