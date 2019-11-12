@@ -22,13 +22,13 @@ public class CameraMovement : MonoBehaviour {
     {
         cameraPosition = player.transform.position + offset;
 
-        hinge.transform.rotation = Quaternion.Slerp(hinge.transform.rotation, Quaternion.Euler(cameraRotation), 0.8f * Time.deltaTime);
-        hinge.transform.position = Vector3.Slerp(hinge.transform.position, cameraPosition, 0.8f * Time.deltaTime);
+        // hinge.transform.rotation = Quaternion.Slerp(hinge.transform.rotation, Quaternion.Euler(cameraRotation), 0.4f);
+        hinge.transform.position = Vector3.Slerp(hinge.transform.position, cameraPosition, 0.4f);
 
-        if (Input.GetKey(KeyCode.D)) {
-            cameraRotation.y += 0.2f;
-        } else if (Input.GetKey(KeyCode.A)) {
-            cameraRotation.y -= 0.2f;
-        }
+        // if (Input.GetKey(KeyCode.D)) {
+        //     cameraRotation.y += 0.5f;
+        // } else if (Input.GetKey(KeyCode.A)) {
+        //     cameraRotation.y -= 0.5f;
+        // }
     }
 }
