@@ -9,6 +9,7 @@
         <e p="Script" t="Include">
           <e p="CameraCollision.cs" t="Include" />
           <e p="camerafollow.cs" t="Include" />
+          <e p="CameraMovement.cs" t="Include" />
           <e p="camerazoom.cs" t="Include" />
           <e p="Jump.cs" t="Include" />
           <e p="Movement.cs" t="Include" />

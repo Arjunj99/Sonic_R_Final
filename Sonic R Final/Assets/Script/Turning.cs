@@ -25,45 +25,45 @@ public class Turning : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-        if ((Input.GetKey(leftKey) && currentTime < 1f)) {
-            currentTime += Time.deltaTime / timePeriod;
-        } else if (Input.GetKey(leftKey) && currentTime >= 1f) {
-            currentTime = 1f;
+//        if ((Input.GetKey(leftKey) && currentTime < 1f)) {
+//            currentTime += Time.deltaTime / timePeriod;
+//        } else if (Input.GetKey(leftKey) && currentTime >= 1f) {
+//            currentTime = 1f;
+//        }
+//
+//        if ((Input.GetKey(rightKey) && currentTime > 0f)) {
+//            currentTime -= Time.deltaTime / timePeriod;
+//        } else if (Input.GetKey(rightKey) && currentTime <= 0f) {
+//            currentTime = 0f;
+//        }
+//
+//        if (currentTime > 0.5f && !(Input.GetKey(leftKey) && Input.GetKey(rightKey))) {
+//            currentTime -= Time.deltaTime / (2 * timePeriod);
+//        } else if (currentTime < 0.5f && !(Input.GetKey(leftKey) && Input.GetKey(rightKey))) {
+//            currentTime += Time.deltaTime / (2 * timePeriod);
+//        }
+
+
+        if (Input.GetKey(leftKey) && turnSpeed > -turnMaxSpeed) { // Turning GameObject Left
+            turnSpeed -= turnIncrement;
+        } else if (Input.GetKey(leftKey) && turnSpeed <= -turnMaxSpeed) {
+            turnSpeed = -turnMaxSpeed;
         }
 
-        if ((Input.GetKey(rightKey) && currentTime > 0f)) {
-            currentTime -= Time.deltaTime / timePeriod;
-        } else if (Input.GetKey(rightKey) && currentTime <= 0f) {
-            currentTime = 0f;
+        if (Input.GetKey(rightKey) && turnSpeed < turnMaxSpeed) { // Turning GameObject Right
+            turnSpeed += turnIncrement;
+        } else if (Input.GetKey(rightKey) && turnSpeed >= turnMaxSpeed) {
+            turnSpeed = turnMaxSpeed;
         }
 
-        if (currentTime > 0.5f && !(Input.GetKey(leftKey) && Input.GetKey(rightKey))) {
-            currentTime -= Time.deltaTime / (2 * timePeriod);
-        } else if (currentTime < 0.5f && !(Input.GetKey(leftKey) && Input.GetKey(rightKey))) {
-            currentTime += Time.deltaTime / (2 * timePeriod);
-        }
-
-
-        // if (Input.GetKey(leftKey) && turnSpeed > -turnMaxSpeed) { // Turning GameObject Left
-        //     turnSpeed -= turnIncrement;
-        // } else if (Input.GetKey(leftKey) && turnSpeed <= -turnMaxSpeed) {
-        //     turnSpeed = -turnMaxSpeed;
-        // }
-
-        // if (Input.GetKey(rightKey) && turnSpeed < turnMaxSpeed) { // Turning GameObject Right
-        //     turnSpeed += turnIncrement;
-        // } else if (Input.GetKey(rightKey) && turnSpeed >= turnMaxSpeed) {
-        //     turnSpeed = turnMaxSpeed;
-        // }
-
-        gameObject.transform.Rotate(new Vector3(0f, turnSpeed * rotationCurve.Evaluate(currentTime), 0f));
+//        gameObject.transform.Rotate(new Vector3(0f, turnSpeed * rotationCurve.Evaluate(currentTime), 0f));
 
 
 
-        // gameObject.transform.Rotate(new Vector3(0f, turnSpeed, 0f));
-        // hinge.transform.Rotate(new Vector3(0f, turnSpeed, 0f));
+        gameObject.transform.Rotate(new Vector3(0f, turnSpeed, 0f));
+        hinge.transform.Rotate(new Vector3(0f, turnSpeed, 0f));
 
-        // turnSpeed = Mathf.Lerp(turnSpeed, 0f, turnLerp * Time.deltaTime); // Breaking force for Turn
+        turnSpeed = Mathf.Lerp(turnSpeed, 0f, turnLerp * Time.deltaTime); // Breaking force for Turn
 
     }
 }

@@ -4,11 +4,7 @@
     <list default="true" id="f83231e1-cf76-4576-8f62-f24c491a7f2d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Sonic R Final/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Sonic R Final/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Sonic R Final/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Sonic R Final/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/StephDevScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/StephDevScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Freeze.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Freeze.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/RoadCheck.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/RoadCheck.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Turning.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Turning.cs" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -17,44 +13,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Assets/Script/PickUp.cs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="16" selection-start-line="16" selection-end-line="16" />
-              <folding>
-                <marker date="1572972533221" expanded="false" signature="6:100" ph="..." />
-                <marker date="1572972533221" expanded="true" signature="138:602" ph="{...}" />
-                <marker date="1572972533221" expanded="true" signature="256:330" ph="{...}" />
-                <marker date="1572972533221" expanded="true" signature="389:446" ph="{...}" />
-                <marker date="1572972533221" expanded="true" signature="488:600" ph="{...}" />
-                <marker date="1572972533221" expanded="true" signature="523:594" ph="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Assets/Script/RoadCheck.cs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="24" column="59" selection-end-line="30" />
-              <folding>
-                <marker date="1573594888260" expanded="false" signature="6:78" ph="..." />
-                <marker date="1573594888260" expanded="true" signature="119:1262" ph="{...}" />
-                <marker date="1573594888260" expanded="true" signature="223:286" ph="{...}" />
-                <marker date="1573594888260" expanded="true" signature="345:1260" ph="{...}" />
-                <marker date="1573594888260" expanded="true" signature="611:758" ph="{...}" />
-                <marker date="1573594888260" expanded="true" signature="844:922" ph="{...}" />
-                <marker date="1573594888260" expanded="true" signature="1009:1088" ph="{...}" />
-                <marker date="1573594888260" expanded="true" signature="1175:1254" ph="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -62,12 +21,14 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/Script/PickUp.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Script/RoadCheck.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Script/Turning.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/Assets/Script/Freeze.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/RoadCheck.cs" />
+        <option value="$PROJECT_DIR$/Assets/Script/Turning.cs" />
       </list>
     </option>
   </component>
@@ -79,7 +40,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="2430" />
     <option name="y" value="-20" />
     <option name="width" value="1950" />
@@ -148,12 +109,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1573588133859</updated>
-      <workItem from="1573588136227" duration="3193000" />
+      <workItem from="1573588136227" duration="4015000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="3193000" />
+    <option name="totallyTimeSpent" value="4015000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -165,7 +126,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-6" y="-6" width="1549" height="837" extended-state="7" />
+    <frame x="-6" y="-6" width="1549" height="837" extended-state="6" />
     <layout>
       <window_info id="Favorites" side_tool="true" />
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24949698" />
@@ -217,6 +178,41 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Script/Turning.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="194">
+          <caret line="39" column="74" selection-start-line="39" selection-start-column="74" selection-end-line="39" selection-end-column="74" />
+          <folding>
+            <marker date="1573597066571" expanded="false" signature="6:78" ph="..." />
+            <marker date="1573597066571" expanded="true" signature="117:2386" ph="{...}" />
+            <marker date="1573597066571" expanded="true" signature="624:659" ph="{...}" />
+            <marker date="1573597066571" expanded="true" signature="718:2384" ph="{...}" />
+            <marker date="1573597066571" expanded="true" signature="720:1514" ph="/* if ((Input.GetKey(leftKey) &amp;&amp; currentTime &lt; 1f)) { ... */" />
+            <marker date="1573597066571" expanded="true" signature="1581:1659" ph="{...}" />
+            <marker date="1573597066571" expanded="true" signature="1722:1772" ph="{...}" />
+            <marker date="1573597066571" expanded="true" signature="1838:1917" ph="{...}" />
+            <marker date="1573597066571" expanded="true" signature="1980:2029" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Script/RoadCheck.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="24" column="59" selection-end-line="30" />
+          <folding>
+            <marker date="1573596329764" expanded="false" signature="6:78" ph="..." />
+            <marker date="1573596329764" expanded="true" signature="119:1262" ph="{...}" />
+            <marker date="1573596329764" expanded="true" signature="223:286" ph="{...}" />
+            <marker date="1573596329764" expanded="true" signature="345:1260" ph="{...}" />
+            <marker date="1573596329764" expanded="true" signature="611:758" ph="{...}" />
+            <marker date="1573596329764" expanded="true" signature="844:922" ph="{...}" />
+            <marker date="1573596329764" expanded="true" signature="1009:1088" ph="{...}" />
+            <marker date="1573596329764" expanded="true" signature="1175:1254" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Assets/Script/PickUp.cs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
@@ -228,23 +224,6 @@
             <marker date="1572972533221" expanded="true" signature="389:446" ph="{...}" />
             <marker date="1572972533221" expanded="true" signature="488:600" ph="{...}" />
             <marker date="1572972533221" expanded="true" signature="523:594" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Script/RoadCheck.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="24" column="59" selection-end-line="30" />
-          <folding>
-            <marker date="1573594888260" expanded="false" signature="6:78" ph="..." />
-            <marker date="1573594888260" expanded="true" signature="119:1262" ph="{...}" />
-            <marker date="1573594888260" expanded="true" signature="223:286" ph="{...}" />
-            <marker date="1573594888260" expanded="true" signature="345:1260" ph="{...}" />
-            <marker date="1573594888260" expanded="true" signature="611:758" ph="{...}" />
-            <marker date="1573594888260" expanded="true" signature="844:922" ph="{...}" />
-            <marker date="1573594888260" expanded="true" signature="1009:1088" ph="{...}" />
-            <marker date="1573594888260" expanded="true" signature="1175:1254" ph="{...}" />
           </folding>
         </state>
       </provider>

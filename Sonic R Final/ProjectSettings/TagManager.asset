@@ -8,6 +8,7 @@ TagManager:
   - Ring
   - Grass
   - Water
+  - Sand
   layers:
   - Default
   - TransparentFX
