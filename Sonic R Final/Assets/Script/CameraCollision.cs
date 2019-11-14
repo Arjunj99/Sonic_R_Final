@@ -14,24 +14,33 @@ public class CameraCollision : MonoBehaviour {
     public Transform player;
 
     // Use this for initialization
-    void Awake () {
+    void Awake ()
+    {
 		playerDir = transform.localPosition.normalized;
 		distance = transform.localPosition.magnitude;
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void Update ()
+    {
 
 		Vector3 desiredCameraPos = player.transform.TransformPoint(playerDir * maxDistance);
 		RaycastHit hit;
 
-		if (Physics.Linecast (player.transform.position, desiredCameraPos, out hit)) {
-			distance = Mathf.Clamp ((hit.distance * 0.87f), minDistance, maxDistance);
-				
-				} else {
-					distance = maxDistance;
-				}
+		if (Physics.Linecast (player.transform.position, desiredCameraPos, out hit))
+        {
 
-				transform.localPosition = Vector3.Lerp (transform.localPosition, playerDir * distance, Time.deltaTime * smooth);
-	}
+			    distance = Mathf.Clamp ((hit.distance * 0.87f), minDistance, maxDistance);		
+		}
+        else
+        {
+
+		    distance = maxDistance;
+
+		}
+
+
+		transform.localPosition = Vector3.Lerp (transform.localPosition, playerDir * distance, Time.deltaTime * smooth);
+        
+    }          
 }
