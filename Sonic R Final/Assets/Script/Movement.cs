@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Movement : MonoBehaviour {
     [Header("Max Speeds (Surfaces)")]
@@ -30,6 +31,11 @@ public class Movement : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
+        if (Input.GetKeyDown(KeyCode.R)) {
+            SceneManager.LoadScene("MainScene");
+        }
+
+
         maxVelocity = Mathf.Lerp(maxVelocity, surfaceSpeeds[(int) currentSurfaceType], Time.deltaTime * 3f);
         
 
@@ -45,8 +51,10 @@ public class Movement : MonoBehaviour {
             currentTime = 0f;
         }
 
-        if (currentTime > 0f) {
-            currentTime -= Time.deltaTime / 5;
+        if (currentTime > 0f && !Input.GetKey(forwardKey)) {
+            currentTime = Mathf.Lerp(currentTime, 0f, 0.4f);
+
+            // currentTime -= Time.deltaTime / 4;
         } else if (currentTime < 0f) {
             currentTime = 0f;
         }
@@ -66,7 +74,7 @@ public class Movement : MonoBehaviour {
 
     void OnCollisionEnter(Collision collision) {
         if (collision.gameObject.tag == "Wall") {
-            currentTime = Mathf.Lerp(currentTime, 0f, 5f * Time.deltaTime);
+            currentTime = Mathf.Lerp(currentTime, 0f, 10f * Time.deltaTime);
             Debug.Log("Hitting Wall");
         }
     }

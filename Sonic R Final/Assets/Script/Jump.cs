@@ -5,6 +5,7 @@ using UnityEngine;
 public class Jump : MonoBehaviour {
     [Header("Jump Settings")]
     public float jumpHeight;
+    public float gravity;
 
     [Header("Button Settings")]
     public KeyCode jumpButton;
@@ -19,6 +20,7 @@ public class Jump : MonoBehaviour {
 
     private bool jump1;
     private bool jump2;
+    private bool isJump;
 
 
 
@@ -31,6 +33,11 @@ public class Jump : MonoBehaviour {
     void Update() {
         if (Input.GetKeyDown(jumpButton)) {
             JumpAction();
+        }
+
+        if (isJump) {
+            rb.AddForce(gameObject.transform.up * -gravity, ForceMode.Acceleration);
+            Debug.Log("Gravity");
         }
 
 
@@ -85,7 +92,19 @@ public class Jump : MonoBehaviour {
 
     void OnCollisionEnter(Collision collide) {
         jumps = 2;
+
+        if (collide.gameObject.tag == "Track" || collide.gameObject.tag == "Grass" || collide.gameObject.tag == "Sand" || collide.gameObject.tag == "Water") {
+            isJump = false;
+        }
     }
+    
+    void OnCollisionExit(Collision collide) {
+        if (collide.gameObject.tag == "Track" || collide.gameObject.tag == "Grass" || collide.gameObject.tag == "Sand" || collide.gameObject.tag == "Water") {
+            isJump = true;
+        }
+    }
+
+    
 
     //      gameObject.GetComponent<Rigidbody2D> ().AddForce (new Vector2 (0, jumpforce), ForceMode2D.Impulse);
     //      grounded = false;
