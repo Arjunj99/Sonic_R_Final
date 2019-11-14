@@ -30,7 +30,8 @@ public class Movement : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-        maxVelocity = surfaceSpeeds[(int) currentSurfaceType];
+        maxVelocity = Mathf.Lerp(maxVelocity, surfaceSpeeds[(int) currentSurfaceType], Time.deltaTime * 3f);
+        
 
         if (Input.GetKey(forwardKey) && currentTime < 1f) {
             currentTime += Time.deltaTime / 2;
@@ -45,7 +46,7 @@ public class Movement : MonoBehaviour {
         }
 
         if (currentTime > 0f) {
-            currentTime -= Time.deltaTime / 20;
+            currentTime -= Time.deltaTime / 5;
         } else if (currentTime < 0f) {
             currentTime = 0f;
         }
@@ -61,5 +62,12 @@ public class Movement : MonoBehaviour {
         // if (Input.GetKey(KeyCode.Z)) {
         //     rb.AddForce(gameObject.transform.up * 2, ForceMode.Impulse);
         // }
+    }
+
+    void OnCollisionEnter(Collision collision) {
+        if (collision.gameObject.tag == "Wall") {
+            currentTime = Mathf.Lerp(currentTime, 0f, 5f * Time.deltaTime);
+            Debug.Log("Hitting Wall");
+        }
     }
 }

@@ -8,6 +8,7 @@ TagManager:
   - Ring
   - Grass
   - Water
+  - Wall
   layers:
   - Default
   - TransparentFX
