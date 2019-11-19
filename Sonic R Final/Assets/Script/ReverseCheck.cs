@@ -59,13 +59,13 @@ public class ReverseCheck : MonoBehaviour
             if (Mathf.Sqrt(Mathf.Pow(Mathf.Abs(this.transform.position.x - mark2.transform.position.x), 2f) + Mathf.Pow(Mathf.Abs(this.transform.position.z - mark2.transform.position.z), 2f)) < lastDist)
             {
                 // Debug.Log("Reverse!");
-                Mathf.Sqrt(Mathf.Pow(Mathf.Abs(this.transform.position.x - mark2.transform.position.x), 2f) + Mathf.Pow(Mathf.Abs(this.transform.position.z - mark2.transform.position.z), 2f));
+                lastDist = Mathf.Sqrt(Mathf.Pow(Mathf.Abs(this.transform.position.x - mark2.transform.position.x), 2f) + Mathf.Pow(Mathf.Abs(this.transform.position.z - mark2.transform.position.z), 2f));
                 reverse = false;
             }
             else if (Mathf.Sqrt(Mathf.Pow(Mathf.Abs(this.transform.position.x - mark2.transform.position.x), 2f) + Mathf.Pow(Mathf.Abs(this.transform.position.z - mark2.transform.position.z), 2f)) > lastDist)
             {
                 // Debug.Log("Reverse!");
-                Mathf.Sqrt(Mathf.Pow(Mathf.Abs(this.transform.position.x - mark2.transform.position.x), 2f) + Mathf.Pow(Mathf.Abs(this.transform.position.z - mark2.transform.position.z), 2f));
+                lastDist = Mathf.Sqrt(Mathf.Pow(Mathf.Abs(this.transform.position.x - mark2.transform.position.x), 2f) + Mathf.Pow(Mathf.Abs(this.transform.position.z - mark2.transform.position.z), 2f));
                 reverse = true; 
             }
            
