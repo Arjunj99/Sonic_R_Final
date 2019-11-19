@@ -38,7 +38,7 @@ public class Movement : MonoBehaviour {
 
         maxVelocity = Mathf.Lerp(maxVelocity, surfaceSpeeds[(int) currentSurfaceType], Time.deltaTime * 3f);
         
-
+ 
         if (Input.GetKey(forwardKey) && currentTime < 1f) {
             currentTime += Time.deltaTime / 2;
         } else if (Input.GetKey(forwardKey) && currentTime >= 1f) {

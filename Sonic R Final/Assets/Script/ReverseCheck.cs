@@ -10,6 +10,8 @@ public class ReverseCheck : MonoBehaviour
     public GameObject mark3;
 
 
+    public bool onRoad = true;
+
     public bool passedM1 = false;
     public bool passedM2 = false;
     public bool passedMx = false;
@@ -33,33 +35,37 @@ public class ReverseCheck : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+       
+      //  if (onRoad == true) { 
 
         if (passedM1 == true)
         {
-            // Debug.Log(lastDist);
+                Debug.Log(lastDist);
+                // Debug.Log(lastDist);
 
-            //   lastDistMax = false;
+                //   lastDistMax = false;
 
-            // lastDist = Vector3.Distance(mark1.transform.position, mark2.transform.position); //set initial distance
+                // lastDist = Vector3.Distance(mark1.transform.position, mark2.transform.position); //set initial distance
 
-            //lastDist = Vector3.Distance(this.transform.position, mark2.transform.position);
+                //lastDist = Vector3.Distance(this.transform.position, mark2.transform.position);
 
-            if (lastDistMax == true)
+                if (lastDistMax == true)
             {
-                lastDist = Vector3.Distance(this.transform.position, mark2.transform.position); //reset lastDist so there won't be one frame of "REVERSE" appearing
+                lastDist = Mathf.Sqrt(Mathf.Pow(Mathf.Abs(this.transform.position.x - mark2.transform.position.x), 2f) + Mathf.Pow(Mathf.Abs(this.transform.position.z - mark2.transform.position.z), 2f)); //reset lastDist so there won't be one frame of "REVERSE" appearing
+
                 lastDistMax = false;
             }
 
-            if (Vector3.Distance(this.transform.position, mark2.transform.position) < lastDist)
+            if (Mathf.Sqrt(Mathf.Pow(Mathf.Abs(this.transform.position.x - mark2.transform.position.x), 2f) + Mathf.Pow(Mathf.Abs(this.transform.position.z - mark2.transform.position.z), 2f)) < lastDist)
             {
                 // Debug.Log("Reverse!");
-                lastDist = Vector3.Distance(this.transform.position, mark2.transform.position);
+                Mathf.Sqrt(Mathf.Pow(Mathf.Abs(this.transform.position.x - mark2.transform.position.x), 2f) + Mathf.Pow(Mathf.Abs(this.transform.position.z - mark2.transform.position.z), 2f));
                 reverse = false;
             }
-            else if (Vector3.Distance(this.transform.position, mark2.transform.position) > lastDist)
+            else if (Mathf.Sqrt(Mathf.Pow(Mathf.Abs(this.transform.position.x - mark2.transform.position.x), 2f) + Mathf.Pow(Mathf.Abs(this.transform.position.z - mark2.transform.position.z), 2f)) > lastDist)
             {
-               // Debug.Log("Reverse!");
-                lastDist = Vector3.Distance(this.transform.position, mark2.transform.position);
+                // Debug.Log("Reverse!");
+                Mathf.Sqrt(Mathf.Pow(Mathf.Abs(this.transform.position.x - mark2.transform.position.x), 2f) + Mathf.Pow(Mathf.Abs(this.transform.position.z - mark2.transform.position.z), 2f));
                 reverse = true; 
             }
            
@@ -99,14 +105,21 @@ public class ReverseCheck : MonoBehaviour
 
         if (reverse == true)
         {
+            
             text.GetComponent<Text>().enabled = true;
+          
+            
         }
         else if (reverse == false)
         {
             text.GetComponent<Text>().enabled = false;
         }
-        //  Debug.Log(Vector3.Distance(this.transform.position, mark1.transform.position));
-        //Debug.Log(Vector3.Distance(this.transform.position, mark2.transform.position));
+            //  Debug.Log(Vector3.Distance(this.transform.position, mark1.transform.position));
+            //Debug.Log(Vector3.Distance(this.transform.position, mark2.transform.position));
+
+      //  }
+
+
     }
 
 
@@ -129,4 +142,17 @@ public class ReverseCheck : MonoBehaviour
             Debug.Log("entered");
         }
     }
+
+    //private void OnCollisionEnter(Collision collision)
+    //{
+    //    onRoad = true;
+    //    Debug.Log("land");
+    //}
+
+
+    //private void OnCollisionExit(Collision collision)
+    //{
+    //    onRoad = false;
+    //    Debug.Log("jump");
+    //}
 }
