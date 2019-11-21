@@ -2,24 +2,25 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Allow a GameObject with this script to query track types, angle of planes, and if it is still on the road.
+/// </summary>
+/// <author> Arjun Jaishankar </author>
+/// <version> 11/21/2019 </version>
 public class RoadCheck : MonoBehaviour {
     [Header("Ray Settings")]
-    [SerializeField] private float trackTypeDistance = 3f;
-    [SerializeField] private float normalReorientationDistance = 3f;
-    [SerializeField] private float onTrackDistance = 10f;
-
-
+    [SerializeField] private float trackTypeDistance = 3f; // Ray Distance of Track Check
+    [SerializeField] private float normalReorientationDistance = 3f; // Ray Distance of Plane Check
+    [SerializeField] private float onTrackDistance = 10f; // Ray Distance of Reverse Check
     private Turning turning;
     private Movement movement;
     private Vector3 planeNormal;
-    private Vector3 upright;
 
     // Start is called before the first frame update
     void Start() {
         // Road Check needs a reference to a Movement Script and Turning Script
         movement = gameObject.GetComponent<Movement>();
         turning = gameObject.GetComponent<Turning>();
-        // reverse = gameObject.GetComponent<ReverseCheck>();
     }
 
     // Update is called once per frame
@@ -48,7 +49,6 @@ public class RoadCheck : MonoBehaviour {
             planeNormal = Quaternion.ToEulerAngles(Quaternion.FromToRotation(Vector3.up, groundHit.normal)) * Mathf.Rad2Deg;
             turning.normalOrientation = planeNormal;
             Debug.Log(planeNormal);
-            // transform.rotation = Quaternion.FromToRotation(Vector3.up, planeNormal);
         }
 
         // Checks to see if Player is above road and sets onRoad boolean accordingly

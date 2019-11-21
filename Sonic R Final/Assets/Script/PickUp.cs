@@ -3,10 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// Allow a GameObject with this script to pick up GameObjects with Tags {Ring, Token5, Token10, Token20, Aqua, SpeedBoost}.
+/// </summary>
+/// <author> Arjun Jaishankar </author>
+/// <version> 11/21/2019 </version>
 public class PickUp : MonoBehaviour {
-    public Text text;
-    public Movement movement;
-    private int score;
+    public Text text; // Text used to display current score.
+    public Movement movement; // Reference to a movement script in the current GameObject. PICK UP NEEDS A MOVEMENT SCRIPT ON THE SAME OBJECT.
+    private int score; // This GameObject's current Score.
 
     // Start is called before the first frame update
     void Start() {
@@ -20,22 +25,22 @@ public class PickUp : MonoBehaviour {
     }
 
     void OnTriggerEnter(Collider other) {
-        if (other.tag == "Ring") {
+        if (other.tag == "Ring") { // If GameObject picks up a ring, add 1 to the score.
             score++;
             Destroy(other.gameObject);
-        } else if (other.tag == "Token5") {
+        } else if (other.tag == "Token5") { // If GameObject picks up a Token 5, add 5 to the score.
             score += 5;
             Destroy(other.gameObject);
-        } else if (other.tag == "Token10") {
+        } else if (other.tag == "Token10") { // If GameObject picks up a Token 10, add 10 to the score.
             score += 10;
             Destroy(other.gameObject);
-        } else if (other.tag == "Token20") {
+        } else if (other.tag == "Token20") { // If GameObject picks up a Token 20, add 20 to the score.
             score += 20;
             Destroy(other.gameObject);
-        } else if (other.tag == "SpeedBoost") {
+        } else if (other.tag == "SpeedBoost") { // If GameObject picks up a Speed Boost, add 100 to the current Velocity.
             movement.currentVelocity += 100f;
             Destroy(other.gameObject);
-        } else if (other.tag == "Aqua") {
+        } else if (other.tag == "Aqua") { // If GameObject picks up an Aqua Token, make the player able to run on water.
             movement.surfaceSpeeds[(int) Movement.trackType.water] = 100f;
             Destroy(other.gameObject);
         }
