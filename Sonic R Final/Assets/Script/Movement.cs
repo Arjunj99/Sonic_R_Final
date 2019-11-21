@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 public class Movement : MonoBehaviour {
     [Header("Max Speeds (Surfaces)")]
     [SerializeField] private List<float> surfaceSpeeds = new List<float>();
-
     [HideInInspector] public enum trackType {track, sand, grass, water};
     public trackType currentSurfaceType;
     [HideInInspector] public float currentVelocity;
@@ -31,14 +30,8 @@ public class Movement : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-        if (Input.GetKeyDown(KeyCode.R)) {
-            SceneManager.LoadScene("MainScene");
-        }
-
-
-        maxVelocity = Mathf.Lerp(maxVelocity, surfaceSpeeds[(int) currentSurfaceType], Time.deltaTime * 3f);
+        maxVelocity = Mathf.Lerp(maxVelocity, surfaceSpeeds[(int) currentSurfaceType], Time.deltaTime * velocitySmooth);
         
-
         if (Input.GetKey(forwardKey) && currentTime < 1f) {
             currentTime += Time.deltaTime / 2;
         } else if (Input.GetKey(forwardKey) && currentTime >= 1f) {
@@ -53,23 +46,15 @@ public class Movement : MonoBehaviour {
 
         if (currentTime > 0f && !Input.GetKey(forwardKey)) {
             currentTime = Mathf.Lerp(currentTime, 0f, 0.4f);
-
-            // currentTime -= Time.deltaTime / 4;
         } else if (currentTime < 0f) {
             currentTime = 0f;
         }
 
         currentVelocity = maxVelocity * velocityCurve.Evaluate(currentTime);
-     // Debug.Log("Current Velocity: " + currentVelocity);
-
-        // Debug.Log("Current Velocity: " + currentVelocity);
 
 
         rb.velocity = Vector3.Lerp(rb.velocity, gameObject.transform.forward * currentVelocity, Time.deltaTime * velocitySmooth);
-
-        // if (Input.GetKey(KeyCode.Z)) {
-        //     rb.AddForce(gameObject.transform.up * 2, ForceMode.Impulse);
-        // }
+        rb.angularVelocity = Vector3.zero;
     }
 
     void OnCollisionEnter(Collision collision) {

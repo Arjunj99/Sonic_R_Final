@@ -3,28 +3,63 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class RoadCheck : MonoBehaviour {
+    [Header("Ray Settings")]
+    [SerializeField] private float trackTypeDistance = 3f;
+    [SerializeField] private float normalReorientationDistance = 3f;
+    [SerializeField] private float onTrackDistance = 10f;
+
+
+    private Turning turning;
     private Movement movement;
+    private Vector3 planeNormal;
+    private Vector3 upright;
 
     // Start is called before the first frame update
     void Start() {
+        // Road Check needs a reference to a Movement Script and Turning Script
         movement = gameObject.GetComponent<Movement>();
+        turning = gameObject.GetComponent<Turning>();
+        // reverse = gameObject.GetComponent<ReverseCheck>();
     }
 
     // Update is called once per frame
     void Update() {
+        // Checks Road for TrackType and sets speed accordingly
         Ray roadCheck = new Ray(this.transform.position, Vector3.down);
-        RaycastHit hit;
-        Debug.DrawRay(this.transform.position, Vector3.down, Color.cyan, 10f);
+        RaycastHit roadTypeHit;
+        Debug.DrawRay(this.transform.position, Vector3.down, Color.cyan, trackTypeDistance);
 
-        if (Physics.Raycast(roadCheck, out hit, 3f) && hit.collider.tag.Equals("Road")) {
+        if (Physics.Raycast(roadCheck, out roadTypeHit, trackTypeDistance) && roadTypeHit.collider.tag.Equals("Road")) {
             movement.currentSurfaceType = Movement.trackType.track;
-            // boat.SetCurrentSpeed(boat.GetCurrentSpeed() + 0.2f);
-        } else if (Physics.Raycast(roadCheck, out hit, 3f) && hit.collider.tag.Equals("Sand")) {
+        } else if (Physics.Raycast(roadCheck, out roadTypeHit, trackTypeDistance) && roadTypeHit.collider.tag.Equals("Sand")) {
             movement.currentSurfaceType = Movement.trackType.sand;
-        } else if (Physics.Raycast(roadCheck, out hit, 3f) && hit.collider.tag.Equals("Grass")) {
+        } else if (Physics.Raycast(roadCheck, out roadTypeHit, trackTypeDistance) && roadTypeHit.collider.tag.Equals("Grass")) {
             movement.currentSurfaceType = Movement.trackType.grass;
-        } else if (Physics.Raycast(roadCheck, out hit, 3f) && hit.collider.tag.Equals("Water")) {
+        } else if (Physics.Raycast(roadCheck, out roadTypeHit, trackTypeDistance) && roadTypeHit.collider.tag.Equals("Water")) {
             movement.currentSurfaceType = Movement.trackType.water;
+        }
+
+        // Checks Road for Normal Vector and sets player X rotation accordingly
+        Ray groundCheck = new Ray(this.transform.position, -this.transform.up);
+        RaycastHit groundHit;
+        Debug.DrawRay(this.transform.position, -this.transform.up, Color.green, normalReorientationDistance);
+
+        if (Physics.Raycast(groundCheck, out groundHit, normalReorientationDistance) && groundHit.collider.gameObject.layer == 8) {
+            planeNormal = Quaternion.ToEulerAngles(Quaternion.FromToRotation(Vector3.up, groundHit.normal)) * Mathf.Rad2Deg;
+            turning.normalOrientation = planeNormal;
+            Debug.Log(planeNormal);
+            // transform.rotation = Quaternion.FromToRotation(Vector3.up, planeNormal);
+        }
+
+        // Checks to see if Player is above road and sets onRoad boolean accordingly
+        Ray onRoadCheck = new Ray(this.transform.position, this.transform.forward - this.transform.up);
+        RaycastHit onRoadHit;
+        Debug.DrawRay(this.transform.position, this.transform.forward - this.transform.up, Color.green, onTrackDistance);
+
+        if (Physics.Raycast(onRoadCheck, out onRoadHit, onTrackDistance) && onRoadHit.collider.gameObject.layer == 8) {
+            // reverse.onRoad = true;
+        } else {
+            // reverse.onRoad = false;
         }
     }
 }
