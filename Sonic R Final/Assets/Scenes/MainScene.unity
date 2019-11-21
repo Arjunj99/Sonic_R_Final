@@ -1663,7 +1663,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jumpHeight: 40
-  gravity: 20
   jumpButton: 32
 --- !u!114 &260804976
 MonoBehaviour:
@@ -1686,6 +1685,7 @@ MonoBehaviour:
   currentVelocity: 0
   maxVelocity: 0
   currentTime: 0
+  timePeriod: 2
   velocitySmooth: 2
   velocityCurve:
     serializedVersion: 2
@@ -6707,8 +6707,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bdd65123700d4cd1959f24624b51e55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpHeight: 15
-  gravity: 0
+  jumpHeight: 60
   jumpButton: 32
 --- !u!114 &1133224315
 MonoBehaviour:
@@ -6731,6 +6730,7 @@ MonoBehaviour:
   currentVelocity: 0
   maxVelocity: 0
   currentTime: 0
+  timePeriod: 2
   velocitySmooth: 2
   velocityCurve:
     serializedVersion: 2
@@ -8934,7 +8934,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jumpHeight: 40
-  gravity: 20
   jumpButton: 32
 --- !u!114 &1588654365
 MonoBehaviour:
@@ -8957,6 +8956,7 @@ MonoBehaviour:
   currentVelocity: 0
   maxVelocity: 0
   currentTime: 0
+  timePeriod: 2
   velocitySmooth: 2
   velocityCurve:
     serializedVersion: 2
@@ -9260,7 +9260,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jumpHeight: 15
-  gravity: 0
   jumpButton: 32
 --- !u!114 &1605332959
 MonoBehaviour:
@@ -9283,6 +9282,7 @@ MonoBehaviour:
   currentVelocity: 0
   maxVelocity: 0
   currentTime: 0
+  timePeriod: 2
   velocitySmooth: 2
   velocityCurve:
     serializedVersion: 2

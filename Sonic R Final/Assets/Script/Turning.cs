@@ -2,6 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Allow a GameObject with this script to turn based on direction inputs. Also correct its orientation based on the plane it is on.
+/// </summary>
+/// <author> Arjun Jaishankar </author>
+/// <version> 11/21/2019 </version>
 public class Turning : MonoBehaviour {
     [Header("Turn Settings Settings")]
     [SerializeField] private float turnIncrement;
