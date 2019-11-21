@@ -52,7 +52,7 @@ public class cameraturn : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.A))
         {
             center = true;
-            Debug.Log("1");
+          //  Debug.Log("1");
       
         }
         if (Input.GetKey(KeyCode.D))
@@ -78,7 +78,7 @@ public class cameraturn : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.D))
         {
             center = true;
-            Debug.Log("1");
+          //  Debug.Log("1");
 
         }
 

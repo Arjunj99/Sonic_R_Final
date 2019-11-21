@@ -28,6 +28,10 @@ public class camerazoom : MonoBehaviour
         Debug.Log(zoom);
 
     */
+
+        //serliazeddfield
+        //hideinspector
+        //header
     }
 
         
