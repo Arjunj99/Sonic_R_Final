@@ -10,14 +10,17 @@
           <e p="CameraCollision.cs" t="Include" />
           <e p="camerafollow.cs" t="Include" />
           <e p="CameraMovement.cs" t="Include" />
+          <e p="cameraturn.cs" t="Include" />
           <e p="camerazoom.cs" t="Include" />
           <e p="Jump.cs" t="Include" />
           <e p="Movement.cs" t="Include" />
           <e p="PickUp.cs" t="Include" />
+          <e p="ReverseCheck.cs" t="Include" />
           <e p="RoadCheck.cs" t="Include" />
+          <e p="Test2.0.cs" t="Include" />
+          <e p="Timer.cs" t="Include" />
           <e p="Turning.cs" t="Include" />
         </e>
-        <e p="Test2.0.cs" t="Include" />
       </e>
       <e p="obj" t="ExcludeRecursive" />
       <e p="Packages" t="ExcludeRecursive" />

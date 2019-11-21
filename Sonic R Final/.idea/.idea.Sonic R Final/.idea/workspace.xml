@@ -2,10 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f83231e1-cf76-4576-8f62-f24c491a7f2d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/ArjunDevScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/ArjunDevScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Movement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Movement.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Turning.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Turning.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Sonic R Final/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Sonic R Final/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Sonic R Final/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Sonic R Final/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Bridge.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Bridge.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/StephDevScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/StephDevScene.unity" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -14,23 +14,51 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file pinned="false" current-in-tab="true">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Assets/Script/Turning.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="467">
-              <caret line="63" column="72" selection-start-line="63" selection-start-column="72" selection-end-line="63" selection-end-column="72" />
+            <state relative-caret-position="375">
+              <caret line="44" column="72" selection-start-line="44" selection-start-column="72" selection-end-line="44" selection-end-column="72" />
               <folding>
-                <marker date="1573763243119" expanded="false" signature="6:78" ph="..." />
-                <marker date="1573763243119" expanded="true" signature="117:2474" ph="{...}" />
-                <marker date="1573763243119" expanded="true" signature="624:659" ph="{...}" />
-                <marker date="1573763243119" expanded="true" signature="718:2472" ph="{...}" />
-                <marker date="1573763243119" expanded="true" signature="779:846" ph="{...}" />
-                <marker date="1573763243119" expanded="true" signature="901:942" ph="{...}" />
-                <marker date="1573763243119" expanded="true" signature="1001:1068" ph="{...}" />
-                <marker date="1573763243119" expanded="true" signature="1122:1163" ph="{...}" />
-                <marker date="1573763243119" expanded="true" signature="1175:1498" ph="/* if (currentTime &gt; 0.5f &amp;&amp; !(Input.GetKey(leftKey) &amp;&amp; Input.GetKey(rightKey))) { ... */" />
-                <marker date="1573763243119" expanded="true" signature="1509:2043" ph="/* if (Input.GetKey(leftKey) &amp;&amp; turnSpeed &gt; -turnMaxSpeed) { // Turning GameObject Left ... */" />
+                <marker date="1574366995362" expanded="false" signature="6:78" ph="..." />
+                <marker date="1574366995362" expanded="true" signature="117:1636" ph="{...}" />
+                <marker date="1574366995362" expanded="true" signature="730:817" ph="{...}" />
+                <marker date="1574366995362" expanded="true" signature="876:1634" ph="{...}" />
+                <marker date="1574366995362" expanded="true" signature="936:1003" ph="{...}" />
+                <marker date="1574366995362" expanded="true" signature="1058:1099" ph="{...}" />
+                <marker date="1574366995362" expanded="true" signature="1158:1225" ph="{...}" />
+                <marker date="1574366995362" expanded="true" signature="1279:1320" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Assets/Script/PickUp.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="300">
+              <caret line="23" selection-start-line="23" selection-end-line="23" />
+              <folding>
+                <marker date="1574366995358" expanded="false" signature="6:100" ph="..." />
+                <marker date="1574366995358" expanded="true" signature="2044:2094" ph="{...}" />
+                <marker date="1574366995358" expanded="true" signature="2044:2100" ph="{...}" />
+                <marker date="1574366995358" expanded="true" signature="2044:2102" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Assets/Script/Timer.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="240">
+              <caret line="19" column="17" lean-forward="true" selection-start-line="19" selection-start-column="17" selection-end-line="19" selection-end-column="17" />
+              <folding>
+                <marker date="1574369386628" expanded="false" signature="6:100" ph="..." />
+                <marker date="1574369386628" expanded="true" signature="136:606" ph="{...}" />
+                <marker date="1574369386628" expanded="true" signature="281:302" ph="{...}" />
+                <marker date="1574369386628" expanded="true" signature="360:599" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -44,6 +72,7 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/Script/PickUp.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Script/RoadCheck.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Script/Timer.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Script/Turning.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
@@ -52,6 +81,7 @@
         <option value="$PROJECT_DIR$/Assets/Script/Freeze.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/RoadCheck.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/Turning.cs" />
+        <option value="$PROJECT_DIR$/Assets/Script/Timer.cs" />
       </list>
     </option>
   </component>
@@ -64,9 +94,8 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="2430" />
-    <option name="y" value="-20" />
-    <option name="width" value="1950" />
+    <option name="x" value="-15" />
+    <option name="width" value="1948" />
     <option name="height" value="2075" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -75,14 +104,14 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="FileSystemExplorer" />
-      <pane id="SolutionExplorer">
-        <option name="show-all-files" value="false" />
-      </pane>
-      <pane id="AssemblyExplorer" />
       <pane id="UnityExplorer">
         <option name="show-hidden-items" value="false" />
         <option name="show-project-names" value="true" />
+      </pane>
+      <pane id="AssemblyExplorer" />
+      <pane id="FileSystemExplorer" />
+      <pane id="SolutionExplorer">
+        <option name="show-all-files" value="false" />
       </pane>
     </panes>
   </component>
@@ -134,11 +163,12 @@
       <updated>1573588133859</updated>
       <workItem from="1573588136227" duration="4015000" />
       <workItem from="1573763139838" duration="106000" />
+      <workItem from="1574366923399" duration="2600000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="4121000" />
+    <option name="totallyTimeSpent" value="6721000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -153,7 +183,7 @@
     <frame x="-6" y="-6" width="1549" height="837" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25285044" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2562039" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -214,36 +244,45 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Script/PickUp.cs">
+    <entry file="file://$PROJECT_DIR$/Assets/Script/Turning.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="16" selection-start-line="16" selection-end-line="16" />
+        <state relative-caret-position="375">
+          <caret line="44" column="72" selection-start-line="44" selection-start-column="72" selection-end-line="44" selection-end-column="72" />
           <folding>
-            <marker date="1572972533221" expanded="false" signature="6:100" ph="..." />
-            <marker date="1572972533221" expanded="true" signature="138:602" ph="{...}" />
-            <marker date="1572972533221" expanded="true" signature="256:330" ph="{...}" />
-            <marker date="1572972533221" expanded="true" signature="389:446" ph="{...}" />
-            <marker date="1572972533221" expanded="true" signature="488:600" ph="{...}" />
-            <marker date="1572972533221" expanded="true" signature="523:594" ph="{...}" />
+            <marker date="1574366995362" expanded="false" signature="6:78" ph="..." />
+            <marker date="1574366995362" expanded="true" signature="117:1636" ph="{...}" />
+            <marker date="1574366995362" expanded="true" signature="730:817" ph="{...}" />
+            <marker date="1574366995362" expanded="true" signature="876:1634" ph="{...}" />
+            <marker date="1574366995362" expanded="true" signature="936:1003" ph="{...}" />
+            <marker date="1574366995362" expanded="true" signature="1058:1099" ph="{...}" />
+            <marker date="1574366995362" expanded="true" signature="1158:1225" ph="{...}" />
+            <marker date="1574366995362" expanded="true" signature="1279:1320" ph="{...}" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Script/Turning.cs">
+    <entry file="file://$PROJECT_DIR$/Assets/Script/PickUp.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="467">
-          <caret line="63" column="72" selection-start-line="63" selection-start-column="72" selection-end-line="63" selection-end-column="72" />
+        <state relative-caret-position="300">
+          <caret line="23" selection-start-line="23" selection-end-line="23" />
           <folding>
-            <marker date="1573763243119" expanded="false" signature="6:78" ph="..." />
-            <marker date="1573763243119" expanded="true" signature="117:2474" ph="{...}" />
-            <marker date="1573763243119" expanded="true" signature="624:659" ph="{...}" />
-            <marker date="1573763243119" expanded="true" signature="718:2472" ph="{...}" />
-            <marker date="1573763243119" expanded="true" signature="779:846" ph="{...}" />
-            <marker date="1573763243119" expanded="true" signature="901:942" ph="{...}" />
-            <marker date="1573763243119" expanded="true" signature="1001:1068" ph="{...}" />
-            <marker date="1573763243119" expanded="true" signature="1122:1163" ph="{...}" />
-            <marker date="1573763243119" expanded="true" signature="1175:1498" ph="/* if (currentTime &gt; 0.5f &amp;&amp; !(Input.GetKey(leftKey) &amp;&amp; Input.GetKey(rightKey))) { ... */" />
-            <marker date="1573763243119" expanded="true" signature="1509:2043" ph="/* if (Input.GetKey(leftKey) &amp;&amp; turnSpeed &gt; -turnMaxSpeed) { // Turning GameObject Left ... */" />
+            <marker date="1574366995358" expanded="false" signature="6:100" ph="..." />
+            <marker date="1574366995358" expanded="true" signature="2044:2094" ph="{...}" />
+            <marker date="1574366995358" expanded="true" signature="2044:2100" ph="{...}" />
+            <marker date="1574366995358" expanded="true" signature="2044:2102" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Script/Timer.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="19" column="17" lean-forward="true" selection-start-line="19" selection-start-column="17" selection-end-line="19" selection-end-column="17" />
+          <folding>
+            <marker date="1574369386628" expanded="false" signature="6:100" ph="..." />
+            <marker date="1574369386628" expanded="true" signature="136:606" ph="{...}" />
+            <marker date="1574369386628" expanded="true" signature="281:302" ph="{...}" />
+            <marker date="1574369386628" expanded="true" signature="360:599" ph="{...}" />
           </folding>
         </state>
       </provider>
