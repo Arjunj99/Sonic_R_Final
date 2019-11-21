@@ -17,8 +17,8 @@ public class camerazoom : MonoBehaviour
     void Update()
     {
       
-        zoom = 60+player.GetComponent<Movement>().currentVelocity/2;
-        zoom = Mathf.Clamp(zoom, 60f, 70f);
+        zoom = 60+player.GetComponent<Movement>().currentVelocity/2; //zoom the camera according to player speed by increasing camera's FOV.
+        zoom = Mathf.Clamp(zoom, 60f, 70f); //limit FOV between 60 and 70
         GetComponent<Camera>().fieldOfView = zoom;
 
         /*

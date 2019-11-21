@@ -11,6 +11,10 @@ public class cameraturn : MonoBehaviour
     public int turnspeed1;
     public int turnspeed2;
 
+    private KeyCode rightKey;
+    private KeyCode leftKey;
+    
+    private Turning turnscript;
 
    // public Vector3 curPos;
    // public Vector3 lastPos;
@@ -19,7 +23,10 @@ public class cameraturn : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        turnscript = gameObject.GetComponent<Turning>();
+        rightKey = turnscript.rightKey;
+        leftKey = turnscript.leftKey;
+
     }
 
     // Update is called once per frame
@@ -28,15 +35,15 @@ public class cameraturn : MonoBehaviour
         //curPos = this.transform.position;
         //  Debug.Log(this.transform.eulerAngles.y);
         //  Debug.Log(this.transform.localRotation.y);
-        if (Input.GetKey(KeyCode.A))
+        if (Input.GetKey(leftKey))
         {
             center = false;
             if (left == true)
             {
                // if(curPos!=lastPos)
-                if (this.transform.localRotation.y < 0.10)
+                if (this.transform.localRotation.y < 0.10) 
                 {
-                    transform.Rotate(new Vector3(0, 1, 0), turnspeed1 * Time.deltaTime);
+                    transform.Rotate(new Vector3(0, 1, 0), turnspeed1 * Time.deltaTime); //if the player is turning left, rotate camera to the right
                    
 
 
@@ -49,22 +56,22 @@ public class cameraturn : MonoBehaviour
             
         }
 
-        if (Input.GetKeyUp(KeyCode.A))
+        if (Input.GetKeyUp(leftKey))
         {
             center = true;
           //  Debug.Log("1");
       
         }
-        if (Input.GetKey(KeyCode.D))
+        if (Input.GetKey(rightKey))
         {
             center = false;
             if (left == true)
             {
                 if (this.transform.localRotation.y > -0.10)
                 {
-                     transform.Rotate(new Vector3(0, -1, 0), turnspeed1 * Time.deltaTime);
+                     transform.Rotate(new Vector3(0, -1, 0), turnspeed1 * Time.deltaTime); //if the player is turning right, rotate camera to the left
 
-                   // transform.rotation = Quaternion.Lerp(this.transform.localRotation, Quaternion.Euler(transform.rotation.x, 1f, transform.rotation.z), Time.deltaTime * turnspeed1);
+                    // transform.rotation = Quaternion.Lerp(this.transform.localRotation, Quaternion.Euler(transform.rotation.x, 1f, transform.rotation.z), Time.deltaTime * turnspeed1);
 
                 }
                 else if (this.transform.localRotation.y > -0.10)
@@ -75,7 +82,7 @@ public class cameraturn : MonoBehaviour
 
         }
 
-        if (Input.GetKeyUp(KeyCode.D))
+        if (Input.GetKeyUp(rightKey))
         {
             center = true;
           //  Debug.Log("1");
@@ -84,9 +91,9 @@ public class cameraturn : MonoBehaviour
 
 
 
-        if (center == true)
+        if (center == true)  
         {
-            if (this.transform.localRotation.y > 0)
+            if (this.transform.localRotation.y > 0) //turns the camera back to center after releasing left and right
             {
                 transform.Rotate(new Vector3(0, -1, 0), turnspeed2 * Time.deltaTime);
                 left = true;
