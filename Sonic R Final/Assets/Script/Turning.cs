@@ -21,8 +21,8 @@ public class Turning : MonoBehaviour {
     public float timePeriod;
 
     [Header("Button Settings")]
-    [SerializeField] private KeyCode leftKey;
-    [SerializeField] private KeyCode rightKey;
+     public KeyCode leftKey;
+     public KeyCode rightKey;
 
     void Start() {
         rotation = gameObject.transform.rotation.y;

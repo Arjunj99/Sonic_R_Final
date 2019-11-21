@@ -28,7 +28,7 @@ public class ReverseCheck : MonoBehaviour
     {
         
 
-        text = GameObject.Find("Text").GetComponent<Text>();
+        text = GameObject.Find("Text").GetComponent<Text>(); //updates UI text
         text.GetComponent<Text>().enabled = false;
     }
 
@@ -43,15 +43,11 @@ public class ReverseCheck : MonoBehaviour
                 Debug.Log(lastDist);
                 // Debug.Log(lastDist);
 
-                //   lastDistMax = false;
+             
 
-                // lastDist = Vector3.Distance(mark1.transform.position, mark2.transform.position); //set initial distance
-
-                //lastDist = Vector3.Distance(this.transform.position, mark2.transform.position);
-
-                if (lastDistMax == true)
+                if (lastDistMax == true)//reset lastDist so there won't be one frame of "REVERSE" appearing
             {
-                lastDist = Mathf.Sqrt(Mathf.Pow(Mathf.Abs(this.transform.position.x - mark2.transform.position.x), 2f) + Mathf.Pow(Mathf.Abs(this.transform.position.z - mark2.transform.position.z), 2f)); //reset lastDist so there won't be one frame of "REVERSE" appearing
+                lastDist = Mathf.Sqrt(Mathf.Pow(Mathf.Abs(this.transform.position.x - mark2.transform.position.x), 2f) + Mathf.Pow(Mathf.Abs(this.transform.position.z - mark2.transform.position.z), 2f)); //use pythagorean theorem to calculate distance that disregards y axis  
 
                 lastDistMax = false;
             }
@@ -73,13 +69,13 @@ public class ReverseCheck : MonoBehaviour
         }
 
 
-        if (passedM2 == true) //offtrack vs reverse
+        if (passedM2 == true) 
         {
             Debug.Log(lastDist);
             //  lastDistMax = false;
-            if (lastDistMax == true)
+            if (lastDistMax == true)//reset lastDist so there won't be one frame of "REVERSE" appearing
             {
-                lastDist = Mathf.Sqrt(Mathf.Pow(Mathf.Abs(this.transform.position.x - mark3.transform.position.x), 2f) + Mathf.Pow(Mathf.Abs(this.transform.position.z - mark3.transform.position.z), 2f)); //reset lastDist so there won't be one frame of "REVERSE" appearing
+                lastDist = Mathf.Sqrt(Mathf.Pow(Mathf.Abs(this.transform.position.x - mark3.transform.position.x), 2f) + Mathf.Pow(Mathf.Abs(this.transform.position.z - mark3.transform.position.z), 2f)); 
                 lastDistMax = false;
             }
             //lastDist = Vector3.Distance(this.transform.position, mark2.transform.position);
