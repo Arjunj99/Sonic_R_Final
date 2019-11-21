@@ -8,6 +8,14 @@ TagManager:
   - Road
   - Ring
   - Wall
+  - Water
+  - Grass
+  - Token5
+  - Token10
+  - Token20
+  - Sand
+  - Aqua
+  - SpeedBoost
   layers:
   - Default
   - TransparentFX

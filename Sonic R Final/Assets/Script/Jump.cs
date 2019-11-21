@@ -16,6 +16,8 @@ public class Jump : MonoBehaviour {
     private int jumps = 2;
     private bool grounded = false;
 
+    private bool inAir;
+
 
 
     private bool jump1;
@@ -92,16 +94,18 @@ public class Jump : MonoBehaviour {
 
     void OnCollisionEnter(Collision collide) {
         jumps = 2;
+        inAir = false;
 
-        if (collide.gameObject.tag == "Track" || collide.gameObject.tag == "Grass" || collide.gameObject.tag == "Sand" || collide.gameObject.tag == "Water") {
-            isJump = false;
-        }
+        // if (collide.gameObject.tag == "Track" || collide.gameObject.tag == "Grass" || collide.gameObject.tag == "Sand" || collide.gameObject.tag == "Water") {
+        //     isJump = false;
+        // }
     }
     
     void OnCollisionExit(Collision collide) {
-        if (collide.gameObject.tag == "Track" || collide.gameObject.tag == "Grass" || collide.gameObject.tag == "Sand" || collide.gameObject.tag == "Water") {
-            isJump = true;
-        }
+        inAir = true;
+        // if (collide.gameObject.tag == "Track" || collide.gameObject.tag == "Grass" || collide.gameObject.tag == "Sand" || collide.gameObject.tag == "Water") {
+        //     isJump = true;
+        // }
     }
 
     

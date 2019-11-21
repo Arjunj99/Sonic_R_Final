@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class Movement : MonoBehaviour {
     [Header("Max Speeds (Surfaces)")]
-    [SerializeField] private List<float> surfaceSpeeds = new List<float>();
+    [SerializeField] public List<float> surfaceSpeeds = new List<float>();
     [HideInInspector] public enum trackType {track, sand, grass, water};
     public trackType currentSurfaceType;
     [HideInInspector] public float currentVelocity;
@@ -19,34 +19,35 @@ public class Movement : MonoBehaviour {
     [Header("Button Settings")]
     [SerializeField] private KeyCode forwardKey;
     [SerializeField] private KeyCode brakeKey;
+    private Jump jump;
 
     private Rigidbody rb;
+    private bool inAir;
 
 
     // Start is called before the first frame update
     void Start() {
         rb = gameObject.GetComponent<Rigidbody>();
+        
     }
 
     // Update is called once per frame
     void Update() {
         maxVelocity = Mathf.Lerp(maxVelocity, surfaceSpeeds[(int) currentSurfaceType], Time.deltaTime * velocitySmooth);
-        
-<<<<<<< HEAD
-=======
- 
->>>>>>> e39278badb87b33ad3815cb762395d1ca49eb38e
-        if (Input.GetKey(forwardKey) && currentTime < 1f) {
-            currentTime += Time.deltaTime / 2;
-        } else if (Input.GetKey(forwardKey) && currentTime >= 1f) {
-            currentTime = 1f;
+        if (!inAir) {
+            if (Input.GetKey(forwardKey) && currentTime < 1f) {
+                currentTime += Time.deltaTime / 2;
+            } else if (Input.GetKey(forwardKey) && currentTime >= 1f) {
+                currentTime = 1f;
+            }
+            
+            if (Input.GetKey(brakeKey) && currentTime > 0f) {
+                currentTime -= Time.deltaTime / 2;
+            } else if (Input.GetKey(brakeKey) && currentTime <= 0f) {
+                currentTime = 0f;
+            }
         }
         
-        if (Input.GetKey(brakeKey) && currentTime > 0f) {
-            currentTime -= Time.deltaTime / 2;
-        } else if (Input.GetKey(brakeKey) && currentTime <= 0f) {
-            currentTime = 0f;
-        }
 
         if (currentTime > 0f && !Input.GetKey(forwardKey)) {
             currentTime = Mathf.Lerp(currentTime, 0f, 0.4f);
@@ -66,5 +67,10 @@ public class Movement : MonoBehaviour {
             currentTime = Mathf.Lerp(currentTime, 0f, 10f * Time.deltaTime);
             Debug.Log("Hitting Wall");
         }
+        inAir = false;
+    }
+    
+    void OnCollisionExit(Collision collide) {
+        inAir = true;
     }
 }

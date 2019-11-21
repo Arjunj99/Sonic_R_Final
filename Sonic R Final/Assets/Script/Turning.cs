@@ -91,7 +91,7 @@ public class Turning : MonoBehaviour {
 
 
 
-        gameObject.transform.rotation = Quaternion.Slerp(gameObject.transform.rotation, Quaternion.Euler(normalOrientation + new Vector3(0,rotation,0)), 0.5f);
+        gameObject.transform.rotation = Quaternion.Slerp(gameObject.transform.rotation, Quaternion.Euler(normalOrientation + new Vector3(0,rotation,0)), 0.2f);
 
         // Debug.Log("normal orientation: " + normalOrientation);
         // if (normalOrientation.magnitude > 0.5f){
