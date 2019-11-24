@@ -284,7 +284,6 @@ MonoBehaviour:
   maxDistance: 4
   smooth: 10
   playerDir: {x: 0, y: 0, z: 0}
-  playerDirAdjusted: {x: 0, y: 0, z: 0}
   distance: 0
   player: {fileID: 2113966584}
 --- !u!114 &69888249
@@ -304,6 +303,7 @@ MonoBehaviour:
   right: 1
   turnspeed1: 15
   turnspeed2: 10
+  turnscript: {fileID: 2113966587}
 --- !u!1 &924950724
 GameObject:
   m_ObjectHideFlags: 0
@@ -1788,6 +1788,7 @@ MonoBehaviour:
   currentVelocity: 0
   maxVelocity: 0
   currentTime: 0
+  timePeriod: 2
   velocitySmooth: 5
   velocityCurve:
     serializedVersion: 2
@@ -1847,6 +1848,9 @@ MonoBehaviour:
   turnMaxSpeed: 3
   turnLerp: 4
   turnSpeed: 0
+  normalOrientation: {x: 0, y: 0, z: 0}
+  rotation: 0
+  turnModifier: 1
   rotationCurve:
     serializedVersion: 2
     m_Curve:
@@ -1883,7 +1887,6 @@ MonoBehaviour:
   timePeriod: 1
   leftKey: 97
   rightKey: 100
-  hinge: {fileID: 2113966580}
 --- !u!114 &2113966588
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1913,6 +1916,7 @@ MonoBehaviour:
   mark1: {fileID: 45137111}
   mark2: {fileID: 1528932596}
   mark3: {fileID: 1369880696}
+  onRoad: 1
   passedM1: 0
   passedM2: 0
   passedMx: 0

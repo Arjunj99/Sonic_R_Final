@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657838, g: 0.49641234, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -857,6 +857,7 @@ MonoBehaviour:
   right: 1
   turnspeed1: 15
   turnspeed2: 10
+  turnscript: {fileID: 0}
 --- !u!114 &138127409
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -873,7 +874,6 @@ MonoBehaviour:
   maxDistance: 4
   smooth: 10
   playerDir: {x: 0, y: 0, z: 0}
-  playerDirAdjusted: {x: 0, y: 0, z: 0}
   distance: 0
   player: {fileID: 260804981}
 --- !u!114 &138127410
@@ -4081,8 +4081,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 657115325}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 16.79}
-  m_LocalScale: {x: 10, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 14.3}
+  m_LocalScale: {x: 100, y: 5, z: 1}
   m_Children: []
   m_Father: {fileID: 870040957}
   m_RootOrder: 0
@@ -4810,13 +4810,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 815379250}
-  m_LocalRotation: {x: -0, y: 0.6084878, z: -0, w: 0.7935633}
-  m_LocalPosition: {x: 48.6, y: 0, z: 4.42}
-  m_LocalScale: {x: 10, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: 0.9335763, z: -0, w: 0.35837865}
+  m_LocalPosition: {x: 184.9, y: 0, z: -200.2}
+  m_LocalScale: {x: 100, y: 5, z: 100}
   m_Children: []
   m_Father: {fileID: 1602834172}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 74.96001, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 137.99901, z: 0}
 --- !u!65 &815379252
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6402,7 +6402,6 @@ MonoBehaviour:
   maxDistance: 4
   smooth: 10
   playerDir: {x: 0, y: 0, z: 0}
-  playerDirAdjusted: {x: 0, y: 0, z: 0}
   distance: 0
   player: {fileID: 1588654371}
 --- !u!114 &1071497288
@@ -6422,6 +6421,7 @@ MonoBehaviour:
   right: 1
   turnspeed1: 15
   turnspeed2: 10
+  turnscript: {fileID: 0}
 --- !u!1 &1074994820
 GameObject:
   m_ObjectHideFlags: 0
@@ -6644,6 +6644,8 @@ GameObject:
   - component: {fileID: 1133224313}
   - component: {fileID: 1133224312}
   - component: {fileID: 1133224311}
+  - component: {fileID: 1133224322}
+  - component: {fileID: 1133224323}
   m_Layer: 0
   m_Name: Player1
   m_TagString: Untagged
@@ -6893,6 +6895,48 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1133224322
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1133224310}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8862756058ee09349b556cca163e977a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mark1: {fileID: 870040956}
+  mark2: {fileID: 111055897}
+  mark3: {fileID: 1602834171}
+  onRoad: 1
+  passedM1: 0
+  passedM2: 0
+  passedMx: 0
+  reverse: 0
+  lastDistMax: 1
+  lastDist: 0
+  text: {fileID: 1794233830}
+--- !u!114 &1133224323
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1133224310}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 028a673b6d0667f45b7a8ddc67dfc8a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mark1: {fileID: 870040956}
+  mark2: {fileID: 111055897}
+  mark3: {fileID: 1602834171}
+  lapNum: 0
+  passed1: 0
+  passed2: 0
+  passed3: 0
 --- !u!1 &1136070480
 GameObject:
   m_ObjectHideFlags: 0
@@ -8135,7 +8179,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1453683810}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9bd3dd0a36c0c7e4aad67d64d009c0b1, type: 3}
   m_Name: 
@@ -8145,6 +8189,7 @@ MonoBehaviour:
   right: 1
   turnspeed1: 15
   turnspeed2: 10
+  turnscript: {fileID: 1133224317}
 --- !u!114 &1453683813
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8161,7 +8206,6 @@ MonoBehaviour:
   maxDistance: 4
   smooth: 10
   playerDir: {x: 0, y: 0, z: 0}
-  playerDirAdjusted: {x: 0, y: 0, z: 0}
   distance: 0
   player: {fileID: 260804981}
 --- !u!114 &1453683814
@@ -9934,7 +9978,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 180}
+  m_AnchoredPosition: {x: 0, y: -50}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &1803342206
@@ -10436,6 +10480,7 @@ MonoBehaviour:
   right: 1
   turnspeed1: 15
   turnspeed2: 10
+  turnscript: {fileID: 0}
 --- !u!114 &1865920810
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10452,7 +10497,6 @@ MonoBehaviour:
   maxDistance: 4
   smooth: 10
   playerDir: {x: 0, y: 0, z: 0}
-  playerDirAdjusted: {x: 0, y: 0, z: 0}
   distance: 0
   player: {fileID: 260804981}
 --- !u!114 &1865920811
@@ -11575,8 +11619,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2108594970}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.4, y: 0, z: 0}
-  m_LocalScale: {x: 10, y: 1, z: 1}
+  m_LocalPosition: {x: 103, y: 0, z: -16.4}
+  m_LocalScale: {x: 100, y: 5, z: 100}
   m_Children: []
   m_Father: {fileID: 111055898}
   m_RootOrder: 0
