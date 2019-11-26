@@ -25,7 +25,7 @@ public class Laps : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(lapNum);
+        Debug.Log("Lap: "+lapNum);
     }
 
     private void OnTriggerEnter(Collider collision)
