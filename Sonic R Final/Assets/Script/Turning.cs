@@ -19,6 +19,7 @@ public class Turning : MonoBehaviour {
     public AnimationCurve rotationCurve;
     private float currentTime;
     public float timePeriod;
+    public Vector3 normalVector;
 
     [Header("Button Settings")]
      public KeyCode leftKey;
@@ -45,7 +46,7 @@ public class Turning : MonoBehaviour {
 
         rotation += rotationCurve.Evaluate(currentTime) * turnModifier;
 
-        gameObject.transform.rotation = Quaternion.Slerp(gameObject.transform.rotation, Quaternion.Euler(normalOrientation + new Vector3(0,rotation,0)), 0.2f);
+        gameObject.transform.rotation = Quaternion.Slerp(gameObject.transform.rotation, Quaternion.Euler(normalOrientation + normalVector*rotation), 1f);
 
         currentTime = Mathf.Lerp(currentTime, 0.5f, Time.deltaTime * 3);
     }
