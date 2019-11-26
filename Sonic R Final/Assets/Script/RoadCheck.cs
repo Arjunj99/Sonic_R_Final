@@ -46,8 +46,9 @@ public class RoadCheck : MonoBehaviour {
         Debug.DrawRay(this.transform.position, -this.transform.up, Color.green, normalReorientationDistance);
 
         if (Physics.Raycast(groundCheck, out groundHit, normalReorientationDistance) && groundHit.collider.gameObject.layer == 8) {
-            planeNormal = Quaternion.ToEulerAngles(Quaternion.FromToRotation(Vector3.up, groundHit.normal)) * Mathf.Rad2Deg;
+            planeNormal = Quaternion.ToEulerAngles(Quaternion.FromToRotation(this.transform.up, groundHit.normal)) * Mathf.Rad2Deg;
             turning.normalOrientation = planeNormal;
+            turning.normalVector = groundHit.normal;
             Debug.Log(planeNormal);
         }
 
