@@ -66,7 +66,7 @@ public class cameraturn : MonoBehaviour
         }
         if (Input.GetKey(rightKey))
         {
-            Debug.Log("2");
+            //Debug.Log("2");
             center = false;
             if (right == true)
             {

@@ -32,11 +32,24 @@ public class Laps : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log("Lap: "+lapNum);
+        //  Debug.Log("Lap: "+lapNum);
 
-        Debug.Log("Mark:"+mark);
+        //  Debug.Log("Mark:"+mark);
 
-        Debug.Log("Distance: " +  distanceToNext);
+        // Debug.Log("Distance: " +  distanceToNext);
+
+        if (mark == 1)
+        {
+            distanceToNext = Vector3.Distance(this.transform.position, mark2.transform.position);
+        }
+        else if (mark == 2)
+        {
+            distanceToNext = Vector3.Distance(this.transform.position, mark3.transform.position);
+        }
+        else if (mark == 3)
+        {
+            distanceToNext = Vector3.Distance(this.transform.position, mark1.transform.position);
+        }
     }
 
     private void OnTriggerEnter(Collider collision)
@@ -47,7 +60,7 @@ public class Laps : MonoBehaviour
 
             mark = 1;
 
-            distanceToNext= Vector3.Distance(this.transform.position, mark2.transform.position);
+           
 
             if (passed3 == true)
             {
@@ -59,7 +72,7 @@ public class Laps : MonoBehaviour
 
         if (collision.gameObject.name == "Cube2")
         {
-            distanceToNext = Vector3.Distance(this.transform.position, mark3.transform.position);
+            
             mark = 2;
             if (passed1 == true)
             {
@@ -71,7 +84,7 @@ public class Laps : MonoBehaviour
 
         if (collision.gameObject.name == "Cube3")
         {
-            distanceToNext = Vector3.Distance(this.transform.position, mark1.transform.position);
+           
             mark = 3;
             if (passed2 == true)
             {

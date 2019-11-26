@@ -35,6 +35,8 @@ public class Position : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Debug.Log(distance1);
+
         if (lapNum1 > lapNum2)
         {
             player1Infront = true;
