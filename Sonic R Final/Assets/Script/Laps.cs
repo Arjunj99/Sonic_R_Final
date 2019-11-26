@@ -10,7 +10,7 @@ public class Laps : MonoBehaviour
     public GameObject mark3;
 
     public int lapNum;
-    public float markNum;
+   // public float markNum;
 
     public int mark;
 
@@ -33,6 +33,10 @@ public class Laps : MonoBehaviour
     void Update()
     {
         Debug.Log("Lap: "+lapNum);
+
+        Debug.Log("Mark:"+mark);
+
+        Debug.Log("Distance: " +  distanceToNext);
     }
 
     private void OnTriggerEnter(Collider collision)

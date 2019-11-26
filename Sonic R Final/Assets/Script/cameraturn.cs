@@ -32,7 +32,7 @@ public class cameraturn : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log("rotation: "+this.transform.localRotation.y);
+    //    Debug.Log("rotation: "+this.transform.localRotation.y);
         //curPos = this.transform.position;
         //  Debug.Log(this.transform.eulerAngles.y);
         //  Debug.Log(this.transform.localRotation.y);

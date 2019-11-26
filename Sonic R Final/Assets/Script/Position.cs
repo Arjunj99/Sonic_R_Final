@@ -15,8 +15,8 @@ public class Position : MonoBehaviour
     public int lapNum2;
     public float distance1;
     public float distance2;
-    public float mark1;
-    public float mark2;
+    public int mark1;
+    public int mark2;
 
 
 
