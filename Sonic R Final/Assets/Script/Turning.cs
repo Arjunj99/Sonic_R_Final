@@ -46,8 +46,26 @@ public class Turning : MonoBehaviour {
 
         rotation += rotationCurve.Evaluate(currentTime) * turnModifier;
 
-        gameObject.transform.rotation = Quaternion.Slerp(gameObject.transform.rotation, Quaternion.Euler(normalOrientation + normalVector*rotation), 1f);
+        // gameObject.transform.Rotate(rotation);
 
+        // Ray groundCheck = new Ray(this.transform.position, -this.transform.up);
+        
+        
+        // Quaternion planeNormal;
+        // RaycastHit groundHit;
+
+        // Debug.DrawRay(this.transform.position, -this.transform.up, Color.green, 2f);
+
+        // if (Physics.Raycast(groundCheck, out groundHit, 2f)) {
+        //     planeNormal = Quaternion.FromToRotation(this.transform.up, groundHit.normal);
+        //     this.transform.rotation = planeNormal;
+        // }
+
+        gameObject.transform.Rotate(new Vector3(0,rotation,0));
+
+        // gameObject.transform.rotation = Quaternion.Slerp(gameObject.transform.rotation, Quaternion.Euler(normalVector*rotation), 1f);
+
+        rotation = Mathf.Lerp(rotation, 0f, Time.deltaTime * 9);
         currentTime = Mathf.Lerp(currentTime, 0.5f, Time.deltaTime * 3);
     }
 }

@@ -22,17 +22,22 @@ public class Movement : MonoBehaviour {
     public float velocitySmooth; // The value used to lerp between speeds
     public AnimationCurve velocityCurve; // Animation Curve used to shape acceleration
     private Rigidbody rb;
+    private CharacterController cc;
     private bool inAir; // If the GameObject is in the Air
 
     [Header("Button Settings")]
     [SerializeField] private KeyCode forwardKey; // Key for going forward
     [SerializeField] private KeyCode brakeKey; // Key for braking
 
+    Vector3 moveDirection;
+    public float jumpSpeed;
+    public float gravity;
 
 
     // Start is called before the first frame update
     void Start() {
-        rb = gameObject.GetComponent<Rigidbody>();
+        // rb = gameObject.GetComponent<Rigidbody>();
+        cc = gameObject.GetComponent<CharacterController>();
         
     }
 
@@ -54,6 +59,12 @@ public class Movement : MonoBehaviour {
             } else if (Input.GetKey(brakeKey) && currentTime <= 0f) {
                 currentTime = 0f;
             }
+            Debug.Log("GROUNDED");
+
+            if (Input.GetKeyDown(KeyCode.Space)) {
+                Debug.Log("JUMP");
+                moveDirection.y = jumpSpeed;
+            }
         }
         
         if (currentTime > 0f && !Input.GetKey(forwardKey)) { // If the forward key isn't being pressed, deacceleration is applied.
@@ -63,11 +74,20 @@ public class Movement : MonoBehaviour {
         }
 
         currentVelocity = maxVelocity * velocityCurve.Evaluate(currentTime); // The current velocity is based on a point in the animation curve based on time.
+        moveDirection = currentVelocity * gameObject.transform.forward;
+        Debug.Log("MOVING:" + moveDirection);
+
+        moveDirection.y -= gravity * Time.deltaTime;
+
+        cc.Move(moveDirection * Time.deltaTime);
 
 
         // Set Velocity based on Current Velocity
-        rb.velocity = Vector3.Lerp(rb.velocity, gameObject.transform.forward * currentVelocity, Time.deltaTime * velocitySmooth);
-        rb.angularVelocity = Vector3.zero;
+        // cc
+
+
+        // rb.velocity = Vector3.Lerp(rb.velocity, gameObject.transform.forward * currentVelocity, Time.deltaTime * velocitySmooth);
+        // rb.angularVelocity = Vector3.zero;
     }
 
     void OnCollisionEnter(Collision collision) {

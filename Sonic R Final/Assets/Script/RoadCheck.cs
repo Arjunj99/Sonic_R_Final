@@ -40,17 +40,17 @@ public class RoadCheck : MonoBehaviour {
             movement.currentSurfaceType = Movement.trackType.water;
         }
 
-        // Checks Road for Normal Vector and sets player X rotation accordingly
-        Ray groundCheck = new Ray(this.transform.position, -this.transform.up);
-        RaycastHit groundHit;
-        Debug.DrawRay(this.transform.position, -this.transform.up, Color.green, normalReorientationDistance);
+        // // Checks Road for Normal Vector and sets player X rotation accordingly
+        // Ray groundCheck = new Ray(this.transform.position, -this.transform.up);
+        // RaycastHit groundHit;
+        // Debug.DrawRay(this.transform.position, -this.transform.up, Color.green, normalReorientationDistance);
 
-        if (Physics.Raycast(groundCheck, out groundHit, normalReorientationDistance) && groundHit.collider.gameObject.layer == 8) {
-            planeNormal = Quaternion.ToEulerAngles(Quaternion.FromToRotation(this.transform.up, groundHit.normal)) * Mathf.Rad2Deg;
-            turning.normalOrientation = planeNormal;
-            turning.normalVector = groundHit.normal;
-            Debug.Log(planeNormal);
-        }
+        // if (Physics.Raycast(groundCheck, out groundHit, normalReorientationDistance) && groundHit.collider.gameObject.layer == 8) {
+        //     planeNormal = Quaternion.ToEulerAngles(Quaternion.FromToRotation(this.transform.up, groundHit.normal)) * Mathf.Rad2Deg;
+        //     turning.normalOrientation = planeNormal;
+        //     turning.normalVector = groundHit.normal;
+        //     Debug.Log(planeNormal);
+        // }
 
         // Checks to see if Player is above road and sets onRoad boolean accordingly
         Ray onRoadCheck = new Ray(this.transform.position, this.transform.forward - this.transform.up);
