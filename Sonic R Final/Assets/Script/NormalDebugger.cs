@@ -30,7 +30,19 @@ public class NormalDebugger : MonoBehaviour
             rotation += 5f;
         }
         rotation = 1f;
-        this.transform.RotateAround(this.transform.position, this.transform.up, rotation);
+
+        Ray groundCheck = new Ray(this.transform.position, -this.transform.up);
+
+        if (Physics.Raycast(groundCheck, out groundHit, 2f)) {
+            planeNormal = Quaternion.FromToRotation(this.transform.up, groundHit.normal);
+            this.transform.rotation = planeNormal;
+        }
+
+        // this.transform.RotateAround(this.transform.position, this.transform.up, rotation);
+
+
+
+        
         //this.transform.Rotate(this.transform.up*rotation);
         //this.transform.rotation= Quaternion.Euler(this.transform.rotation.eulerAngles+groundHit.normal*rotation);
 

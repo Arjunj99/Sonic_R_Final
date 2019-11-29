@@ -16,33 +16,35 @@ public class Jump : MonoBehaviour {
 
     [Header("Button Settings")]
     public KeyCode jumpButton;
+    private CharacterController cc;
 
     // Start is called before the first frame update
     void Start() {
-        rb = gameObject.GetComponent<Rigidbody>();
+        // rb = gameObject.GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
     void Update() {
-        if (Input.GetKeyDown(jumpButton)) {
-            JumpAction();
-        }
+
+        // if (Input.GetKeyDown(jumpButton)) {
+        //     JumpAction();
+        // }
     }
 
-    void OnCollisionEnter(Collision collide) {
-        jumps = 2; // Resets Jumps upon touching the Ground
-    }
+    // void OnCollisionEnter(Collision collide) {
+    //     jumps = 2; // Resets Jumps upon touching the Ground
+    // }
 
-    /// <summary>
-    /// Adds a vertical force to the GameObject if it meets Double Jump Requirements.
-    /// </summary>
-    void JumpAction() {
-        if (jumps > 0) {
-            rb.AddForce(gameObject.transform.up * jumpHeight, ForceMode.Impulse);
-            grounded = false;
-            jumps -= 1;
-        } if (jumps == 0) {
-            return;
-        }
-    }
+    // /// <summary>
+    // /// Adds a vertical force to the GameObject if it meets Double Jump Requirements.
+    // /// </summary>
+    // void JumpAction() {
+    //     if (jumps > 0) {
+    //         rb.AddForce(gameObject.transform.up * jumpHeight, ForceMode.Impulse);
+    //         grounded = false;
+    //         jumps -= 1;
+    //     } if (jumps == 0) {
+    //         return;
+    //     }
+    // }
 }
