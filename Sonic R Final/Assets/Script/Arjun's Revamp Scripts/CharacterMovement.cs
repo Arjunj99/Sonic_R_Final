@@ -12,11 +12,6 @@ public class CharacterMovement : MonoBehaviour {
     public string jumpButton;
     public float deadZone = 0.2f;
 
-    // public KeyCode jumpKey;
-    // public KeyCode forwardKey;
-    // public KeyCode brakeKey;
-    // public KeyCode rightKey;
-    // public KeyCode leftKey;
 
     [Header("Movement Curves")]
     public AnimationCurve forwardVelocity;
@@ -30,79 +25,23 @@ public class CharacterMovement : MonoBehaviour {
 
 
 
-    private Vector3 moveDirection;
+    private Vector3 moveDirection = Vector3.zero;
     public float jumpHeight;
     public float gravity;
     public float maxSpeed;
     public float turnSpeed;
     public float turnSmooth;
 
-    private int jumpsLeft = 2;
+    private int jumpsLeft = 1;
     
-
-    void Start() {
-        characterController = gameObject.GetComponent<CharacterController>();
+    void Start()
+    {
+        characterController = GetComponent<CharacterController>();
     }
 
     void Update() {
-        if (Input.GetKey(KeyCode.R))
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-
-        GroundedMovement();
-        inputAxis = new Vector2(Input.GetAxis(horizontalAxis), Input.GetAxis(verticalAxis));
-    }
-
-    /// <summary>
-    /// Allows the Player to Move
-    /// </summary>
-    private void GroundedMovement() {
-        if (this.characterController.isGrounded) { // What player can do when grounded
-            // jumpsLeft = 2; // Resets Double Jump (WONT WORK WITH MOUNTAIN)
-            Movement(); // Allows for movement while grounded
-            gravity = 9.81f;
-
-
-            if (Input.GetButton(jumpButton)) {
-                moveDirection.y = jumpHeight;
-            }
-            
-        } else { // What player can do in the air
-            // gravity += gravity * Time.deltaTime;
-        }
-
-        rotation = new Vector3(0f, Input.GetAxis(horizontalAxis), 0f);
-        rotation *= turnSpeed;
-        Debug.Log("Horizontal:" + rotation);
-
-        // Apply gravity
-        moveDirection.y -= gravity * Time.deltaTime;
-
-        moveDirection = gameObject.transform.forward * forwardVelocity.Evaluate(forwardT) * maxSpeed;
-
-        moveDirection.y -= gravity;
-
-        // Move the controller
-        characterController.Move(moveDirection * Time.deltaTime);
-        characterController.transform.Rotate(rotation);
-
-        
-
-        // gameObject.transform.Rotate(new Vector3(0f, angularVelocity.Evaluate(angularT) * turnSpeed, 0f));
-
-        
-         // Adds effect of gravity to the player
-
-        // Debug.Log("MOVE DIRECTION: " + moveDirection);
-        
-        // Turn();
-        
-        // characterController.Move(moveDirection * Time.deltaTime);
-        // Debug.Log(moveDirection);
-    }
-
-
-    private void Movement() {
-        if (inputAxis.y > deadZone && forwardT < 1f) {
+        if (characterController.isGrounded) {
+            if (inputAxis.y > deadZone && forwardT < 1f) {
                 forwardT += (Time.deltaTime / forwardTimePeriod);
             } else if (inputAxis.y > deadZone && forwardT > 1f) {
                 forwardT = 1f;
@@ -115,5 +54,141 @@ public class CharacterMovement : MonoBehaviour {
             } else {
                 forwardT = 0;
             }
+            moveDirection = gameObject.transform.forward * forwardVelocity.Evaluate(forwardT) * maxSpeed;
+
+
+            if (Input.GetButton("Jump")) {
+                moveDirection.y = jumpHeight;
+            }
+            // jumpsLeft = 1;
+        } else {
+            if (jumpsLeft > 0 && Input.GetButtonDown(jumpButton)) {
+                moveDirection.y = jumpHeight;
+                jumpsLeft--;
+            }
+        }
+
+        
+        rotation = new Vector3(0f, Input.GetAxis(horizontalAxis), 0f);
+        rotation *= turnSpeed;
+        // Debug.Log("Horizontal:" + rotation);
+
+        // Apply gravity
+        moveDirection.y -= gravity * Time.deltaTime;
+
+        // Move the controller
+        characterController.Move(moveDirection * Time.deltaTime);
+        characterController.transform.Rotate(rotation);
+    
+
+
+        if (Input.GetKey(KeyCode.R))
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+
+        inputAxis = new Vector2(Input.GetAxis(horizontalAxis), Input.GetAxis(verticalAxis));
+    
+
+        float trackTypeDistance = 4f;
+
+        Ray roadCheck = new Ray(this.transform.position, Vector3.down);
+        RaycastHit roadTypeHit;
+        Debug.DrawRay(this.transform.position, Vector3.down, Color.cyan, trackTypeDistance);
+
+        if (Physics.Raycast(roadCheck, out roadTypeHit, trackTypeDistance) && roadTypeHit.collider.tag.Equals("Road")) {
+            maxSpeed = 40f;
+            Debug.Log("ROAD");
+        } else if (Physics.Raycast(roadCheck, out roadTypeHit, trackTypeDistance) && roadTypeHit.collider.tag.Equals("Sand")) {
+            maxSpeed = 30f;
+            Debug.Log("SAND");
+        } else if (Physics.Raycast(roadCheck, out roadTypeHit, trackTypeDistance) && roadTypeHit.collider.tag.Equals("Grass")) {
+            maxSpeed = 25f;
+            Debug.Log("GRASS");
+        } else if (Physics.Raycast(roadCheck, out roadTypeHit, trackTypeDistance) && roadTypeHit.collider.tag.Equals("Water")) {
+            maxSpeed = 15f;
+            Debug.Log("WATER");
+        }
+
+    }
+
+    void OnControllerColliderHit(ControllerColliderHit hit)
+    {
+        if (hit.gameObject.layer == 8) {
+            jumpsLeft = 1;
+        }
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//     void Start() {
+//         characterController = gameObject.GetComponent<CharacterController>();
+//     }
+
+//     void Update() {
+//         if (Input.GetKey(KeyCode.R))
+//             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+
+//         GroundedMovement();
+//         inputAxis = new Vector2(Input.GetAxis(horizontalAxis), Input.GetAxis(verticalAxis));
+//     }
+
+//     /// <summary>
+//     /// Allows the Player to Move
+//     /// </summary>
+//     private void GroundedMovement() {
+//         if (this.characterController.isGrounded) { // What player can do when grounded
+//             Movement(); // Allows for movement while grounded
+
+//             if (Input.GetButton(jumpButton)) {
+//                 moveDirection.y = jumpHeight;
+//             }
+            
+//             gravity = 10f;
+//         } else {
+//             gravity += 10f;
+//         }
+
+//         rotation = new Vector3(0f, Input.GetAxis(horizontalAxis), 0f);
+//         rotation *= turnSpeed;
+
+//         moveDirection = gameObject.transform.forward * forwardVelocity.Evaluate(forwardT) * maxSpeed;
+
+//         moveDirection.y -= gravity * Time.deltaTime;
+
+//         // Move the controller
+//         characterController.Move(moveDirection * Time.deltaTime);
+//         characterController.transform.Rotate(rotation);
+//     }
+
+
+//     private void Movement() {
+//         if (inputAxis.y > deadZone && forwardT < 1f) {
+//                 forwardT += (Time.deltaTime / forwardTimePeriod);
+//             } else if (inputAxis.y > deadZone && forwardT > 1f) {
+//                 forwardT = 1f;
+//             } else if (inputAxis.y < -deadZone && forwardT > 0) {
+//                 forwardT -= (Time.deltaTime * 5 / forwardTimePeriod);
+//             } else if (inputAxis.y < -deadZone && forwardT < 0) {
+//                 forwardT = 0;
+//             } else if (forwardT > 0) {
+//                 forwardT -= (Time.deltaTime * 2 / forwardTimePeriod);
+//             } else {
+//                 forwardT = 0;
+//             }
+//     }
+// }
