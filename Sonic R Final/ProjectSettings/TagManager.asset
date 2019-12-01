@@ -16,6 +16,7 @@ TagManager:
   - Sand
   - Aqua
   - SpeedBoost
+  - Squid
   layers:
   - Default
   - TransparentFX
