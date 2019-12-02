@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Laps : MonoBehaviour
 {
@@ -18,15 +19,19 @@ public class Laps : MonoBehaviour
     public bool passed2 = false;
     public bool passed3 = false;
 
+    public bool reverse = false;
+
     public float distanceToNext;
 
-    
+    public Text lapsText;
+    //public Text reverseText;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        
+       // reverseText = GameObject.Find("Reverse").GetComponent<Text>(); //updates UI text
+        //reverseText.GetComponent<Text>().enabled = false;
     }
 
     // Update is called once per frame
@@ -37,6 +42,11 @@ public class Laps : MonoBehaviour
         //  Debug.Log("Mark:"+mark);
 
         // Debug.Log("Distance: " +  distanceToNext);
+        if (lapNum == 5) //after 5 laps the player wins
+        {
+            GetComponent<CharacterMovement>().enabled = false;
+        }
+
 
         if (mark == 1)
         {
@@ -67,6 +77,11 @@ public class Laps : MonoBehaviour
                 lapNum++;
                 passed2 = false;
                 passed3 = false;
+                reverse = false;
+            }
+            else if (passed2 == false)
+            {
+               // reverse = true;
             }
         }
 
@@ -79,6 +94,11 @@ public class Laps : MonoBehaviour
                 passed2 = true;
                 passed1 = false;
                 passed3 = false;
+                reverse = false;
+            }
+            else if (passed1 == false)
+            {
+                //reverse = true;
             }
         }
 
@@ -91,8 +111,15 @@ public class Laps : MonoBehaviour
                 passed3 = true;
                 passed1 = false;
                 passed2 = false;
+                reverse = false;
+            }
+            else if (passed2 == false)
+            {
+                //reverse = true;
             }
         }
+
+       
     }
 
     }
