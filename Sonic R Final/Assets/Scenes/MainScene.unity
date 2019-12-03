@@ -3480,7 +3480,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 556766932}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -4695,7 +4695,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 722728583}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -6453,8 +6453,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1105781319}
   m_LocalRotation: {x: -0, y: -0.20676754, z: -0, w: 0.9783901}
-  m_LocalPosition: {x: 21, y: 0, z: -154}
-  m_LocalScale: {x: 150, y: 100, z: 1}
+  m_LocalPosition: {x: 76.897, y: 0, z: -129.27}
+  m_LocalScale: {x: 283.16998, y: 100, z: 1}
   m_Children:
   - {fileID: 1606867948}
   m_Father: {fileID: 0}
@@ -9051,7 +9051,7 @@ Transform:
   m_GameObject: {fileID: 1606867947}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.459, y: 0, z: 0}
-  m_LocalScale: {x: 1.9583, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1105781320}
   m_RootOrder: 0
@@ -9076,7 +9076,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1606867947}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -9807,7 +9807,7 @@ GameObject:
   - component: {fileID: 1761620220}
   - component: {fileID: 1761620219}
   m_Layer: 0
-  m_Name: Cube2
+  m_Name: Cube2x
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9847,7 +9847,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1761620217}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -10242,14 +10242,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mark1: {fileID: 1277415137}
+  mark1x: {fileID: 1802875062}
   mark2: {fileID: 701739364}
+  mark2x: {fileID: 1545516443}
   mark3: {fileID: 1105781319}
   lapNum: 0
   mark: 0
   passed1: 0
+  passed1x: 0
   passed2: 0
+  passed2x: 0
   passed3: 0
-  reverse: 0
   distanceToNext: 0
   lapsText: {fileID: 0}
 --- !u!114 &1781440702
@@ -10481,7 +10484,7 @@ GameObject:
   - component: {fileID: 1902038193}
   - component: {fileID: 1902038192}
   m_Layer: 0
-  m_Name: Cube2
+  m_Name: Cube1x
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10521,7 +10524,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1902038190}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1

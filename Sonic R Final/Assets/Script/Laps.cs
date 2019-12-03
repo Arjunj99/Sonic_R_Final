@@ -7,7 +7,9 @@ public class Laps : MonoBehaviour
 {
 
     public GameObject mark1;
+    public GameObject mark1x;
     public GameObject mark2;
+    public GameObject mark2x;
     public GameObject mark3;
 
     public int lapNum;
@@ -16,10 +18,12 @@ public class Laps : MonoBehaviour
     public int mark;
 
     public bool passed1 = false;
+    public bool passed1x = false;
     public bool passed2 = false;
+    public bool passed2x = false;
     public bool passed3 = false;
 
-    public bool reverse = false;
+  //  public bool reverse = false;
 
     public float distanceToNext;
 
@@ -50,13 +54,21 @@ public class Laps : MonoBehaviour
 
         if (mark == 1)
         {
-            distanceToNext = Vector3.Distance(this.transform.position, mark2.transform.position);
+            distanceToNext = Vector3.Distance(this.transform.position, mark1x.transform.position);
         }
         else if (mark == 2)
         {
-            distanceToNext = Vector3.Distance(this.transform.position, mark3.transform.position);
+            distanceToNext = Vector3.Distance(this.transform.position, mark2.transform.position);
         }
         else if (mark == 3)
+        {
+            distanceToNext = Vector3.Distance(this.transform.position, mark2x.transform.position);
+        }
+        else if (mark == 4)
+        {
+            distanceToNext = Vector3.Distance(this.transform.position, mark3.transform.position);
+        }
+        else if (mark == 5)
         {
             distanceToNext = Vector3.Distance(this.transform.position, mark1.transform.position);
         }
@@ -75,51 +87,95 @@ public class Laps : MonoBehaviour
             if (passed3 == true)
             {
                 lapNum++;
+                passed1x = false;
                 passed2 = false;
+                passed2x = false;
                 passed3 = false;
-                reverse = false;
+               
+           
             }
-            else if (passed2 == false)
-            {
-               // reverse = true;
-            }
+            
         }
 
-        if (collision.gameObject.name == "Cube2")
+        if (collision.gameObject.name == "Cube1x")
         {
+          
             
             mark = 2;
             if (passed1 == true)
             {
-                passed2 = true;
+
+                
                 passed1 = false;
+                passed1x = true;
+                passed2 = false;
+                passed2x = false;
                 passed3 = false;
-                reverse = false;
+
             }
-            else if (passed1 == false)
-            {
-                //reverse = true;
-            }
+           
         }
 
-        if (collision.gameObject.name == "Cube3")
+        if (collision.gameObject.name == "Cube2")
         {
            
             mark = 3;
+            if (passed1x == true)
+            {
+                
+                passed1 = false;
+                passed1x = false;
+                passed2 = true;
+                passed2x = false;
+                passed3 = false;
+            
+            }
+           
+        }
+        if (collision.gameObject.name == "Cube2x")
+        {
+          
+            mark = 4;
+
+
+
             if (passed2 == true)
             {
-                passed3 = true;
+                passed1 = false;
+                passed1x = false;
+                passed2 = false;
+                passed2x = true;
+                passed3 = false;
+
+            }
+
+        }
+        if (collision.gameObject.name == "Cube3")
+        {
+           
+
+            mark = 5;
+
+
+
+            if (passed2x == true)
+            {
+              
+                passed1x = false;
                 passed1 = false;
                 passed2 = false;
-                reverse = false;
+                passed2x = false;
+                passed3 = true;
+               
+
             }
-            else if (passed2 == false)
-            {
-                //reverse = true;
-            }
+
         }
 
-       
+
+
+
+
     }
 
     }
