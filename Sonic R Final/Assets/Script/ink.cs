@@ -4,8 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 public class ink : MonoBehaviour
 {
-    public bool hasSquid=false;
-    public bool hasConfuse=false;
+    public bool hasSquid = false;
+    public bool hasConfuse = false;
     public Image ink1;
     public Image ink2;
     public Image ink3;
@@ -16,6 +16,8 @@ public class ink : MonoBehaviour
     public Image ink8;
     public Image ink9;
     public Image ink10;
+
+    public KeyCode useKey;
 
     // Start is called before the first frame update
     void Start()
@@ -36,7 +38,14 @@ public class ink : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       // ink.CrossFadeAlpha(1, 0f, false);
+        if (Input.GetKeyDown(useKey))
+        {
+            if (hasSquid == true)
+            {
+                StartCoroutine("InOut");
+            }
+        }
+
     }
 
     void OnTriggerEnter(Collider other)
@@ -45,20 +54,19 @@ public class ink : MonoBehaviour
         { // If GameObject picks up a ring, add 1 to the score.
             if (hasSquid == false)
             {
-                StartCoroutine("InOut");
+                // StartCoroutine("InOut");
                 Destroy(other.gameObject);
                 hasSquid = true;
             }
         }
+
        
+}
 
-      
-
-    }
     IEnumerator InOut()
     {
 
-       // Debug.Log("1");
+        // Debug.Log("1");
         StartCoroutine("FadeIn");
         yield return new WaitForSeconds(3f);
         StartCoroutine("FadeOut");
