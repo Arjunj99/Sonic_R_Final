@@ -14,8 +14,11 @@ public class cameraturn : MonoBehaviour
     private KeyCode rightKey;
     private KeyCode leftKey;
     
-    public Turning turnscript;
+    public CharacterMovement movementscript;
 
+
+    public Vector2 inputAxis;
+    public float deadZone;
    // public Vector3 curPos;    
    // public Vector3 lastPos;
 
@@ -23,20 +26,18 @@ public class cameraturn : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-       // turnscript = gameObject.GetComponent<Turning>();
-        rightKey = turnscript.rightKey;
-        leftKey = turnscript.leftKey;
+        
+       
 
     }
 
     // Update is called once per frame
     void Update()
     {
-    //    Debug.Log("rotation: "+this.transform.localRotation.y);
-        //curPos = this.transform.position;
-        //  Debug.Log(this.transform.eulerAngles.y);
-        //  Debug.Log(this.transform.localRotation.y);
-        if (Input.GetKey(leftKey))
+        inputAxis = movementscript.inputAxis;
+        deadZone = movementscript.deadZone;
+
+        if (inputAxis.x<-deadZone)
         {
             Debug.Log("1");
             center = false;
@@ -58,13 +59,13 @@ public class cameraturn : MonoBehaviour
             
         }
 
-        if (Input.GetKeyUp(leftKey))
+        if (inputAxis.x>-deadZone&&inputAxis.x<deadZone)
         {
             center = true;
           //  Debug.Log("1");
       
         }
-        if (Input.GetKey(rightKey))
+        if (inputAxis.x>deadZone)
         {
             //Debug.Log("2");
             center = false;
@@ -85,7 +86,7 @@ public class cameraturn : MonoBehaviour
 
         }
 
-        if (Input.GetKeyUp(rightKey))
+        if (inputAxis.x < deadZone && inputAxis.x > -deadZone)
         {
             center = true;
           //  Debug.Log("1");
