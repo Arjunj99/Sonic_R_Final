@@ -7551,8 +7551,8 @@ MonoBehaviour:
   left: 1
   center: 0
   right: 1
-  turnspeed1: 30
-  turnspeed2: 30
+  turnspeed1: 10
+  turnspeed2: 10
   movementscript: {fileID: 1781440693}
   inputAxis: {x: 0, y: 0}
   deadZone: 0
@@ -7563,7 +7563,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1261487744}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fbd787d9181a0ec4cabee4a656a874b2, type: 3}
   m_Name: 

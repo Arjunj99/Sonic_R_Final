@@ -16,6 +16,9 @@ public class Laps : MonoBehaviour
    // public float markNum;
 
     public int mark;
+    public int markTotal;
+
+    public bool firstLap = true;
 
     public bool passed1 = false;
     public bool passed1x = false;
@@ -82,18 +85,29 @@ public class Laps : MonoBehaviour
 
             mark = 1;
 
+            if (firstLap == true)
+            {
+                markTotal++;
+                firstLap = false;
+            }
+            else if (firstLap == false)
+            {
+                if (passed3 == true)
+                {
+                    markTotal++;
+                    lapNum++;
+                    passed1x = false;
+                    passed2 = false;
+                    passed2x = false;
+                    passed3 = false;
+
+                }
+            }
            
 
-            if (passed3 == true)
-            {
-                lapNum++;
-                passed1x = false;
-                passed2 = false;
-                passed2x = false;
-                passed3 = false;
-               
            
-            }
+
+           
             
         }
 
@@ -104,8 +118,8 @@ public class Laps : MonoBehaviour
             mark = 2;
             if (passed1 == true)
             {
+                markTotal++;
 
-                
                 passed1 = false;
                 passed1x = true;
                 passed2 = false;
@@ -122,7 +136,8 @@ public class Laps : MonoBehaviour
             mark = 3;
             if (passed1x == true)
             {
-                
+                markTotal++;
+
                 passed1 = false;
                 passed1x = false;
                 passed2 = true;
@@ -141,6 +156,8 @@ public class Laps : MonoBehaviour
 
             if (passed2 == true)
             {
+                markTotal++;
+
                 passed1 = false;
                 passed1x = false;
                 passed2 = false;
@@ -160,7 +177,8 @@ public class Laps : MonoBehaviour
 
             if (passed2x == true)
             {
-              
+                markTotal++;
+
                 passed1x = false;
                 passed1 = false;
                 passed2 = false;
