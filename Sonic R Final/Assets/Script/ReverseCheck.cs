@@ -296,7 +296,19 @@ public class ReverseCheck : MonoBehaviour
         {
             lastDistMax = true;
             passedM1 = true;
+            passedM1x = false;
             passedM2 = false;
+            passedM2x = false;
+            passedM3 = false;
+            Debug.Log("entered");
+        }
+        if (collision.gameObject.name == "Cube1x")
+        {
+            lastDistMax = true;
+            passedM1x = true;
+            passedM1 = false;
+            passedM2 = false;
+            passedM2x = false;
             passedM3 = false;
             Debug.Log("entered");
         }
@@ -306,6 +318,18 @@ public class ReverseCheck : MonoBehaviour
             passedM2 = true;
             passedM1 = false;
             passedM3 = false;
+            passedM2x = false;
+            passedM1x = false;
+            Debug.Log("entered");
+        }
+        if (collision.gameObject.name == "Cube2x")
+        {
+            lastDistMax = true;
+            passedM2x = true;
+            passedM1 = false;
+            passedM2 = false;
+            passedM1x = false;
+            passedM3 = false;
             Debug.Log("entered");
         }
 
@@ -313,6 +337,8 @@ public class ReverseCheck : MonoBehaviour
         {
             lastDistMax = true;
             passedM2 = false;
+            passedM2x = false;
+            passedM1x = false;
             passedM1 = false;
             passedM3 = true;
             Debug.Log("entered");
