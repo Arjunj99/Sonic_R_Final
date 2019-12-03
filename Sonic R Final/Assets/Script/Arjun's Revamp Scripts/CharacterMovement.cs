@@ -23,7 +23,7 @@ public class CharacterMovement : MonoBehaviour {
 
     [Header("Movement Curves")]
     public AnimationCurve forwardVelocity;
-    private float forwardT;
+    [HideInInspector] public float forwardT;
     public float forwardTimePeriod;
     public Vector2 inputAxis;
     private Vector3 rotation = Vector3.zero;
@@ -64,45 +64,6 @@ public class CharacterMovement : MonoBehaviour {
         
 
         sceneReset();
-        
-        // rotation = new Vector3(0f, Input.GetAxis(horizontalAxis), 0f);
-        // rotation *= turnSpeed;
-
-        // Apply gravity
-        // moveDirection.y -= gravity * Time.deltaTime;
-
-        // Move the controller
-        // characterController.Move(moveDirection * Time.deltaTime);
-        // characterController.transform.Rotate(rotation);
-    
-
-
-        // if (Input.GetKey(KeyCode.R))
-        //     SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-
-        // inputAxis = new Vector2(Input.GetAxis(horizontalAxis), Input.GetAxis(verticalAxis));
-    
-
-        // float trackTypeDistance = 4f;
-
-        // Ray roadCheck = new Ray(this.transform.position, Vector3.down);
-        // RaycastHit roadTypeHit;
-        // Debug.DrawRay(this.transform.position, Vector3.down, Color.cyan, trackTypeDistance);
-
-        // if (Physics.Raycast(roadCheck, out roadTypeHit, trackTypeDistance) && roadTypeHit.collider.tag.Equals("Road")) {
-        //     maxSpeed = 40f;
-        //     Debug.Log("ROAD");
-        // } else if (Physics.Raycast(roadCheck, out roadTypeHit, trackTypeDistance) && roadTypeHit.collider.tag.Equals("Sand")) {
-        //     maxSpeed = 30f;
-        //     Debug.Log("SAND");
-        // } else if (Physics.Raycast(roadCheck, out roadTypeHit, trackTypeDistance) && roadTypeHit.collider.tag.Equals("Grass")) {
-        //     maxSpeed = 25f;
-        //     Debug.Log("GRASS");
-        // } else if (Physics.Raycast(roadCheck, out roadTypeHit, trackTypeDistance) && roadTypeHit.collider.tag.Equals("Water")) {
-        //     maxSpeed = 15f;
-        //     Debug.Log("WATER");
-        // }
-
     }
 
     void OnControllerColliderHit(ControllerColliderHit hit) {
