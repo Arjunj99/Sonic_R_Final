@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Shader Graphs_SHA_Liquid
+  m_Name: MAT_Grass
   m_Shader: {fileID: -6465566751694194690, guid: 9461243a21dd24195ac7e649c0b53b57,
     type: 3}
   m_ShaderKeywords: 
