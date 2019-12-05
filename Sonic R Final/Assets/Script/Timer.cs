@@ -22,6 +22,7 @@ public class Timer : MonoBehaviour
     private string secFractionText;
 
 
+
     void Update()
     {
         totalTime += Mathf.RoundToInt(Time.deltaTime * 100);

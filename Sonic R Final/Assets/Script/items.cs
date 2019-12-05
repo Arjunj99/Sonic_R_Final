@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-public class ink : MonoBehaviour
+public class items : MonoBehaviour
 {
     public bool hasSquid = false;
     public bool hasConfuse = false;
+    public bool hasItem = false;
     public Image ink1;
     public Image ink2;
     public Image ink3;
@@ -18,6 +19,8 @@ public class ink : MonoBehaviour
     public Image ink10;
 
     public KeyCode useKey;
+
+    public GameObject otherPlayer;
 
     // Start is called before the first frame update
     void Start()
@@ -43,6 +46,12 @@ public class ink : MonoBehaviour
             if (hasSquid == true)
             {
                 StartCoroutine("InOut");
+                hasSquid = false;
+                hasItem = false;
+            }
+            if(hasConfuse == true)
+            {
+                
             }
         }
 
@@ -52,11 +61,14 @@ public class ink : MonoBehaviour
     {
         if (other.tag == "Squid")
         { // If GameObject picks up a ring, add 1 to the score.
-            if (hasSquid == false)
-            {
-                // StartCoroutine("InOut");
-                Destroy(other.gameObject);
-                hasSquid = true;
+            if (hasItem == false) { 
+                if (hasSquid == false)
+                {
+                    // StartCoroutine("InOut");
+                    Destroy(other.gameObject);
+                    hasSquid = true;
+                    hasItem = true;
+                }
             }
         }
 
@@ -68,7 +80,7 @@ public class ink : MonoBehaviour
 
         // Debug.Log("1");
         StartCoroutine("FadeIn");
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(5f);
         StartCoroutine("FadeOut");
         //yield return new WaitForSeconds(2f);
         //Destroy(gameObject);

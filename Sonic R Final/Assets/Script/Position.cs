@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Position : MonoBehaviour
 {
@@ -19,23 +20,25 @@ public class Position : MonoBehaviour
     public int mark2;
 
 
-
+    public Text player1T;
+    public Text player2T;
 
     // Start is called before the first frame update
     void Start()
     {
-        lapNum1 = GameObject.Find("Player 1").GetComponent<Laps>().lapNum;
-        lapNum2 = GameObject.Find("Player 2").GetComponent<Laps>().lapNum;
-        distance1 = GameObject.Find("Player 1").GetComponent<Laps>().distanceToNext;
-        distance2 = GameObject.Find("Player 2").GetComponent<Laps>().distanceToNext;
-        mark1 = GameObject.Find("Player 1").GetComponent<Laps>().mark;
-        mark2 = GameObject.Find("Player 2").GetComponent<Laps>().mark;
+       
     }
 
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(distance1);
+        lapNum1 = GameObject.Find("Player1").GetComponent<Laps>().lapNum;
+        lapNum2 = GameObject.Find("Player2").GetComponent<Laps>().lapNum;
+        distance1 = GameObject.Find("Player1").GetComponent<Laps>().distanceToNext;
+        distance2 = GameObject.Find("Player2").GetComponent<Laps>().distanceToNext;
+        mark1 = GameObject.Find("Player1").GetComponent<Laps>().mark;
+        mark2 = GameObject.Find("Player2").GetComponent<Laps>().mark;
+        
 
         if (lapNum1 > lapNum2)
         {
@@ -74,11 +77,13 @@ public class Position : MonoBehaviour
 
         if (player1Infront == true)
         {
-
+            player1T.text = "Position 1/2";
+            player2T.text = "Position 2/2";
         }
         else if (player1Infront == false)
         {
-
+            player1T.text = "Position 2/2";
+            player2T.text = "Position 1/2";
         }
     }
 }
