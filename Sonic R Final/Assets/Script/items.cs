@@ -51,7 +51,7 @@ public class items : MonoBehaviour
             }
             if(hasConfuse == true)
             {
-                
+                otherPlayer.GetComponent<CharacterMovement>().invert = true;
             }
         }
 
