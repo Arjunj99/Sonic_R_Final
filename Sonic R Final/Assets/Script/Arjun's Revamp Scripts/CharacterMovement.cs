@@ -76,6 +76,7 @@ public class CharacterMovement : MonoBehaviour {
         if (hit.gameObject.layer == 8) {
             jumpsLeft = 1;
         }
+        moveDirection.y = 0f;
     }
 
     /// <summary>
