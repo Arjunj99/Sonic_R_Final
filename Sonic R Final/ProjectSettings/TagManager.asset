@@ -17,6 +17,7 @@ TagManager:
   - Aqua
   - SpeedBoost
   - Squid
+  - Confuse
   layers:
   - Default
   - TransparentFX

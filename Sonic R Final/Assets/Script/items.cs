@@ -21,6 +21,9 @@ public class items : MonoBehaviour
     public KeyCode useKey;
 
     public GameObject otherPlayer;
+    public GameObject itemSpawner;
+
+    public Text youHave;
 
     // Start is called before the first frame update
     void Start()
@@ -37,22 +40,38 @@ public class items : MonoBehaviour
         ink10.CrossFadeAlpha(0, 0.0f, false);
 
     }
-
+    
     // Update is called once per frame
     void Update()
     {
+
+        if (hasSquid == true)
+        {
+            youHave.text = "You have Squid";
+        }
+        if (hasConfuse == true)
+        {
+            youHave.text = "You have Joker";
+        }
+        if (hasItem == false)
+        {
+            youHave.text = " ";
+        }
         if (Input.GetKeyDown(useKey))
         {
             if (hasSquid == true)
             {
-                StartCoroutine("InOut");
+                StartCoroutine("InOutInk");
                 hasSquid = false;
                 hasItem = false;
             }
             if(hasConfuse == true)
             {
-                
+                StartCoroutine("InOutConfuse");
+                hasConfuse = false;
+                hasItem = false;
             }
+            
         }
 
     }
@@ -66,27 +85,48 @@ public class items : MonoBehaviour
                 {
                     // StartCoroutine("InOut");
                     Destroy(other.gameObject);
+                    itemSpawner.GetComponent<itemspawner>().squidGone = true;
                     hasSquid = true;
                     hasItem = true;
                 }
             }
         }
+        if (other.tag == "Confuse")
+        { // If GameObject picks up a ring, add 1 to the score.
+            if (hasItem == false)
+            {
+                if (hasConfuse == false)
+                {
+                    // StartCoroutine("InOut");
+                    Destroy(other.gameObject);
+                    itemSpawner.GetComponent<itemspawner>().confuseGone = true;
+                    hasConfuse = true;
+                    hasItem = true;
+                }
+            }
+        }
 
-       
-}
 
-    IEnumerator InOut()
-    {
-
-        // Debug.Log("1");
-        StartCoroutine("FadeIn");
-        yield return new WaitForSeconds(5f);
-        StartCoroutine("FadeOut");
-        //yield return new WaitForSeconds(2f);
-        //Destroy(gameObject);
     }
 
-    IEnumerator FadeIn()
+    IEnumerator InOutInk()
+    {
+
+        StartCoroutine("FadeInInk");
+        yield return new WaitForSeconds(5f);
+        StartCoroutine("FadeOutInk");
+ 
+    }
+    IEnumerator InOutConfuse()
+    {
+
+        otherPlayer.GetComponent<CharacterMovement>().invert = true;
+        yield return new WaitForSeconds(5f);
+        otherPlayer.GetComponent<CharacterMovement>().invert = false;
+
+    }
+
+    IEnumerator FadeInInk()
     {
         ink1.CrossFadeAlpha(1, 1.0f, false);
         ink2.CrossFadeAlpha(1, 1.0f, false);
@@ -102,7 +142,7 @@ public class items : MonoBehaviour
     }
 
 
-    IEnumerator FadeOut()
+    IEnumerator FadeOutInk()
     {
         ink1.CrossFadeAlpha(0, 2.0f, false);
         ink2.CrossFadeAlpha(0, 1.5f, false);
