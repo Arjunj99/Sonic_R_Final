@@ -22,6 +22,8 @@ public class items : MonoBehaviour
 
     public GameObject otherPlayer;
 
+    public Text youHave;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -37,10 +39,23 @@ public class items : MonoBehaviour
         ink10.CrossFadeAlpha(0, 0.0f, false);
 
     }
-
+    
     // Update is called once per frame
     void Update()
     {
+
+        if (hasSquid == true)
+        {
+            youHave.text = "You have Squid";
+        }
+        if (hasConfuse == true)
+        {
+            youHave.text = "You have Joker";
+        }
+        if (hasItem == false)
+        {
+            youHave.text = " ";
+        }
         if (Input.GetKeyDown(useKey))
         {
             if (hasSquid == true)
@@ -52,7 +67,10 @@ public class items : MonoBehaviour
             if(hasConfuse == true)
             {
                 StartCoroutine("InOutConfuse");
+                hasConfuse = false;
+                hasItem = false;
             }
+            
         }
 
     }
@@ -71,9 +89,22 @@ public class items : MonoBehaviour
                 }
             }
         }
+        if (other.tag == "Confuse")
+        { // If GameObject picks up a ring, add 1 to the score.
+            if (hasItem == false)
+            {
+                if (hasConfuse == false)
+                {
+                    // StartCoroutine("InOut");
+                    Destroy(other.gameObject);
+                    hasConfuse = true;
+                    hasItem = true;
+                }
+            }
+        }
 
-       
-}
+
+    }
 
     IEnumerator InOutInk()
     {
