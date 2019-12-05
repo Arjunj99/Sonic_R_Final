@@ -18,7 +18,7 @@ public class items : MonoBehaviour
     public Image ink9;
     public Image ink10;
 
-    public KeyCode useKey;
+    public string useKey;
 
     public GameObject otherPlayer;
     public GameObject itemSpawner;
@@ -57,7 +57,7 @@ public class items : MonoBehaviour
         {
             youHave.text = " ";
         }
-        if (Input.GetKeyDown(useKey))
+        if (Input.GetButtonDown(useKey))
         {
             if (hasSquid == true)
             {

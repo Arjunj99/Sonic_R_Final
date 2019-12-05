@@ -29,7 +29,7 @@ public class itemspawner : MonoBehaviour
     void Start()
     {
         squidPos = squid.transform.position;
-        confusePos = squid.transform.position;
+        confusePos = confuse.transform.position;
     }
 
     // Update is called once per frame
