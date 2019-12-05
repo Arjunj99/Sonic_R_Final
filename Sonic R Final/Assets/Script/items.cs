@@ -45,13 +45,13 @@ public class items : MonoBehaviour
         {
             if (hasSquid == true)
             {
-                StartCoroutine("InOut");
+                StartCoroutine("InOutInk");
                 hasSquid = false;
                 hasItem = false;
             }
             if(hasConfuse == true)
             {
-                otherPlayer.GetComponent<CharacterMovement>().invert = true;
+                StartCoroutine("InOutConfuse");
             }
         }
 
@@ -75,18 +75,24 @@ public class items : MonoBehaviour
        
 }
 
-    IEnumerator InOut()
+    IEnumerator InOutInk()
     {
 
-        // Debug.Log("1");
-        StartCoroutine("FadeIn");
+        StartCoroutine("FadeInInk");
         yield return new WaitForSeconds(5f);
-        StartCoroutine("FadeOut");
-        //yield return new WaitForSeconds(2f);
-        //Destroy(gameObject);
+        StartCoroutine("FadeOutInk");
+ 
+    }
+    IEnumerator InOutConfuse()
+    {
+
+        otherPlayer.GetComponent<CharacterMovement>().invert = true;
+        yield return new WaitForSeconds(5f);
+        otherPlayer.GetComponent<CharacterMovement>().invert = false;
+
     }
 
-    IEnumerator FadeIn()
+    IEnumerator FadeInInk()
     {
         ink1.CrossFadeAlpha(1, 1.0f, false);
         ink2.CrossFadeAlpha(1, 1.0f, false);
@@ -102,7 +108,7 @@ public class items : MonoBehaviour
     }
 
 
-    IEnumerator FadeOut()
+    IEnumerator FadeOutInk()
     {
         ink1.CrossFadeAlpha(0, 2.0f, false);
         ink2.CrossFadeAlpha(0, 1.5f, false);
