@@ -51,7 +51,7 @@ public class items : MonoBehaviour
             }
             if(hasConfuse == true)
             {
-                transform.rotation = Quaternion.Inverse(target.rotation);
+                
             }
         }
 
