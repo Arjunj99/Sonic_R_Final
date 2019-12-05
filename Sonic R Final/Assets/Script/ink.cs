@@ -68,7 +68,7 @@ public class ink : MonoBehaviour
 
         // Debug.Log("1");
         StartCoroutine("FadeIn");
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(5f);
         StartCoroutine("FadeOut");
         //yield return new WaitForSeconds(2f);
         //Destroy(gameObject);
