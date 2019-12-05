@@ -31,6 +31,8 @@ public class CharacterMovement : MonoBehaviour {
     public Vector2 inputAxis;
     private Vector3 rotation = Vector3.zero;
 
+    
+
 
 
     private Vector3 moveDirection = Vector3.zero;
@@ -40,6 +42,11 @@ public class CharacterMovement : MonoBehaviour {
     public float turnSpeed;
 
     private int jumpsLeft = 1;
+
+    [Header("Pick Up Modifiers")]
+    public int rings = 0;
+    public int ringsBoostModifier = 5;
+    public float timeSpendWaterWalking = 4f;
     
     /// <summary>
     /// Start is called upon the first frame.
@@ -176,16 +183,16 @@ public class CharacterMovement : MonoBehaviour {
         Debug.DrawRay(this.transform.position, Vector3.down, Color.cyan, rayLength);
 
         if (Physics.Raycast(roadCheck, out roadTypeHit, rayLength) && roadTypeHit.collider.tag.Equals("Road")) {
-            speedLimit = trackLimits[0];
+            speedLimit = trackLimits[0] + (rings/ringsBoostModifier);
             // Debug.Log("ROAD");
         } else if (Physics.Raycast(roadCheck, out roadTypeHit, rayLength) && roadTypeHit.collider.tag.Equals("Sand")) {
-            speedLimit = trackLimits[1];
+            speedLimit = trackLimits[1] + (rings/ringsBoostModifier);
             // Debug.Log("SAND");
         } else if (Physics.Raycast(roadCheck, out roadTypeHit, rayLength) && roadTypeHit.collider.tag.Equals("Grass")) {
-            speedLimit = trackLimits[2];
+            speedLimit = trackLimits[2] + (rings/ringsBoostModifier);
             // Debug.Log("GRASS");
         } else if (Physics.Raycast(roadCheck, out roadTypeHit, rayLength) && roadTypeHit.collider.tag.Equals("Water")) {
-            speedLimit = trackLimits[3];
+            speedLimit = trackLimits[3] + (rings/ringsBoostModifier);
             // Debug.Log("WATER");
         }
 
@@ -198,5 +205,13 @@ public class CharacterMovement : MonoBehaviour {
         } else {
             horizontalAxis = invertAxisName;
         }
+    }
+
+    public IEnumerator walkOnWater() {
+        Debug.Log("WATER WALKING");
+        float tempWater = trackLimits[3];
+        trackLimits[3] = trackLimits[0];
+        yield return new WaitForSeconds(timeSpendWaterWalking);
+        trackLimits[3] = tempWater;
     }
 }
