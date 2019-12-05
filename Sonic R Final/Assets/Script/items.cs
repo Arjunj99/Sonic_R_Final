@@ -21,6 +21,7 @@ public class items : MonoBehaviour
     public KeyCode useKey;
 
     public GameObject otherPlayer;
+    public GameObject itemSpawner;
 
     public Text youHave;
 
@@ -84,6 +85,7 @@ public class items : MonoBehaviour
                 {
                     // StartCoroutine("InOut");
                     Destroy(other.gameObject);
+                    itemSpawner.GetComponent<itemspawner>().squidGone = true;
                     hasSquid = true;
                     hasItem = true;
                 }
@@ -97,6 +99,7 @@ public class items : MonoBehaviour
                 {
                     // StartCoroutine("InOut");
                     Destroy(other.gameObject);
+                    itemSpawner.GetComponent<itemspawner>().confuseGone = true;
                     hasConfuse = true;
                     hasItem = true;
                 }
