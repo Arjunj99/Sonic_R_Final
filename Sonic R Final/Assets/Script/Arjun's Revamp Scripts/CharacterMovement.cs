@@ -17,9 +17,12 @@ public class CharacterMovement : MonoBehaviour {
 
     [Header("Button Settings")]
     public string verticalAxis;
-    public string horizontalAxis;
+    [HideInInspector] public string horizontalAxis;
+    public string horizontalAxisName;
+    public string invertAxisName;
     public string jumpButton;
     public float deadZone = 0.2f;
+    [HideInInspector] public bool invert = false;
 
     [Header("Movement Curves")]
     public AnimationCurve forwardVelocity;
@@ -59,11 +62,14 @@ public class CharacterMovement : MonoBehaviour {
         generateTurn();
         applyGravity();
         checkTerrain(4f);
+        checkForInvert();
 
         applyAllInputs();
         
 
         sceneReset();
+
+        
     }
 
     void OnControllerColliderHit(ControllerColliderHit hit) {
@@ -183,5 +189,13 @@ public class CharacterMovement : MonoBehaviour {
         }
 
         maxSpeed = Mathf.Lerp(maxSpeed, speedLimit, 0.6f);
+    }
+
+    private void checkForInvert() {
+        if (!invert) {
+            horizontalAxis = horizontalAxisName;
+        } else {
+            horizontalAxis = invertAxisName;
+        }
     }
 }
