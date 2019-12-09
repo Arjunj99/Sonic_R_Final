@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+
 
 public class Position : MonoBehaviour
 {
@@ -23,6 +25,7 @@ public class Position : MonoBehaviour
     public Text player1T;
     public Text player2T;
 
+    public int playersCompleted;
     // Start is called before the first frame update
     void Start()
     {
@@ -32,6 +35,11 @@ public class Position : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(playersCompleted==2)//if both players complete game switch scene
+        {
+            SceneManager.LoadScene("Results");
+        }
+
         lapNum1 = GameObject.Find("Player1").GetComponent<Laps>().lapNum;
         lapNum2 = GameObject.Find("Player2").GetComponent<Laps>().lapNum;
         distance1 = GameObject.Find("Player1").GetComponent<Laps>().distanceToNext;
