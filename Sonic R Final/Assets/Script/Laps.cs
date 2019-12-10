@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Laps : MonoBehaviour
 {
@@ -31,14 +32,16 @@ public class Laps : MonoBehaviour
     public float distanceToNext;
 
     public Text lapsText;
-    //public Text reverseText;
 
+
+   
 
     // Start is called before the first frame update
     void Start()
     {
-       // reverseText = GameObject.Find("Reverse").GetComponent<Text>(); //updates UI text
+        // reverseText = GameObject.Find("Reverse").GetComponent<Text>(); //updates UI text
         //reverseText.GetComponent<Text>().enabled = false;
+       
     }
 
     // Update is called once per frame
@@ -49,12 +52,17 @@ public class Laps : MonoBehaviour
         if (lapNum < 5) //after 5 laps the player wins
         {
             lapsText.text = "Lap " + (lapNum + 1).ToString() + "/5";
+           
         }
 
         else if (lapNum == 5) //after 5 laps the player wins
         {
             lapsText.text = "Lap " + (lapNum).ToString() + "/5";
             GetComponent<CharacterMovement>().enabled = false;
+
+           
+
+
         }
 
 
@@ -99,6 +107,32 @@ public class Laps : MonoBehaviour
                     // markTotal++;
                     mark = 1;
                     lapNum++;
+
+                    /////////////////////////////////////////////Timer update
+                    if (lapNum == 1)
+                    {
+                        GetComponent<Timer>().roundOneTime = GetComponent<Timer>().currentRoundTime;
+                    }
+                    if (lapNum == 2)
+                    {
+                        GetComponent<Timer>().roundTwoTime = GetComponent<Timer>().currentRoundTime;
+                    }
+                    if (lapNum == 3)
+                    {
+                        GetComponent<Timer>().roundThreeTime = GetComponent<Timer>().currentRoundTime;
+                    }
+                    if (lapNum == 4)
+                    {
+                        GetComponent<Timer>().roundFourTime = GetComponent<Timer>().currentRoundTime;
+                    }
+                    if (lapNum == 5)
+                    {
+                        GetComponent<Timer>().roundFiveTime = GetComponent<Timer>().currentRoundTime;
+                        GetComponent<Timer>().counting = false;
+                        GameObject.Find("PositionManager").GetComponent<Position>().playersCompleted++;
+                    }
+                    GetComponent<Timer>().currentRoundTime = 0;
+                    /////////////////////////////////////////////Timer update
                     passed1 = true;
                     passed1x = false;
                     passed2 = false;
