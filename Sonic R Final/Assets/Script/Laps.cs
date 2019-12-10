@@ -33,7 +33,7 @@ public class Laps : MonoBehaviour
 
     public Text lapsText;
 
-
+    public bool isPlayerOne;
    
 
     // Start is called before the first frame update
@@ -130,6 +130,9 @@ public class Laps : MonoBehaviour
                         GetComponent<Timer>().roundFiveTime = GetComponent<Timer>().currentRoundTime;
                         GetComponent<Timer>().counting = false;
                         GameObject.Find("PositionManager").GetComponent<Position>().playersCompleted++;
+
+
+                        GetComponent<Timer>().SetGameManagerTimes();
                     }
                     GetComponent<Timer>().currentRoundTime = 0;
                     /////////////////////////////////////////////Timer update

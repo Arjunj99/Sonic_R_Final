@@ -28,9 +28,11 @@ public class Timer : MonoBehaviour
     private string secText;
     private string secFractionText;
 
+    public bool isPlayerOne;
+
     private void Awake()
     {
-        DontDestroyOnLoad(this.gameObject);
+       // DontDestroyOnLoad(this.gameObject);
     }
 
     void Update()
@@ -82,6 +84,18 @@ public class Timer : MonoBehaviour
         }
 
         displayText.text = (minText + ":" + secText + ":" + secFractionText);
+    }
+
+    public void SetGameManagerTimes()
+    {
+        if (isPlayerOne)
+        {
+            GameManager.instance.p1totalTime = totalTime;
+        }
+        else
+        {
+            GameManager.instance.p2totalTime = totalTime;
+        }
     }
 
 }

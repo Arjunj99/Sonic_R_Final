@@ -64,7 +64,7 @@ public class scoredisplay : MonoBehaviour
         ConvertToTimerText(p1roundTwoTime, p1round2TimeText);
         ConvertToTimerText(p1roundThreeTime, p1round3TimeText);
         ConvertToTimerText(p1roundFourTime, p1round4TimeText);
-        ConvertToTimerText(p1roundFiveTime, p1round5TimeText);
+        ConvertToTimerText(p1roundFiveTime, p1round5TimeText); 
 
         ConvertToTimerText(p2totalTime, p2totalTimeText);
         ConvertToTimerText(p2roundOneTime, p2round1TimeText);
