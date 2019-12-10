@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Timer : MonoBehaviour
 {
-    
+
 
     public Text totalTimeText;
     public Text roundTimeText;
@@ -19,7 +19,7 @@ public class Timer : MonoBehaviour
     public int roundFourTime;
     public int roundFiveTime;
 
-    public bool counting=true;
+    public bool counting = true;
 
     int min;
     int sec;
@@ -36,16 +36,16 @@ public class Timer : MonoBehaviour
     void Update()
     {
         if (counting == true) //doesn't keep counting after player completes game
-        { 
-        totalTime += Mathf.RoundToInt(Time.deltaTime * 100);
-        currentRoundTime += Mathf.RoundToInt(Time.deltaTime * 100);
+        {
+            totalTime += Mathf.RoundToInt(Time.deltaTime * 100);
+            currentRoundTime += Mathf.RoundToInt(Time.deltaTime * 100);
         }
 
         ConvertToTimerText(totalTime, totalTimeText);
- 
+
         ConvertToTimerText(currentRoundTime, roundTimeText);
 
-        
+
     }
 
     void ConvertToTimerText(int timeHundreths, Text displayText)
@@ -53,31 +53,32 @@ public class Timer : MonoBehaviour
         secFraction = timeHundreths % 100;
         min = timeHundreths / 6000;
         sec = timeHundreths / 100 - (min * 60);
-        
-        if (min/10<1) 
-        { 
-            minText = ("0" + min); 
+
+        if (min / 10 < 1)
+        {
+            minText = ("0" + min);
         }
-        else 
-        { 
-            minText = (min + ""); 
+        else
+        {
+            minText = (min + "");
         }
-        
-        if (sec/10<1) 
-        { 
-            secText = ("0" + sec); 
+
+        if (sec / 10 < 1)
+        {
+            secText = ("0" + sec);
         }
-        else 
-        { 
-            secText = (sec + ""); 
+        else
+        {
+            secText = (sec + "");
         }
-        if (secFraction/10<1) 
-        { 
-            secFractionText = ("0" + secFraction); 
+
+        if (secFraction / 10 < 1)
+        {
+            secFractionText = ("0" + secFraction);
         }
-        else 
-        { 
-            secFractionText = (secFraction + ""); 
+        else
+        {
+            secFractionText = (secFraction + "");
         }
 
         displayText.text = (minText + ":" + secText + ":" + secFractionText);
