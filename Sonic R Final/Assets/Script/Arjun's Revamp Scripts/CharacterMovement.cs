@@ -30,6 +30,7 @@ public class CharacterMovement : MonoBehaviour {
     public float forwardTimePeriod;
     public Vector2 inputAxis;
     private Vector3 rotation = Vector3.zero;
+    public Animator playerAnimator;
 
     
 
@@ -57,9 +58,11 @@ public class CharacterMovement : MonoBehaviour {
     }
 
     void Update() {
-        if (characterController.isGrounded) { 
+        if (characterController.isGrounded) {
+            playerAnimator.SetBool("isFalling", false);
             groundedJump();
         } else {
+            playerAnimator.SetBool("isFalling", true);
             secondJump();
         }
 
@@ -72,11 +75,8 @@ public class CharacterMovement : MonoBehaviour {
         checkForInvert();
 
         applyAllInputs();
-        
 
         sceneReset();
-
-        
     }
 
     void OnControllerColliderHit(ControllerColliderHit hit) {
@@ -107,6 +107,12 @@ public class CharacterMovement : MonoBehaviour {
         Vector3 temp = moveDirection;
         moveDirection = gameObject.transform.forward * forwardVelocity.Evaluate(forwardT) * maxSpeed;
         moveDirection.y = temp.y;
+
+        if (forwardT > 0f) {
+            playerAnimator.SetBool("isRunning", true);
+        } else {
+            playerAnimator.SetBool("isRunning", false);
+        }
     }
 
     /// <summary>
@@ -184,15 +190,19 @@ public class CharacterMovement : MonoBehaviour {
 
         if (Physics.Raycast(roadCheck, out roadTypeHit, rayLength) && roadTypeHit.collider.tag.Equals("Road")) {
             speedLimit = trackLimits[0] + (rings/ringsBoostModifier);
+            playerAnimator.SetBool("isSwimming", false);
             // Debug.Log("ROAD");
         } else if (Physics.Raycast(roadCheck, out roadTypeHit, rayLength) && roadTypeHit.collider.tag.Equals("Sand")) {
             speedLimit = trackLimits[1] + (rings/ringsBoostModifier);
+            playerAnimator.SetBool("isSwimming", false);
             // Debug.Log("SAND");
         } else if (Physics.Raycast(roadCheck, out roadTypeHit, rayLength) && roadTypeHit.collider.tag.Equals("Grass")) {
             speedLimit = trackLimits[2] + (rings/ringsBoostModifier);
+            playerAnimator.SetBool("isSwimming", false);
             // Debug.Log("GRASS");
         } else if (Physics.Raycast(roadCheck, out roadTypeHit, rayLength) && roadTypeHit.collider.tag.Equals("Water")) {
             speedLimit = trackLimits[3] + (rings/ringsBoostModifier);
+            playerAnimator.SetBool("isSwimming", true);
             // Debug.Log("WATER");
         }
 
