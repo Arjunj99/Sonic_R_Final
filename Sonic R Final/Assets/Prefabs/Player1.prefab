@@ -100,8 +100,11 @@ MonoBehaviour:
   - 15
   verticalAxis: Player1V
   horizontalAxis: Player1H
+  horizontalAxisName: 
+  invertAxisName: 
   jumpButton: Jump1
   deadZone: 0.2
+  invert: 0
   forwardVelocity:
     serializedVersion: 2
     m_Curve:
@@ -151,6 +154,9 @@ MonoBehaviour:
   gravity: 40
   maxSpeed: 40
   turnSpeed: 2.5
+  rings: 0
+  ringsBoostModifier: 5
+  timeSpendWaterWalking: 4
 --- !u!114 &8214750101309549474
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -199,6 +205,7 @@ MonoBehaviour:
   mark3: {fileID: 0}
   lapNum: 0
   mark: 0
+  firstLap: 1
   passed1: 0
   passed1x: 0
   passed2: 0
@@ -220,6 +227,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hasSquid: 0
   hasConfuse: 0
+  hasItem: 0
   ink1: {fileID: 0}
   ink2: {fileID: 0}
   ink3: {fileID: 0}
@@ -231,6 +239,9 @@ MonoBehaviour:
   ink9: {fileID: 0}
   ink10: {fileID: 0}
   useKey: 101
+  otherPlayer: {fileID: 0}
+  itemSpawner: {fileID: 0}
+  youHave: {fileID: 0}
 --- !u!114 &6438414372292147164
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -367,7 +378,9 @@ MonoBehaviour:
   right: 1
   turnspeed1: 30
   turnspeed2: 30
-  turnscript: {fileID: 0}
+  movementscript: {fileID: 0}
+  inputAxis: {x: 0, y: 0}
+  deadZone: 0
 --- !u!114 &8473042304679257711
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -394,11 +407,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Knight (1)
       objectReference: {fileID: 0}
-    - target: {fileID: -6057140222963153312, guid: 7d4836d17d3c34ad0ae5f2ce2513dad8,
-        type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 73cac7d817c174a1085f1bdfaa6a24e8, type: 2}
     - target: {fileID: -4216859302048453862, guid: 7d4836d17d3c34ad0ae5f2ce2513dad8,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -469,6 +477,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.42329863
       objectReference: {fileID: 0}
+    - target: {fileID: -6057140222963153312, guid: 7d4836d17d3c34ad0ae5f2ce2513dad8,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 73cac7d817c174a1085f1bdfaa6a24e8, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7d4836d17d3c34ad0ae5f2ce2513dad8, type: 3}
 --- !u!4 &6766536080543075048 stripped

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour {
     public static GameManager instance;
-    public float gravity;
+    public float deadZone;
 
     // Start is called before the first frame update
     void Awake() {
