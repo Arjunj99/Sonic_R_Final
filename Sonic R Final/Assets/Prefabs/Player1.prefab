@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 170579101997818580}
   - component: {fileID: 1309156916277376532}
   - component: {fileID: 2699801529270997915}
+  - component: {fileID: 1054154235006633433}
   - component: {fileID: 5774686190058787247}
   - component: {fileID: 8214750101309549474}
   - component: {fileID: 5023365744940054071}
@@ -80,6 +81,22 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1054154235006633433
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3402733236812872012}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec7586e2c3f8340bcb4c9f8d81e8dd21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  text: {fileID: 0}
+  characterMovement: {fileID: 0}
+  movement: {fileID: 0}
+  rings: 0
 --- !u!114 &5774686190058787247
 MonoBehaviour:
   m_ObjectHideFlags: 0

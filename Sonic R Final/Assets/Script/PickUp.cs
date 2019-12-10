@@ -43,6 +43,15 @@ public class PickUp : MonoBehaviour {
             // movement.currentVelocity += 100f;
             Destroy(other.gameObject);
         } else if (other.tag == "Aqua") { // If GameObject picks up an Aqua Token, make the player able to run on water.
+            if (other.gameObject.name == "Waterwalk")
+            {
+                GameObject.Find("ItemSpawner").GetComponent<itemspawner>().waterGone = true;
+            }
+            else if (other.gameObject.name == "Waterwalk 1")
+            {
+                GameObject.Find("ItemSpawner").GetComponent<itemspawner>().waterGone1 = true;
+            }
+
             characterMovement.StartCoroutine(characterMovement.walkOnWater());
             Destroy(other.gameObject);
         }
