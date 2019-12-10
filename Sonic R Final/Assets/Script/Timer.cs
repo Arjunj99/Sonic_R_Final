@@ -2,36 +2,52 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+​
 public class Timer : MonoBehaviour
 {
-
+    
+​
     public Text totalTimeText;
     public Text roundTimeText;
-
-    int totalTime;
-    int roundOneTime;
-    int roundTwoTime;
-    int roundThreeTime;
-
+​
+    public int totalTime;
+​
+    public int currentRoundTime;
+    public int roundOneTime;
+    public int roundTwoTime;
+    public int roundThreeTime;
+    public int roundFourTime;
+    public int roundFiveTime;
+​
+    public bool counting=true;
+​
     int min;
     int sec;
     int secFraction;
     private string minText;
     private string secText;
     private string secFractionText;
-
-
-
+​
+    private void Awake()
+    {
+        DontDestroyOnLoad(this.gameObject);
+    }
+​
     void Update()
     {
+        if (counting == true) //doesn't keep counting after player completes game
+        { 
         totalTime += Mathf.RoundToInt(Time.deltaTime * 100);
+        currentRoundTime += Mathf.RoundToInt(Time.deltaTime * 100);
+        }
+​
         ConvertToTimerText(totalTime, totalTimeText);
+ 
+        ConvertToTimerText(currentRoundTime, roundTimeText);
+​
         
-        roundOneTime += Mathf.RoundToInt(Time.deltaTime * 100);
-        ConvertToTimerText(roundOneTime, roundTimeText);
     }
-
+​
     void ConvertToTimerText(int timeHundreths, Text displayText)
     {
         secFraction = timeHundreths % 100;
@@ -63,8 +79,8 @@ public class Timer : MonoBehaviour
         { 
             secFractionText = (secFraction + ""); 
         }
-
+​
         displayText.text = (minText + ":" + secText + ":" + secFractionText);
     }
-
+​
 }
