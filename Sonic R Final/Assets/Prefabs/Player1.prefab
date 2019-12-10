@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 5023365744940054071}
   - component: {fileID: 9084987281809752055}
   - component: {fileID: 6438414372292147164}
+  - component: {fileID: 660248107}
   m_Layer: 0
   m_Name: Player1
   m_TagString: Untagged
@@ -111,14 +112,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speedLimit: 40
   trackLimits:
-  - 40
   - 35
   - 30
+  - 25
   - 15
   verticalAxis: Player1V
   horizontalAxis: Player1H
-  horizontalAxisName: 
-  invertAxisName: 
+  horizontalAxisName: Player1H
+  invertAxisName: PlayerInvert1H
   jumpButton: Jump1
   deadZone: 0.2
   invert: 0
@@ -127,7 +128,7 @@ MonoBehaviour:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0.006248474
+      value: -0.000022888184
       inSlope: 2
       outSlope: 2
       tangentMode: 0
@@ -135,8 +136,8 @@ MonoBehaviour:
       inWeight: 0
       outWeight: 0
     - serializedVersion: 3
-      time: 0.04973629
-      value: 0.4459138
+      time: 0.20582607
+      value: 0.50250864
       inSlope: 4.425984
       outSlope: 4.425984
       tangentMode: 0
@@ -144,14 +145,32 @@ MonoBehaviour:
       inWeight: 0.47089282
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 0.23935314
-      value: 0.7863914
-      inSlope: 0.7276423
-      outSlope: 0.7276423
+      time: 0.40229458
+      value: 0.77371347
+      inSlope: 0.7694242
+      outSlope: 0.7694242
       tangentMode: 0
       weightedMode: 0
       inWeight: 0.33333334
-      outWeight: 0.18267837
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.6070864
+      value: 0.83670664
+      inSlope: 0.13647161
+      outSlope: 0.13647161
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.5851779
+      outWeight: 0.8255484
+    - serializedVersion: 3
+      time: 0.8013024
+      value: 0.91428506
+      inSlope: 0.7273377
+      outSlope: 0.7273377
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
     - serializedVersion: 3
       time: 1
       value: 1.0062485
@@ -167,14 +186,14 @@ MonoBehaviour:
   forwardT: 0
   forwardTimePeriod: 3
   inputAxis: {x: 0, y: 0}
-  playerAnimator: {fileID: 0}
-  jumpHeight: 25
+  playerAnimator: {fileID: 2321289279368615318}
+  jumpHeight: 15
   gravity: 40
-  maxSpeed: 40
-  turnSpeed: 2.5
+  maxSpeed: 25
+  turnSpeed: 3
   rings: 0
   ringsBoostModifier: 5
-  timeSpendWaterWalking: 4
+  timeSpendWaterWalking: 5
 --- !u!114 &8214750101309549474
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -256,7 +275,7 @@ MonoBehaviour:
   ink8: {fileID: 0}
   ink9: {fileID: 0}
   ink10: {fileID: 0}
-  useKey: 101
+  useKey: Item1
   otherPlayer: {fileID: 0}
   itemSpawner: {fileID: 0}
   youHave: {fileID: 0}
@@ -267,7 +286,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3402733236812872012}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7aaba60bd9a1342f690eaab58810822a, type: 3}
   m_Name: 
@@ -275,6 +294,28 @@ MonoBehaviour:
   trackTypeDistance: 3
   normalReorientationDistance: 6
   onTrackDistance: 10
+--- !u!114 &660248107
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3402733236812872012}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae5969cf5e4ff9b498b6c2db847ce624, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  totalTimeText: {fileID: 0}
+  roundTimeText: {fileID: 0}
+  totalTime: 0
+  currentRoundTime: 0
+  roundOneTime: 0
+  roundTwoTime: 0
+  roundThreeTime: 0
+  roundFourTime: 0
+  roundFiveTime: 0
+  counting: 1
 --- !u!1 &3866563536485974985
 GameObject:
   m_ObjectHideFlags: 0
@@ -330,8 +371,8 @@ Camera:
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
-    y: 0
-    width: 0.5
+    y: 0.5
+    width: 1
     height: 0.5
   near clip plane: 0.3
   far clip plane: 1000
@@ -505,6 +546,12 @@ PrefabInstance:
 --- !u!4 &5673659823894624492 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: 47b677cebe0334cb19d550fd5040f75d,
+    type: 3}
+  m_PrefabInstance: {fileID: 848461521494037494}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &2321289279368615318 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: -6057140222963153312, guid: 47b677cebe0334cb19d550fd5040f75d,
     type: 3}
   m_PrefabInstance: {fileID: 848461521494037494}
   m_PrefabAsset: {fileID: 0}
