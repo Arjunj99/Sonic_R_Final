@@ -90,6 +90,7 @@ public class CharacterMovement : MonoBehaviour {
     /// Generate a Character Controller velocity value based on player inputs.
     /// </summary>
     private void generateVelocity() {
+        Debug.Log("INPUT AXIS: " + inputAxis.y);
         if (inputAxis.y > deadZone && forwardT < 1f) {
             forwardT += (Time.deltaTime / forwardTimePeriod);
         } else if (inputAxis.y > deadZone && forwardT > 1f) {
