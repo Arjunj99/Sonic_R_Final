@@ -41,19 +41,19 @@ public class scoredisplay : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        p1totalTime = GameObject.Find("Player1").GetComponent<Timer>().totalTime;
-        p1roundOneTime = GameObject.Find("Player1").GetComponent<Timer>().roundOneTime;
-        p1roundTwoTime = GameObject.Find("Player1").GetComponent<Timer>().roundTwoTime;
-        p1roundThreeTime = GameObject.Find("Player1").GetComponent<Timer>().roundThreeTime;
-        p1roundFourTime = GameObject.Find("Player1").GetComponent<Timer>().roundFourTime;
-        p1roundFiveTime = GameObject.Find("Player1").GetComponent<Timer>().roundFiveTime;
+        p1totalTime = GameManager.instance.p1totalTime;
+        p1roundOneTime = GameManager.instance.p1roundOneTime;
+        p1roundTwoTime = GameManager.instance.p1roundTwoTime;
+        p1roundThreeTime = GameManager.instance.p1roundThreeTime;
+        p1roundFourTime = GameManager.instance.p1roundFourTime;
+        p1roundFiveTime = GameManager.instance.p1roundFiveTime;
 
-        p2totalTime = GameObject.Find("Player2").GetComponent<Timer>().totalTime;
-        p2roundOneTime = GameObject.Find("Player2").GetComponent<Timer>().roundOneTime;
-        p2roundTwoTime = GameObject.Find("Player2").GetComponent<Timer>().roundTwoTime;
-        p2roundThreeTime = GameObject.Find("Player2").GetComponent<Timer>().roundThreeTime;
-        p2roundFourTime = GameObject.Find("Player2").GetComponent<Timer>().roundFourTime;
-        p2roundFiveTime = GameObject.Find("Player2").GetComponent<Timer>().roundFiveTime;
+        p2totalTime = GameManager.instance.p2totalTime;
+        p2roundOneTime = GameManager.instance.p2roundOneTime;
+        p2roundTwoTime = GameManager.instance.p2roundTwoTime;
+        p2roundThreeTime = GameManager.instance.p2roundThreeTime;
+        p2roundFourTime = GameManager.instance.p2roundFourTime;
+        p2roundFiveTime = GameManager.instance.p2roundFiveTime;
     }
 
     // Update is called once per frame
@@ -64,7 +64,7 @@ public class scoredisplay : MonoBehaviour
         ConvertToTimerText(p1roundTwoTime, p1round2TimeText);
         ConvertToTimerText(p1roundThreeTime, p1round3TimeText);
         ConvertToTimerText(p1roundFourTime, p1round4TimeText);
-        ConvertToTimerText(p1roundFiveTime, p1round5TimeText);
+        ConvertToTimerText(p1roundFiveTime, p1round5TimeText); 
 
         ConvertToTimerText(p2totalTime, p2totalTimeText);
         ConvertToTimerText(p2roundOneTime, p2round1TimeText);

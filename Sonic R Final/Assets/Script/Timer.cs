@@ -28,9 +28,11 @@ public class Timer : MonoBehaviour
     private string secText;
     private string secFractionText;
 
+    public bool isPlayerOne;
+
     private void Awake()
     {
-        DontDestroyOnLoad(this.gameObject);
+       // DontDestroyOnLoad(this.gameObject);
     }
 
     void Update()
@@ -82,6 +84,28 @@ public class Timer : MonoBehaviour
         }
 
         displayText.text = (minText + ":" + secText + ":" + secFractionText);
+    }
+
+    public void SetGameManagerTimes()
+    {
+        if (isPlayerOne)
+        {
+            GameManager.instance.p1totalTime = totalTime;
+            GameManager.instance.p1roundOneTime = roundOneTime;
+            GameManager.instance.p1roundTwoTime = roundTwoTime;
+            GameManager.instance.p1roundThreeTime = roundThreeTime;
+            GameManager.instance.p1roundFourTime = roundFourTime;
+            GameManager.instance.p1roundFiveTime = roundFiveTime;
+        }
+        else
+        {
+            GameManager.instance.p2totalTime = totalTime;
+            GameManager.instance.p2roundOneTime = roundOneTime;
+            GameManager.instance.p2roundTwoTime = roundTwoTime;
+            GameManager.instance.p2roundThreeTime = roundThreeTime;
+            GameManager.instance.p2roundFourTime = roundFourTime;
+            GameManager.instance.p2roundFiveTime = roundFiveTime;
+        }
     }
 
 }

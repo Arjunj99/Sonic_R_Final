@@ -112,6 +112,7 @@ public class Laps : MonoBehaviour
                     if (lapNum == 1)
                     {
                         GetComponent<Timer>().roundOneTime = GetComponent<Timer>().currentRoundTime;
+                        gameObject.SendMessage("SetGameManagerTimes");
                     }
                     if (lapNum == 2)
                     {
@@ -130,6 +131,9 @@ public class Laps : MonoBehaviour
                         GetComponent<Timer>().roundFiveTime = GetComponent<Timer>().currentRoundTime;
                         GetComponent<Timer>().counting = false;
                         GameObject.Find("PositionManager").GetComponent<Position>().playersCompleted++;
+                      
+                       // GetComponent<Timer>().SetGameManagerTimes();
+                       
                     }
                     GetComponent<Timer>().currentRoundTime = 0;
                     /////////////////////////////////////////////Timer update
