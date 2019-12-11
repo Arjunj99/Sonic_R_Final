@@ -28,6 +28,46 @@ public class PickUp : MonoBehaviour {
 
     void OnTriggerEnter(Collider other) {
         if (other.tag == "Ring") { // If GameObject picks up a ring, add 1 to the score.
+            if (other.gameObject.name == "Ring" || other.gameObject.name == "Ring(Clone)")
+            {
+                GameObject.Find("ItemSpawner").GetComponent<itemspawner>().ringGone = true;
+            }
+            else if (other.gameObject.name == "Ring 1" || other.gameObject.name == "Ring 1(Clone)")
+            {
+                GameObject.Find("ItemSpawner").GetComponent<itemspawner>().ringGone1 = true;
+            }
+            else if (other.gameObject.name == "Ring 2" || other.gameObject.name == "Ring 2(Clone)")
+            {
+                GameObject.Find("ItemSpawner").GetComponent<itemspawner>().ringGone2 = true;
+            }
+            else if (other.gameObject.name == "Ring 3" || other.gameObject.name == "Ring 3(Clone)")
+            {
+                GameObject.Find("ItemSpawner").GetComponent<itemspawner>().ringGone3 = true;
+            }
+            else if (other.gameObject.name == "Ring 4" || other.gameObject.name == "Ring 4(Clone)")
+            {
+                GameObject.Find("ItemSpawner").GetComponent<itemspawner>().ringGone4 = true;
+            }
+            if (other.gameObject.name == "Ring 5" || other.gameObject.name == "Ring 5(Clone)")
+            {
+                GameObject.Find("ItemSpawner").GetComponent<itemspawner>().ringGone5 = true;
+            }
+            else if (other.gameObject.name == "Ring 6" || other.gameObject.name == "Ring 6(Clone)")
+            {
+                GameObject.Find("ItemSpawner").GetComponent<itemspawner>().ringGone6 = true;
+            }
+            else if (other.gameObject.name == "Ring 7" || other.gameObject.name == "Ring 7(Clone)")
+            {
+                GameObject.Find("ItemSpawner").GetComponent<itemspawner>().ringGone7 = true;
+            }
+            else if (other.gameObject.name == "Ring 8" || other.gameObject.name == "Ring 8(Clone)")
+            {
+                GameObject.Find("ItemSpawner").GetComponent<itemspawner>().ringGone8 = true;    
+            }
+            else if (other.gameObject.name == "Ring 9" || other.gameObject.name == "Ring 9(Clone)")
+            {
+                GameObject.Find("ItemSpawner").GetComponent<itemspawner>().ringGone9 = true;
+            }
             characterMovement.rings++;
             Destroy(other.gameObject);
         } else if (other.tag == "Token5") { // If GameObject picks up a Token 5, add 5 to the score.
@@ -43,11 +83,11 @@ public class PickUp : MonoBehaviour {
             // movement.currentVelocity += 100f;
             Destroy(other.gameObject);
         } else if (other.tag == "Aqua") { // If GameObject picks up an Aqua Token, make the player able to run on water.
-            if (other.gameObject.name == "Waterwalk")
+            if (other.gameObject.name == "Waterwalk"|| other.gameObject.name == "Waterwalk(Clone)")
             {
                 GameObject.Find("ItemSpawner").GetComponent<itemspawner>().waterGone = true;
             }
-            else if (other.gameObject.name == "Waterwalk 1")
+            else if (other.gameObject.name == "Waterwalk 1" || other.gameObject.name == "Waterwalk 1(Clone)")
             {
                 GameObject.Find("ItemSpawner").GetComponent<itemspawner>().waterGone1 = true;
             }
