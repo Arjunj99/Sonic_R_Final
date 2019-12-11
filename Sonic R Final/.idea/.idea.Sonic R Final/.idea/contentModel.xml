@@ -18,6 +18,7 @@
           <e p="cameraturn.cs" t="Include" />
           <e p="camerazoom.cs" t="Include" />
           <e p="ExampleMove.cs" t="Include" />
+          <e p="itemrotation.cs" t="Include" />
           <e p="items.cs" t="Include" />
           <e p="itemspawner.cs" t="Include" />
           <e p="Jump.cs" t="Include" />
