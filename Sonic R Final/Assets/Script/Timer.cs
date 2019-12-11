@@ -91,10 +91,20 @@ public class Timer : MonoBehaviour
         if (isPlayerOne)
         {
             GameManager.instance.p1totalTime = totalTime;
+            GameManager.instance.p1roundOneTime = roundOneTime;
+            GameManager.instance.p1roundTwoTime = roundTwoTime;
+            GameManager.instance.p1roundThreeTime = roundThreeTime;
+            GameManager.instance.p1roundFourTime = roundFourTime;
+            GameManager.instance.p1roundFiveTime = roundFiveTime;
         }
         else
         {
             GameManager.instance.p2totalTime = totalTime;
+            GameManager.instance.p2roundOneTime = roundOneTime;
+            GameManager.instance.p2roundTwoTime = roundTwoTime;
+            GameManager.instance.p2roundThreeTime = roundThreeTime;
+            GameManager.instance.p2roundFourTime = roundFourTime;
+            GameManager.instance.p2roundFiveTime = roundFiveTime;
         }
     }
 
