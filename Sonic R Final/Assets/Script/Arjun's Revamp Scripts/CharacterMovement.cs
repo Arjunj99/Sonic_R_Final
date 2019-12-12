@@ -24,7 +24,11 @@ public class CharacterMovement : MonoBehaviour {
     public string invertAxisName;
     public string jumpButton;
     public float deadZone = 0.2f;
+    public GameObject shell;
+    public GameObject shellLid;
+    public GameObject innerShell;
     [HideInInspector] public bool invert = false;
+    private bool onTerrain = true;
 
     [Header("Movement Curves")]
     public AnimationCurve forwardVelocity;
@@ -34,6 +38,7 @@ public class CharacterMovement : MonoBehaviour {
     private Vector3 rotation = Vector3.zero;
     public Animator playerAnimator;
     private bool inWater = false;
+    private bool isRunning = false;
 
     
 
@@ -63,7 +68,7 @@ public class CharacterMovement : MonoBehaviour {
     void Update() {
         if (characterController.isGrounded) {
             playerAnimator.SetBool("isFalling", false);
-            if (!inWater) {
+            if (!inWater && onTerrain) {
                 groundedJump();
             }
         } else {
@@ -87,6 +92,9 @@ public class CharacterMovement : MonoBehaviour {
     void OnControllerColliderHit(ControllerColliderHit hit) {
         if (hit.gameObject.layer == 8) {
             jumpsLeft = 1;
+            onTerrain = true;
+        } else {
+            onTerrain = false;
         }
         if (hit.gameObject.tag == "Water") {
             inWater = true;
@@ -121,8 +129,20 @@ public class CharacterMovement : MonoBehaviour {
 
         if ((forwardT > 0f) && !inWater && characterController.isGrounded) {
             playerAnimator.SetBool("isRunning", true);
+            isRunning = true;
         } else {
             playerAnimator.SetBool("isRunning", false);
+            isRunning = false;
+        }
+
+        if (isRunning) {
+            shell.transform.localRotation = Quaternion.Slerp(shell.transform.localRotation, Quaternion.Euler(new Vector3(-143.565f,0f,0f)), Time.deltaTime * 5f);
+            shellLid.transform.localRotation = Quaternion.Slerp(shellLid.transform.localRotation, Quaternion.Euler(new Vector3(-143.565f,0f,0f)), Time.deltaTime * 5f);
+            innerShell.transform.localRotation = Quaternion.Slerp(innerShell.transform.localRotation, Quaternion.Euler(new Vector3(-143.565f,0f,0f)), Time.deltaTime * 5f);
+        } else {
+            shell.transform.localRotation = Quaternion.Slerp(shell.transform.localRotation, Quaternion.Euler(new Vector3(-89.98f,0f,0f)), Time.deltaTime * 5f);
+            shellLid.transform.localRotation = Quaternion.Slerp(shellLid.transform.localRotation, Quaternion.Euler(new Vector3(-89.98f,0f,0f)), Time.deltaTime * 5f);
+            innerShell.transform.localRotation = Quaternion.Slerp(innerShell.transform.localRotation, Quaternion.Euler(new Vector3(-89.98f,0f,0f)), Time.deltaTime * 5f);
         }
     }
 
