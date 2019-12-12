@@ -27,6 +27,9 @@ public class items : MonoBehaviour
 
     public AudioSource squid;
     public AudioSource confuse;
+    public AudioSource oneshot;
+    public AudioClip squidClip;
+    // public AudioClip confuseClip;
 
     public Text youHave;
 
@@ -87,8 +90,12 @@ public class items : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
+        
         if (other.tag == "Squid")
-        { // If GameObject picks up a ring, add 1 to the score.
+        {
+            oneshot.PlayOneShot(squidClip);
+            
+             // If GameObject picks up a ring, add 1 to the score.
             if (hasItem == false) { 
                 if (hasSquid == false)
                 {
@@ -101,7 +108,9 @@ public class items : MonoBehaviour
             }
         }
         if (other.tag == "Confuse")
-        { // If GameObject picks up a ring, add 1 to the score.
+        {
+            oneshot.PlayOneShot(squidClip);
+             // If GameObject picks up a ring, add 1 to the score.
             if (hasItem == false)
             {
                 if (hasConfuse == false)
@@ -128,7 +137,7 @@ public class items : MonoBehaviour
     }
     IEnumerator InOutConfuse()
     {
-
+        Debug.Log(otherPlayer.name);
         otherPlayer.GetComponent<CharacterMovement>().invert = true;
         confusion.SetActive(true);
         

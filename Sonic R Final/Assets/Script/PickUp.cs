@@ -11,14 +11,16 @@ using UnityEngine.UI;
 public class PickUp : MonoBehaviour {
     public Text text; // Text used to display current score.
     public CharacterMovement characterMovement;
-    public Movement movement; // Reference to a movement script in the current GameObject. PICK UP NEEDS A MOVEMENT SCRIPT ON THE SAME OBJECT.
+    public AudioSource Audio;
+    public AudioClip clip;
+    // public Movement movement; // Reference to a movement script in the current GameObject. PICK UP NEEDS A MOVEMENT SCRIPT ON THE SAME OBJECT.
     [HideInInspector] public int rings = 0; // This GameObject's current Score.
 
     // Start is called before the first frame update
     void Start() {
         characterMovement = gameObject.GetComponent<CharacterMovement>();
-        text = GameObject.Find("Score Text").GetComponent<Text>();
-        movement = gameObject.GetComponent<Movement>();
+        // text = GameObject.Find("Score Text").GetComponent<Text>();
+        // movement = gameObject.GetComponent<Movement>();
     }
 
     // Update is called once per frame
@@ -28,7 +30,10 @@ public class PickUp : MonoBehaviour {
 
     void OnTriggerEnter(Collider other) {
         if (other.tag == "Ring")
-        { // If GameObject picks up a ring, add 1 to the score.
+        {
+            Audio.PlayOneShot(clip);
+
+             // If GameObject picks up a ring, add 1 to the score.
             if (other.gameObject.name == "Ring" || other.gameObject.name == "Ring(Clone)")
             {
                 GameObject.Find("ItemSpawner").GetComponent<itemspawner>().ringGone = true;
@@ -234,7 +239,9 @@ public class PickUp : MonoBehaviour {
         }
 
         else if (other.tag == "Token5")
-        { // If GameObject picks up a Token 5, add 5 to the score.
+        {
+            Audio.PlayOneShot(clip);
+             // If GameObject picks up a Token 5, add 5 to the score.
             if (other.gameObject.name == "Ring 5x" || other.gameObject.name == "Ring 5x(Clone)")
             {
                 GameObject.Find("ItemSpawner").GetComponent<itemspawner>().ringx5Gone = true;
@@ -255,7 +262,9 @@ public class PickUp : MonoBehaviour {
             Destroy(other.gameObject);
         }
         else if (other.tag == "Token10")
-        { // If GameObject picks up a Token 10, add 10 to the score.
+        {
+            Audio.PlayOneShot(clip);
+             // If GameObject picks up a Token 10, add 10 to the score.
             if (other.gameObject.name == "Ring 10x" || other.gameObject.name == "Ring 10x(Clone)")
             {
                 GameObject.Find("ItemSpawner").GetComponent<itemspawner>().ringx10Gone = true;
@@ -269,7 +278,8 @@ public class PickUp : MonoBehaviour {
         }
 
         else if (other.tag == "Token20")
-        { // If GameObject picks up a Token 20, add 20 to the score.
+        {
+            Audio.PlayOneShot(clip); // If GameObject picks up a Token 20, add 20 to the score.
             GameObject.Find("ItemSpawner").GetComponent<itemspawner>().ringx20Gone = true;
             characterMovement.rings += 20;
             Destroy(other.gameObject);
@@ -283,6 +293,7 @@ public class PickUp : MonoBehaviour {
 
         else if (other.tag == "Aqua")
         { // If GameObject picks up an Aqua Token, make the player able to run on water.
+            Audio.PlayOneShot(clip);
             if (other.gameObject.name == "Waterwalk"|| other.gameObject.name == "Waterwalk(Clone)")
             {
                 GameObject.Find("ItemSpawner").GetComponent<itemspawner>().waterGone = true;
