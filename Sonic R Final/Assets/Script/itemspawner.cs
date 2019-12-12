@@ -8,6 +8,7 @@ public class itemspawner : MonoBehaviour
     public GameObject confuse;
     public GameObject waterRun;
     public GameObject waterRun1;
+
     public GameObject ring;
     public GameObject ring1;
     public GameObject ring2;
@@ -18,14 +19,20 @@ public class itemspawner : MonoBehaviour
     public GameObject ring7;
     public GameObject ring8;
     public GameObject ring9;
+
     public GameObject ringx5;
+    public GameObject ringx51;
+
     public GameObject ringx10;
+    public GameObject ringx101;
+
     public GameObject ringx20;
     /////////////////////////////////////////////////
     public Vector3 squidPos;
     public Vector3 confusePos;
     public Vector3 waterPos;
     public Vector3 waterPos1;
+
     public Vector3 ringPos;
     public Vector3 ringPos1;
     public Vector3 ringPos2;
@@ -38,7 +45,11 @@ public class itemspawner : MonoBehaviour
     public Vector3 ringPos9;
     
     public Vector3 ringx5Pos;
+    public Vector3 ringx5Pos1;
+
     public Vector3 ringx10Pos;
+    public Vector3 ringx10Pos1;
+
     public Vector3 ringx20Pos;
     /////////////////////////////////////////////////
     public float squidTimer;
@@ -55,14 +66,20 @@ public class itemspawner : MonoBehaviour
     public float ringTimer7;
     public float ringTimer8;
     public float ringTimer9;
+
     public float ringx5Timer;
+    public float ringx5Timer1;
+
     public float ringx10Timer;
+    public float ringx10Timer1;
+
     public float ringx20Timer;
     /////////////////////////////////////////////////
     public bool squidGone;
     public bool confuseGone;
     public bool waterGone;
     public bool waterGone1;
+
     public bool ringGone;
     public bool ringGone1;
     public bool ringGone2;
@@ -73,8 +90,13 @@ public class itemspawner : MonoBehaviour
     public bool ringGone7;
     public bool ringGone8;
     public bool ringGone9;
+
     public bool ringx5Gone;
+    public bool ringx5Gone1;
+
     public bool ringx10Gone;
+    public bool ringx10Gone1;
+
     public bool ringx20Gone;
 
 
@@ -86,6 +108,15 @@ public class itemspawner : MonoBehaviour
         confusePos = confuse.transform.position;
         waterPos = waterRun.transform.position;
         waterPos1 = waterRun1.transform.position;
+
+        ringx5Pos = ringx5.transform.position;
+        ringx5Pos1 = ringx51.transform.position;
+
+        ringx10Pos = ringx10.transform.position;
+        ringx10Pos1 = ringx101.transform.position;
+
+        ringx20Pos = ringx20.transform.position;
+
         ringPos = ring.transform.position;
         ringPos1 = ring1.transform.position;
         ringPos2 = ring2.transform.position;
@@ -141,6 +172,58 @@ public class itemspawner : MonoBehaviour
                 Instantiate(waterRun1, waterPos1, Quaternion.identity);
                 waterGone1 = false;
                 waterTimer1 = 0;
+            }
+        }
+        if (ringx5Gone == true)
+        {
+            ringx5Timer += Time.deltaTime;
+            if (ringx5Timer > spawnTime)
+            {
+                Instantiate(ringx5, ringx5Pos, Quaternion.identity);
+                ringx5Gone = false;
+                ringx5Timer = 0;
+            }
+        }
+
+        if (ringx5Gone1 == true)
+        {
+            ringx5Timer1 += Time.deltaTime;
+            if (ringx5Timer1 > spawnTime)
+            {
+                Instantiate(ringx51, ringx5Pos1, Quaternion.identity);
+                ringx5Gone1 = false;
+                ringx5Timer1 = 0;
+            }
+        }
+
+        if (ringx10Gone == true)
+        {
+            ringx10Timer += Time.deltaTime;
+            if (ringx10Timer > spawnTime)
+            {
+                Instantiate(ringx10, ringx10Pos, Quaternion.identity);
+                ringx10Gone = false;
+                ringx10Timer = 0;
+            }
+        }
+        if (ringx10Gone1 == true)
+        {
+            ringx10Timer1 += Time.deltaTime;
+            if (ringx10Timer1 > spawnTime)
+            {
+                Instantiate(ringx101, ringx10Pos1, Quaternion.identity);
+                ringx10Gone1 = false;
+                ringx10Timer1 = 0;
+            }
+        }
+        if (ringx20Gone == true)
+        {
+            ringx20Timer += Time.deltaTime;
+            if (ringx20Timer > spawnTime)
+            {
+                Instantiate(ringx20, ringx20Pos, Quaternion.identity);
+                ringx20Gone = false;
+                ringx20Timer = 0;
             }
         }
         if (ringGone == true)
