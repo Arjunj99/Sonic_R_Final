@@ -24,11 +24,13 @@ public class CharacterMovement : MonoBehaviour {
     public string invertAxisName;
     public string jumpButton;
     public float deadZone = 0.2f;
+    [HideInInspector] public bool invert = false;
+    private bool onTerrain = true;
+
+    [Header("Shell Settings")]
     public GameObject shell;
     public GameObject shellLid;
     public GameObject innerShell;
-    [HideInInspector] public bool invert = false;
-    private bool onTerrain = true;
 
     [Header("Movement Curves")]
     public AnimationCurve forwardVelocity;
@@ -39,17 +41,11 @@ public class CharacterMovement : MonoBehaviour {
     public Animator playerAnimator;
     private bool inWater = false;
     private bool isRunning = false;
-
-    
-
-
-
     private Vector3 moveDirection = Vector3.zero;
     public float jumpHeight;
     public float gravity;
     public float maxSpeed;
     public float turnSpeed;
-
     private int jumpsLeft = 1;
 
     [Header("Pick Up Modifiers")]
@@ -66,19 +62,11 @@ public class CharacterMovement : MonoBehaviour {
     }
 
     void Update() {
-        if (characterController.isGrounded) {
-            playerAnimator.SetBool("isFalling", false);
-            if (!inWater && onTerrain) {
-                groundedJump();
-            }
-        } else {
-            playerAnimator.SetBool("isFalling", true);
-            secondJump();
-        }
-
+        Jump();
         setInputAxis();
 
         generateVelocity();
+        adjustShell();
         generateTurn();
         applyGravity();
         checkTerrain(4f);
@@ -103,6 +91,37 @@ public class CharacterMovement : MonoBehaviour {
         }
         moveDirection.y = 0f;
     }
+
+    /// <summary>
+    /// Adjusts Shell Based on Running Animation.
+    /// </summary>
+    private void adjustShell() {
+        if (isRunning) {
+            shell.transform.localRotation = Quaternion.Slerp(shell.transform.localRotation, Quaternion.Euler(new Vector3(-143.565f,0f,0f)), Time.deltaTime * 5f);
+            shellLid.transform.localRotation = Quaternion.Slerp(shellLid.transform.localRotation, Quaternion.Euler(new Vector3(-143.565f,0f,0f)), Time.deltaTime * 5f);
+            innerShell.transform.localRotation = Quaternion.Slerp(innerShell.transform.localRotation, Quaternion.Euler(new Vector3(-143.565f,0f,0f)), Time.deltaTime * 5f);
+        } else {
+            shell.transform.localRotation = Quaternion.Slerp(shell.transform.localRotation, Quaternion.Euler(new Vector3(-89.98f,0f,0f)), Time.deltaTime * 5f);
+            shellLid.transform.localRotation = Quaternion.Slerp(shellLid.transform.localRotation, Quaternion.Euler(new Vector3(-89.98f,0f,0f)), Time.deltaTime * 5f);
+            innerShell.transform.localRotation = Quaternion.Slerp(innerShell.transform.localRotation, Quaternion.Euler(new Vector3(-89.98f,0f,0f)), Time.deltaTime * 5f);
+        }
+    }
+
+    /// <summary>
+    /// Allows Player to Jump.
+    /// </summary>
+    private void Jump() {
+        if (characterController.isGrounded) {
+            playerAnimator.SetBool("isFalling", false);
+            if (!inWater && onTerrain) {
+                groundedJump();
+            }
+        } else {
+            playerAnimator.SetBool("isFalling", true);
+            secondJump();
+        }
+    }
+
 
     /// <summary>
     /// Generate a Character Controller velocity value based on player inputs.
@@ -133,16 +152,6 @@ public class CharacterMovement : MonoBehaviour {
         } else {
             playerAnimator.SetBool("isRunning", false);
             isRunning = false;
-        }
-
-        if (isRunning) {
-            shell.transform.localRotation = Quaternion.Slerp(shell.transform.localRotation, Quaternion.Euler(new Vector3(-143.565f,0f,0f)), Time.deltaTime * 5f);
-            shellLid.transform.localRotation = Quaternion.Slerp(shellLid.transform.localRotation, Quaternion.Euler(new Vector3(-143.565f,0f,0f)), Time.deltaTime * 5f);
-            innerShell.transform.localRotation = Quaternion.Slerp(innerShell.transform.localRotation, Quaternion.Euler(new Vector3(-143.565f,0f,0f)), Time.deltaTime * 5f);
-        } else {
-            shell.transform.localRotation = Quaternion.Slerp(shell.transform.localRotation, Quaternion.Euler(new Vector3(-89.98f,0f,0f)), Time.deltaTime * 5f);
-            shellLid.transform.localRotation = Quaternion.Slerp(shellLid.transform.localRotation, Quaternion.Euler(new Vector3(-89.98f,0f,0f)), Time.deltaTime * 5f);
-            innerShell.transform.localRotation = Quaternion.Slerp(innerShell.transform.localRotation, Quaternion.Euler(new Vector3(-89.98f,0f,0f)), Time.deltaTime * 5f);
         }
     }
 
@@ -217,7 +226,7 @@ public class CharacterMovement : MonoBehaviour {
     private void checkTerrain(float rayLength) {
         Ray roadCheck = new Ray(this.transform.position, Vector3.down);
         RaycastHit roadTypeHit;
-        Debug.DrawRay(this.transform.position, Vector3.down, Color.cyan, rayLength);
+        // Debug.DrawRay(this.transform.position, Vector3.down, Color.cyan, rayLength);
 
         if (Physics.Raycast(roadCheck, out roadTypeHit, rayLength) && roadTypeHit.collider.tag.Equals("Road")) {
             speedLimit = trackLimits[0] + (rings/ringsBoostModifier);
@@ -249,7 +258,7 @@ public class CharacterMovement : MonoBehaviour {
     }
 
     public IEnumerator walkOnWater() {
-        Debug.Log("WATER WALKING");
+        // Debug.Log("WATER WALKING");
         float tempWater = trackLimits[3];
         trackLimits[3] = trackLimits[0];
         yield return new WaitForSeconds(timeSpendWaterWalking);
