@@ -74,7 +74,7 @@ public class CharacterMovement : MonoBehaviour {
 
         applyAllInputs();
 
-        sceneReset();
+        // sceneReset();
     }
 
     void OnControllerColliderHit(ControllerColliderHit hit) {
