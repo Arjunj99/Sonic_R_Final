@@ -117,7 +117,7 @@ public class CharacterMovement : MonoBehaviour {
         moveDirection = gameObject.transform.forward * forwardVelocity.Evaluate(forwardT) * maxSpeed;
         moveDirection.y = temp.y;
 
-        if (forwardT > 0f) {
+        if ((forwardT > 0f) && !inWater && characterController.isGrounded) {
             playerAnimator.SetBool("isRunning", true);
         } else {
             playerAnimator.SetBool("isRunning", false);
