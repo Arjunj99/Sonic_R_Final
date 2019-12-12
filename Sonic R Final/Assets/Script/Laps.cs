@@ -32,6 +32,7 @@ public class Laps : MonoBehaviour
     public float distanceToNext;
 
     public Text lapsText;
+    public Text completeText;
 
 
    
@@ -58,6 +59,7 @@ public class Laps : MonoBehaviour
         else if (lapNum == 5) //after 5 laps the player wins
         {
             lapsText.text = "Lap " + (lapNum).ToString() + "/5";
+            completeText.text = "Complete!".ToString();
             GetComponent<CharacterMovement>().enabled = false;
 
            
