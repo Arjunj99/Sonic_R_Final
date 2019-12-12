@@ -100,7 +100,7 @@ public class CharacterMovement : MonoBehaviour {
     /// Generate a Character Controller velocity value based on player inputs.
     /// </summary>
     private void generateVelocity() {
-        Debug.Log("INPUT AXIS: " + inputAxis.y);
+        // Debug.Log("INPUT AXIS: " + inputAxis.y);
         if (Input.GetButton(forwardButton) && forwardT < 1f) {
             forwardT += (Time.deltaTime / forwardTimePeriod);
         } else if (Input.GetButton(forwardButton) && forwardT > 1f) {
@@ -151,10 +151,10 @@ public class CharacterMovement : MonoBehaviour {
     private void generateTurn() {
         if (inputAxis.x > deadZone || inputAxis.x < -deadZone) {
             rotation = new Vector3(0f, inputAxis.x, 0f);
-            Debug.Log("Horizontal: " + inputAxis.x);
+            // Debug.Log("Horizontal: " + inputAxis.x);
         } else {
             rotation = Vector3.zero;
-            Debug.Log("NOT TURNING");
+            // Debug.Log("NOT TURNING");
         }
         rotation *= turnSpeed;
         

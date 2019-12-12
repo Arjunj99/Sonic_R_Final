@@ -117,6 +117,8 @@ MonoBehaviour:
   - 25
   - 15
   verticalAxis: Player1V
+  forwardButton: 
+  brakeButton: 
   horizontalAxis: Player1H
   horizontalAxisName: Player1H
   invertAxisName: PlayerInvert1H
@@ -250,6 +252,7 @@ MonoBehaviour:
   passed3: 0
   distanceToNext: 0
   lapsText: {fileID: 0}
+  completeText: {fileID: 0}
 --- !u!114 &9084987281809752055
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -278,6 +281,7 @@ MonoBehaviour:
   useKey: Item1
   otherPlayer: {fileID: 0}
   itemSpawner: {fileID: 0}
+  confusion: {fileID: 0}
   youHave: {fileID: 0}
 --- !u!114 &6438414372292147164
 MonoBehaviour:
@@ -316,6 +320,7 @@ MonoBehaviour:
   roundFourTime: 0
   roundFiveTime: 0
   counting: 1
+  isPlayerOne: 0
 --- !u!1 &3866563536485974985
 GameObject:
   m_ObjectHideFlags: 0
@@ -401,7 +406,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3866563536485974985}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!114 &7929725724660961802
 MonoBehaviour:
   m_ObjectHideFlags: 0
