@@ -69,6 +69,166 @@ public class PickUp : MonoBehaviour {
             {
                 GameObject.Find("ItemSpawner").GetComponent<itemspawner>().ringGone9 = true;
             }
+            if (other.gameObject.name == "Ring 10" || other.gameObject.name == "Ring 10(Clone)")
+            {
+                GameObject.Find("ItemSpawner").GetComponent<itemspawner>().ringGone10 = true;
+            }
+            else if (other.gameObject.name == "Ring 11" || other.gameObject.name == "Ring 11(Clone)")
+            {
+                GameObject.Find("ItemSpawner").GetComponent<itemspawner>().ringGone11 = true;
+            }
+            else if (other.gameObject.name == "Ring 12" || other.gameObject.name == "Ring 12(Clone)")
+            {
+                GameObject.Find("ItemSpawner").GetComponent<itemspawner>().ringGone12 = true;
+            }
+            else if (other.gameObject.name == "Ring 13" || other.gameObject.name == "Ring 13(Clone)")
+            {
+                GameObject.Find("ItemSpawner").GetComponent<itemspawner>().ringGone13 = true;
+            }
+            else if (other.gameObject.name == "Ring 14" || other.gameObject.name == "Ring 14(Clone)")
+            {
+                GameObject.Find("ItemSpawner").GetComponent<itemspawner>().ringGone14 = true;
+            }
+            if (other.gameObject.name == "Ring 15" || other.gameObject.name == "Ring 15(Clone)")
+            {
+                GameObject.Find("ItemSpawner").GetComponent<itemspawner>().ringGone15 = true;
+            }
+            else if (other.gameObject.name == "Ring 16" || other.gameObject.name == "Ring 16(Clone)")
+            {
+                GameObject.Find("ItemSpawner").GetComponent<itemspawner>().ringGone16 = true;
+            }
+            else if (other.gameObject.name == "Ring 17" || other.gameObject.name == "Ring 17(Clone)")
+            {
+                GameObject.Find("ItemSpawner").GetComponent<itemspawner>().ringGone17 = true;
+            }
+            else if (other.gameObject.name == "Ring 18" || other.gameObject.name == "Ring 18(Clone)")
+            {
+                GameObject.Find("ItemSpawner").GetComponent<itemspawner>().ringGone18 = true;
+            }
+            else if (other.gameObject.name == "Ring 19" || other.gameObject.name == "Ring 19(Clone)")
+            {
+                GameObject.Find("ItemSpawner").GetComponent<itemspawner>().ringGone19 = true;
+            }
+            if (other.gameObject.name == "Ring 20" || other.gameObject.name == "Ring 20(Clone)")
+            {
+                GameObject.Find("ItemSpawner").GetComponent<itemspawner>().ringGone20 = true;
+            }
+            else if (other.gameObject.name == "Ring 21" || other.gameObject.name == "Ring 21(Clone)")
+            {
+                GameObject.Find("ItemSpawner").GetComponent<itemspawner>().ringGone21 = true;
+            }
+            else if (other.gameObject.name == "Ring 22" || other.gameObject.name == "Ring 22(Clone)")
+            {
+                GameObject.Find("ItemSpawner").GetComponent<itemspawner>().ringGone22 = true;
+            }
+            else if (other.gameObject.name == "Ring 23" || other.gameObject.name == "Ring 23(Clone)")
+            {
+                GameObject.Find("ItemSpawner").GetComponent<itemspawner>().ringGone23 = true;
+            }
+            else if (other.gameObject.name == "Ring 24" || other.gameObject.name == "Ring 24(Clone)")
+            {
+                GameObject.Find("ItemSpawner").GetComponent<itemspawner>().ringGone24 = true;
+            }
+            if (other.gameObject.name == "Ring 25" || other.gameObject.name == "Ring 25(Clone)")
+            {
+                GameObject.Find("ItemSpawner").GetComponent<itemspawner>().ringGone25 = true;
+            }
+            else if (other.gameObject.name == "Ring 26" || other.gameObject.name == "Ring 26(Clone)")
+            {
+                GameObject.Find("ItemSpawner").GetComponent<itemspawner>().ringGone26 = true;
+            }
+            else if (other.gameObject.name == "Ring 27" || other.gameObject.name == "Ring 27(Clone)")
+            {
+                GameObject.Find("ItemSpawner").GetComponent<itemspawner>().ringGone27 = true;
+            }
+            else if (other.gameObject.name == "Ring 28" || other.gameObject.name == "Ring 28(Clone)")
+            {
+                GameObject.Find("ItemSpawner").GetComponent<itemspawner>().ringGone28 = true;
+            }
+            else if (other.gameObject.name == "Ring 29" || other.gameObject.name == "Ring 29(Clone)")
+            {
+                GameObject.Find("ItemSpawner").GetComponent<itemspawner>().ringGone29 = true;
+            }
+            if (other.gameObject.name == "Ring 30" || other.gameObject.name == "Ring 30(Clone)")
+            {
+                GameObject.Find("ItemSpawner").GetComponent<itemspawner>().ringGone30 = true;
+            }
+            else if (other.gameObject.name == "Ring 31" || other.gameObject.name == "Ring 31(Clone)")
+            {
+                GameObject.Find("ItemSpawner").GetComponent<itemspawner>().ringGone31 = true;
+            }
+            else if (other.gameObject.name == "Ring 32" || other.gameObject.name == "Ring 32(Clone)")
+            {
+                GameObject.Find("ItemSpawner").GetComponent<itemspawner>().ringGone32 = true;
+            }
+            else if (other.gameObject.name == "Ring 33" || other.gameObject.name == "Ring 33(Clone)")
+            {
+                GameObject.Find("ItemSpawner").GetComponent<itemspawner>().ringGone33 = true;
+            }
+            else if (other.gameObject.name == "Ring 34" || other.gameObject.name == "Ring 34(Clone)")
+            {
+                GameObject.Find("ItemSpawner").GetComponent<itemspawner>().ringGone34 = true;
+            }
+            if (other.gameObject.name == "Ring 35" || other.gameObject.name == "Ring 35(Clone)")
+            {
+                GameObject.Find("ItemSpawner").GetComponent<itemspawner>().ringGone35 = true;
+            }
+            else if (other.gameObject.name == "Ring 36" || other.gameObject.name == "Ring 36(Clone)")
+            {
+                GameObject.Find("ItemSpawner").GetComponent<itemspawner>().ringGone36 = true;
+            }
+            else if (other.gameObject.name == "Ring 37" || other.gameObject.name == "Ring 37(Clone)")
+            {
+                GameObject.Find("ItemSpawner").GetComponent<itemspawner>().ringGone37 = true;
+            }
+            else if (other.gameObject.name == "Ring 38" || other.gameObject.name == "Ring 38(Clone)")
+            {
+                GameObject.Find("ItemSpawner").GetComponent<itemspawner>().ringGone38 = true;
+            }
+            else if (other.gameObject.name == "Ring 39" || other.gameObject.name == "Ring 39(Clone)")
+            {
+                GameObject.Find("ItemSpawner").GetComponent<itemspawner>().ringGone39 = true;
+            }
+            if (other.gameObject.name == "Ring 40" || other.gameObject.name == "Ring 40(Clone)")
+            {
+                GameObject.Find("ItemSpawner").GetComponent<itemspawner>().ringGone40 = true;
+            }
+            else if (other.gameObject.name == "Ring 41" || other.gameObject.name == "Ring 41(Clone)")
+            {
+                GameObject.Find("ItemSpawner").GetComponent<itemspawner>().ringGone41 = true;
+            }
+            else if (other.gameObject.name == "Ring 42" || other.gameObject.name == "Ring 42(Clone)")
+            {
+                GameObject.Find("ItemSpawner").GetComponent<itemspawner>().ringGone42 = true;
+            }
+            else if (other.gameObject.name == "Ring 43" || other.gameObject.name == "Ring 43(Clone)")
+            {
+                GameObject.Find("ItemSpawner").GetComponent<itemspawner>().ringGone43 = true;
+            }
+            else if (other.gameObject.name == "Ring 44" || other.gameObject.name == "Ring 44(Clone)")
+            {
+                GameObject.Find("ItemSpawner").GetComponent<itemspawner>().ringGone44 = true;
+            }
+            if (other.gameObject.name == "Ring 45" || other.gameObject.name == "Ring 45(Clone)")
+            {
+                GameObject.Find("ItemSpawner").GetComponent<itemspawner>().ringGone45 = true;
+            }
+            else if (other.gameObject.name == "Ring 46" || other.gameObject.name == "Ring 46(Clone)")
+            {
+                GameObject.Find("ItemSpawner").GetComponent<itemspawner>().ringGone46 = true;
+            }
+            else if (other.gameObject.name == "Ring 47" || other.gameObject.name == "Ring 47(Clone)")
+            {
+                GameObject.Find("ItemSpawner").GetComponent<itemspawner>().ringGone47 = true;
+            }
+            else if (other.gameObject.name == "Ring 48" || other.gameObject.name == "Ring 48(Clone)")
+            {
+                GameObject.Find("ItemSpawner").GetComponent<itemspawner>().ringGone48 = true;
+            }
+            else if (other.gameObject.name == "Ring 49" || other.gameObject.name == "Ring 49(Clone)")
+            {
+                GameObject.Find("ItemSpawner").GetComponent<itemspawner>().ringGone49 = true;
+            }
             characterMovement.rings++;
             Destroy(other.gameObject);
         }
@@ -82,6 +242,14 @@ public class PickUp : MonoBehaviour {
             else if (other.gameObject.name == "Ring 5x 1" || other.gameObject.name == "Ring 5x 1(Clone)")
             {
                 GameObject.Find("ItemSpawner").GetComponent<itemspawner>().ringx5Gone1 = true;
+            }
+            else if (other.gameObject.name == "Ring 5x 2" || other.gameObject.name == "Ring 5x 2(Clone)")
+            {
+                GameObject.Find("ItemSpawner").GetComponent<itemspawner>().ringx5Gone2 = true;
+            }
+            else if (other.gameObject.name == "Ring 5x 3" || other.gameObject.name == "Ring 5x 3(Clone)")
+            {
+                GameObject.Find("ItemSpawner").GetComponent<itemspawner>().ringx5Gone3 = true;
             }
             characterMovement.rings += 5;
             Destroy(other.gameObject);
