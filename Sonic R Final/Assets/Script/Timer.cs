@@ -24,9 +24,9 @@ public class Timer : MonoBehaviour
     int min;
     int sec;
     int secFraction;
-    private string minText;
-    private string secText;
-    private string secFractionText;
+    private string minText = "";
+    private string secText = "";
+    private string secFractionText = "";
 
     public bool isPlayerOne;
 

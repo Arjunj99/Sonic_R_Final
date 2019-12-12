@@ -17,6 +17,8 @@ public class CharacterMovement : MonoBehaviour {
 
     [Header("Button Settings")]
     public string verticalAxis;
+    public string forwardButton;
+    public string brakeButton;
     [HideInInspector] public string horizontalAxis;
     public string horizontalAxisName;
     public string invertAxisName;
@@ -99,13 +101,13 @@ public class CharacterMovement : MonoBehaviour {
     /// </summary>
     private void generateVelocity() {
         Debug.Log("INPUT AXIS: " + inputAxis.y);
-        if (inputAxis.y > deadZone && forwardT < 1f) {
+        if (Input.GetButton(forwardButton) && forwardT < 1f) {
             forwardT += (Time.deltaTime / forwardTimePeriod);
-        } else if (inputAxis.y > deadZone && forwardT > 1f) {
+        } else if (Input.GetButton(forwardButton) && forwardT > 1f) {
             forwardT = 1f;
-        } else if (inputAxis.y < -deadZone && forwardT > 0) {
+        } else if (Input.GetButton(brakeButton) && forwardT > 0) {
             forwardT -= (Time.deltaTime * 7 / forwardTimePeriod);
-        } else if (inputAxis.y < -deadZone && forwardT < 0) {
+        } else if (Input.GetButton(brakeButton) && forwardT < 0) {
             forwardT = 0;
         } else if (forwardT > 0) {
             forwardT -= (Time.deltaTime * 4 / forwardTimePeriod);
