@@ -19,7 +19,7 @@ public class CharacterMovement : MonoBehaviour {
     public string verticalAxis;
     public string forwardButton;
     public string brakeButton;
-    [HideInInspector] public string horizontalAxis;
+    public string horizontalAxis;
     public string horizontalAxisName;
     public string invertAxisName;
     public string jumpButton;
