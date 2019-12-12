@@ -31,6 +31,7 @@ public class CharacterMovement : MonoBehaviour {
     public Vector2 inputAxis;
     private Vector3 rotation = Vector3.zero;
     public Animator playerAnimator;
+    private bool inWater = false;
 
     
 
@@ -60,7 +61,9 @@ public class CharacterMovement : MonoBehaviour {
     void Update() {
         if (characterController.isGrounded) {
             playerAnimator.SetBool("isFalling", false);
-            groundedJump();
+            if (!inWater) {
+                groundedJump();
+            }
         } else {
             playerAnimator.SetBool("isFalling", true);
             secondJump();
@@ -82,6 +85,11 @@ public class CharacterMovement : MonoBehaviour {
     void OnControllerColliderHit(ControllerColliderHit hit) {
         if (hit.gameObject.layer == 8) {
             jumpsLeft = 1;
+        }
+        if (hit.gameObject.tag == "Water") {
+            inWater = true;
+        } else {
+            inWater = false;
         }
         moveDirection.y = 0f;
     }
@@ -109,7 +117,7 @@ public class CharacterMovement : MonoBehaviour {
         moveDirection = gameObject.transform.forward * forwardVelocity.Evaluate(forwardT) * maxSpeed;
         moveDirection.y = temp.y;
 
-        if (forwardT > 0f) {
+        if ((forwardT > 0f) && !inWater && characterController.isGrounded) {
             playerAnimator.SetBool("isRunning", true);
         } else {
             playerAnimator.SetBool("isRunning", false);
