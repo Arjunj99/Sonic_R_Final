@@ -35,7 +35,7 @@ public class ReverseCheck : MonoBehaviour
     {
         
 
-        text = GameObject.Find("Text").GetComponent<Text>(); //updates UI text
+      //  text = GameObject.Find("Text").GetComponent<Text>(); //updates UI text
         text.GetComponent<Text>().enabled = false;
     }
 
