@@ -86,13 +86,13 @@ public class Position : MonoBehaviour
 
         if (player1Infront == true)
         {
-            player1T.text = "Position 1/2";
-            player2T.text = "Position 2/2";
+            player1T.text = "1st";
+            player2T.text = "2nd";
         }
         else if (player1Infront == false)
         {
-            player1T.text = "Position 2/2";
-            player2T.text = "Position 1/2";
+            player1T.text = "2nd";
+            player2T.text = "1st";
         }
     }
 
