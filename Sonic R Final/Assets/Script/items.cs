@@ -23,6 +23,8 @@ public class items : MonoBehaviour
     public GameObject otherPlayer;
     public GameObject itemSpawner;
 
+    public GameObject confusion;
+
     public Text youHave;
 
     // Start is called before the first frame update
@@ -38,6 +40,8 @@ public class items : MonoBehaviour
         ink8.CrossFadeAlpha(0, 0.0f, false);
         ink9.CrossFadeAlpha(0, 0.0f, false);
         ink10.CrossFadeAlpha(0, 0.0f, false);
+
+        confusion.SetActive(false);
 
     }
     
@@ -121,8 +125,11 @@ public class items : MonoBehaviour
     {
 
         otherPlayer.GetComponent<CharacterMovement>().invert = true;
+        confusion.SetActive(true);
+        
         yield return new WaitForSeconds(5f);
         otherPlayer.GetComponent<CharacterMovement>().invert = false;
+        confusion.SetActive(false);
 
     }
 
