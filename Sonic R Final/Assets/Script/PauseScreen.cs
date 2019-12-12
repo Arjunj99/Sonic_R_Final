@@ -100,7 +100,7 @@ public class PauseScreen : MonoBehaviour
                 {
                     cantMove = true;
                     currentSelect--;
-                    pointer.transform.position += new Vector3(0, 32, 0);
+                    pointer.transform.position += new Vector3(0, buttons[1].gameObject.transform.position.y-buttons[2].gameObject.transform.position.y, 0);
                 }
             }
             else if ((Input.GetAxis(player1input) < -GameManager.instance.deadZone) && !cantMove)
@@ -109,7 +109,7 @@ public class PauseScreen : MonoBehaviour
                 {
                     cantMove = true;
                     currentSelect++;
-                    pointer.transform.position += new Vector3(0, -32, 0);
+                    pointer.transform.position += new Vector3(0, buttons[2].gameObject.transform.position.y-buttons[1].gameObject.transform.position.y, 0);
                 }
             }
             else if ((Input.GetAxis(player1input) < GameManager.instance.deadZone) &&
