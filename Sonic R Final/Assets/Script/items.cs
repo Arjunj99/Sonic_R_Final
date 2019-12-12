@@ -25,6 +25,9 @@ public class items : MonoBehaviour
 
     public GameObject confusion;
 
+    public AudioSource squid;
+    public AudioSource confuse;
+
     public Text youHave;
 
     // Start is called before the first frame update
@@ -66,12 +69,14 @@ public class items : MonoBehaviour
             if (hasSquid == true)
             {
                 StartCoroutine("InOutInk");
+                squid.Play();
                 hasSquid = false;
                 hasItem = false;
             }
             if(hasConfuse == true)
             {
                 StartCoroutine("InOutConfuse");
+                confuse.Play();
                 hasConfuse = false;
                 hasItem = false;
             }

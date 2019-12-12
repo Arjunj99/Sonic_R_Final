@@ -37,6 +37,7 @@ public class Position : MonoBehaviour
     {
         if(playersCompleted==2)//if both players complete game switch scene
         {
+            StartCoroutine("Wait");
             SceneManager.LoadScene("Results");
         }
 
@@ -93,5 +94,12 @@ public class Position : MonoBehaviour
             player1T.text = "Position 2/2";
             player2T.text = "Position 1/2";
         }
+    }
+
+    IEnumerator Wait()
+    {
+        yield return new WaitForSeconds(3f);
+        
+
     }
 }

@@ -59,7 +59,7 @@ public class Laps : MonoBehaviour
         else if (lapNum == 5) //after 5 laps the player wins
         {
             lapsText.text = "Lap " + (lapNum).ToString() + "/5";
-            completeText.text = "Complete!".ToString();
+           
             GetComponent<CharacterMovement>().enabled = false;
 
            
@@ -133,9 +133,17 @@ public class Laps : MonoBehaviour
                         GetComponent<Timer>().roundFiveTime = GetComponent<Timer>().currentRoundTime;
                         GetComponent<Timer>().counting = false;
                         GameObject.Find("PositionManager").GetComponent<Position>().playersCompleted++;
-                      
-                       // GetComponent<Timer>().SetGameManagerTimes();
-                       
+                        if (GameObject.Find("PositionManager").GetComponent<Position>().playersCompleted == 1)
+                        {
+                            completeText.text = "You finished 1st!".ToString();
+                        }
+                        else if (GameObject.Find("PositionManager").GetComponent<Position>().playersCompleted == 2)
+                        {
+                            completeText.text = "You finished 2nd!".ToString();
+                        }
+
+                        // GetComponent<Timer>().SetGameManagerTimes();
+
                     }
                     GetComponent<Timer>().currentRoundTime = 0;
                     /////////////////////////////////////////////Timer update
