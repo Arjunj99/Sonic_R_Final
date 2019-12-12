@@ -33,6 +33,7 @@ public class Laps : MonoBehaviour
 
     public Text lapsText;
     public Text completeText;
+    public GameObject complete;
 
 
    
@@ -42,6 +43,7 @@ public class Laps : MonoBehaviour
     {
         // reverseText = GameObject.Find("Reverse").GetComponent<Text>(); //updates UI text
         //reverseText.GetComponent<Text>().enabled = false;
+        complete.SetActive(false);
        
     }
 
@@ -135,10 +137,12 @@ public class Laps : MonoBehaviour
                         GameObject.Find("PositionManager").GetComponent<Position>().playersCompleted++;
                         if (GameObject.Find("PositionManager").GetComponent<Position>().playersCompleted == 1)
                         {
+                            complete.SetActive(true);
                             completeText.text = "You finished 1st!".ToString();
                         }
                         else if (GameObject.Find("PositionManager").GetComponent<Position>().playersCompleted == 2)
                         {
+                            complete.SetActive(true);
                             completeText.text = "You finished 2nd!".ToString();
                         }
 

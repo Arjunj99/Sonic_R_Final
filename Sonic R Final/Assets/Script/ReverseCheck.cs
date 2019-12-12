@@ -27,6 +27,7 @@ public class ReverseCheck : MonoBehaviour
     public float lastDist;
 
     public Text text;
+    public GameObject textBG;
 
     public float timeinReverse;
     public float timenotReverse;
@@ -37,6 +38,7 @@ public class ReverseCheck : MonoBehaviour
 
       //  text = GameObject.Find("Text").GetComponent<Text>(); //updates UI text
         text.GetComponent<Text>().enabled = false;
+        textBG.SetActive(false);
     }
 
     // Update is called once per frame
@@ -269,6 +271,7 @@ public class ReverseCheck : MonoBehaviour
         {
           
                 text.GetComponent<Text>().enabled = true;
+                textBG.SetActive(true);
           
 
         }
@@ -276,7 +279,7 @@ public class ReverseCheck : MonoBehaviour
         {
             
                 text.GetComponent<Text>().enabled = false;
-          
+                textBG.SetActive(false);
             
         
             //  Debug.Log(Vector3.Distance(this.transform.position, mark1.transform.position));

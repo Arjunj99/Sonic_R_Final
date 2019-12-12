@@ -23,7 +23,7 @@ public class PickUp : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-        // text.text = "Score: " + score.ToString();
+         text.text = "Score: " + characterMovement.rings.ToString();
     }
 
     void OnTriggerEnter(Collider other) {

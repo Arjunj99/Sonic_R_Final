@@ -8,7 +8,8 @@ using UnityEngine.UI;
 public class PauseScreen : MonoBehaviour
 {
     public bool paused;
-    public GameObject timer;
+    public GameObject p1UI;
+        public GameObject p2UI;
     public GameObject pauseScreen;
     private bool pauseScreenActive;
     public GameObject controlScreen;
@@ -42,7 +43,8 @@ public class PauseScreen : MonoBehaviour
             if (pauseScreen.activeSelf == false)
             {
                 pauseScreen.SetActive(true);
-                timer.SetActive(false);
+                p1UI.SetActive(false);
+                p2UI.SetActive(false);
                 paused = true;
                 pauseScreenActive = true;
 
@@ -64,7 +66,8 @@ public class PauseScreen : MonoBehaviour
                 pointer.transform.position = pointerpos;
                 pauseScreen.SetActive(false);
                 controlScreen.SetActive(false);
-                timer.SetActive(true);
+                p1UI.SetActive(true);
+                p2UI.SetActive(true);
                 paused = false;
                 pauseScreenActive = false;
 

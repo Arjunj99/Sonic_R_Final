@@ -17,6 +17,8 @@
           <e p="CameraMovement.cs" t="Include" />
           <e p="cameraturn.cs" t="Include" />
           <e p="camerazoom.cs" t="Include" />
+          <e p="ConfusionTurn.cs" t="Include" />
+          <e p="countdown.cs" t="Include" />
           <e p="ExampleMove.cs" t="Include" />
           <e p="itemrotation.cs" t="Include" />
           <e p="items.cs" t="Include" />
@@ -36,6 +38,7 @@
           <e p="Timer.cs" t="Include" />
           <e p="Turning.cs" t="Include" />
         </e>
+        <e p="skyboxrotate.cs" t="Include" />
         <e p="TextMesh Pro" t="Include">
           <e p="Examples &amp; Extras" t="Include">
             <e p="Fonts" t="Include">
