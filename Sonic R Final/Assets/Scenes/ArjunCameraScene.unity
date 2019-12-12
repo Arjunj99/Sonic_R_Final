@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -1385,6 +1385,7 @@ MonoBehaviour:
   distanceToNext: 0
   lapsText: {fileID: 0}
   completeText: {fileID: 0}
+  complete: {fileID: 0}
 --- !u!114 &64388249
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1412,6 +1413,7 @@ MonoBehaviour:
   lastDistMax: 1
   lastDist: 0
   text: {fileID: 221270340}
+  textBG: {fileID: 0}
   timeinReverse: 0
   timenotReverse: 0
 --- !u!114 &64388250
@@ -1440,6 +1442,9 @@ MonoBehaviour:
   invertAxisName: 
   jumpButton: Jump4
   deadZone: 0.2
+  shell: {fileID: 0}
+  shellLid: {fileID: 0}
+  innerShell: {fileID: 0}
   invert: 0
   forwardVelocity:
     serializedVersion: 2
@@ -20210,6 +20215,12 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 14
   m_Mesh: {fileID: -5495902117074765545, guid: c1381274e2661764b9d773cdd1176eae, type: 3}
+--- !u!1 &496848219 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5610710797418016677, guid: 1336bb08e3a8948f982c1a0f9340dd8b,
+    type: 3}
+  m_PrefabInstance: {fileID: 676709311}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &497518039 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3174303639055252109, guid: 65f74d03f3f879c42b0fc663a41f2e21,
@@ -28664,6 +28675,21 @@ PrefabInstance:
       propertyPath: brakeButton
       value: Brake1
       objectReference: {fileID: 0}
+    - target: {fileID: 5774686190058787247, guid: 1336bb08e3a8948f982c1a0f9340dd8b,
+        type: 3}
+      propertyPath: shell
+      value: 
+      objectReference: {fileID: 1567784676}
+    - target: {fileID: 5774686190058787247, guid: 1336bb08e3a8948f982c1a0f9340dd8b,
+        type: 3}
+      propertyPath: shellLid
+      value: 
+      objectReference: {fileID: 496848219}
+    - target: {fileID: 5774686190058787247, guid: 1336bb08e3a8948f982c1a0f9340dd8b,
+        type: 3}
+      propertyPath: innerShell
+      value: 
+      objectReference: {fileID: 1901616798}
     - target: {fileID: 8214750101309549474, guid: 1336bb08e3a8948f982c1a0f9340dd8b,
         type: 3}
       propertyPath: mark1
@@ -45164,6 +45190,7 @@ MonoBehaviour:
   distanceToNext: 0
   lapsText: {fileID: 0}
   completeText: {fileID: 0}
+  complete: {fileID: 0}
 --- !u!114 &1106082751
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -45191,6 +45218,7 @@ MonoBehaviour:
   lastDistMax: 1
   lastDist: 0
   text: {fileID: 1989543535}
+  textBG: {fileID: 0}
   timeinReverse: 0
   timenotReverse: 0
 --- !u!114 &1106082752
@@ -45219,6 +45247,9 @@ MonoBehaviour:
   invertAxisName: 
   jumpButton: Jump
   deadZone: 0.2
+  shell: {fileID: 0}
+  shellLid: {fileID: 0}
+  innerShell: {fileID: 0}
   invert: 0
   forwardVelocity:
     serializedVersion: 2
@@ -55375,6 +55406,12 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 14
   m_Mesh: {fileID: 2534964839176971238, guid: 639ef97e85e69462c83d4c51187f9f33, type: 3}
+--- !u!1 &1567784676 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7309552252080241770, guid: 1336bb08e3a8948f982c1a0f9340dd8b,
+    type: 3}
+  m_PrefabInstance: {fileID: 676709311}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1569961150
 GameObject:
   m_ObjectHideFlags: 0
@@ -66758,6 +66795,7 @@ MonoBehaviour:
   distanceToNext: 0
   lapsText: {fileID: 0}
   completeText: {fileID: 0}
+  complete: {fileID: 0}
 --- !u!114 &1857682623
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -66785,6 +66823,7 @@ MonoBehaviour:
   lastDistMax: 1
   lastDist: 0
   text: {fileID: 1900073308}
+  textBG: {fileID: 0}
   timeinReverse: 0
   timenotReverse: 0
 --- !u!114 &1857682624
@@ -66813,6 +66852,9 @@ MonoBehaviour:
   invertAxisName: 
   jumpButton: Jump3
   deadZone: 0.2
+  shell: {fileID: 0}
+  shellLid: {fileID: 0}
+  innerShell: {fileID: 0}
   invert: 0
   forwardVelocity:
     serializedVersion: 2
@@ -68274,6 +68316,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1900073306}
   m_CullTransparentMesh: 0
+--- !u!1 &1901616798 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7099082914485546484, guid: 1336bb08e3a8948f982c1a0f9340dd8b,
+    type: 3}
+  m_PrefabInstance: {fileID: 676709311}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1907652818 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -927199367670048503, guid: 695e957fe3aca4f08ab7488306b1ff70,
@@ -72332,6 +72380,7 @@ MonoBehaviour:
   distanceToNext: 0
   lapsText: {fileID: 2139775403}
   completeText: {fileID: 0}
+  complete: {fileID: 0}
 --- !u!114 &2083341882
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -72359,6 +72408,7 @@ MonoBehaviour:
   lastDistMax: 1
   lastDist: 0
   text: {fileID: 1390434093}
+  textBG: {fileID: 0}
   timeinReverse: 0
   timenotReverse: 0
 --- !u!114 &2083341883
@@ -72387,6 +72437,9 @@ MonoBehaviour:
   invertAxisName: PlayerInvert2H
   jumpButton: Jump2
   deadZone: 0.2
+  shell: {fileID: 0}
+  shellLid: {fileID: 0}
+  innerShell: {fileID: 0}
   invert: 0
   forwardVelocity:
     serializedVersion: 2
@@ -72913,6 +72966,7 @@ MonoBehaviour:
   distanceToNext: 0
   lapsText: {fileID: 1029102143}
   completeText: {fileID: 0}
+  complete: {fileID: 0}
 --- !u!114 &2093072391
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -72940,6 +72994,7 @@ MonoBehaviour:
   lastDistMax: 1
   lastDist: 0
   text: {fileID: 1989543535}
+  textBG: {fileID: 0}
   timeinReverse: 0
   timenotReverse: 0
 --- !u!114 &2093072392
@@ -72968,6 +73023,9 @@ MonoBehaviour:
   invertAxisName: PlayerInvert1H
   jumpButton: Jump1
   deadZone: 0.2
+  shell: {fileID: 0}
+  shellLid: {fileID: 0}
+  innerShell: {fileID: 0}
   invert: 0
   forwardVelocity:
     serializedVersion: 2
